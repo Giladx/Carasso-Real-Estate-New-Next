@@ -56,7 +56,7 @@ const Home = (props) => {
   /*
    @param pos: the y-position to scroll to (in pixels)
    @param time: the exact amount of time the scrolling will take (in milliseconds)
-
+  */
   function scrollToSmoothly(pos, time) {
     var currentPos = window.pageXOffset;
     var start = null;
@@ -76,7 +76,7 @@ const Home = (props) => {
         window.scrollTo(0, pos);
       }
     });
-  }*/
+  }
 </script>
 `}
                 ></Script>
@@ -85,7 +85,6 @@ const Home = (props) => {
               <Projectcard></Projectcard>
               <Projectcard></Projectcard>
               <Projectcard></Projectcard>
-              <div className="home-container2"></div>
               <Projectcard></Projectcard>
               <Projectcard></Projectcard>
               <Projectcard></Projectcard>
@@ -172,7 +171,7 @@ const Home = (props) => {
           </div>
         </section>
         <div className="home-success-story">
-          <div className="home-container3">
+          <div className="home-container2">
             <div className="home-leftcoloumn1">
               <div className="home-successcopycontent">
                 <div className="home-successnumbercontent">
@@ -289,7 +288,7 @@ const Home = (props) => {
           </div>
         </div>
         <div className="home-urban-renewal">
-          <div className="home-container4">
+          <div className="home-container3">
             <div className="home-leftcoloumn2">
               <img
                 alt="circle3606"
@@ -342,7 +341,7 @@ const Home = (props) => {
           </div>
         </div>
         <div className="home-footer">
-          <div className="home-container5">
+          <div className="home-container4">
             <div className="home-leftcoloumn3">
               <div className="home-links">
                 <div className="home-footersocialmedialinks">
@@ -573,14 +572,6 @@ const Home = (props) => {
           .home-div {
             display: contents;
           }
-          .home-container2 {
-            flex: 0 0 auto;
-            width: 100%;
-            border: 2px dashed rgba(120, 120, 120, 0.4);
-            height: 100px;
-            display: flex;
-            align-items: flex-start;
-          }
           .home-rightcoloumn {
             gap: 10px;
             display: flex;
@@ -760,7 +751,7 @@ const Home = (props) => {
             justify-content: center;
             background-color: var(--dl-color-carasso-lightblue);
           }
-          .home-container3 {
+          .home-container2 {
             gap: 32px;
             display: flex;
             align-self: stretch;
@@ -1093,7 +1084,7 @@ const Home = (props) => {
             justify-content: center;
             background-color: var(--dl-color-carasso-backgroundcolor);
           }
-          .home-container4 {
+          .home-container3 {
             gap: 2px;
             display: flex;
             align-self: stretch;
@@ -1236,7 +1227,7 @@ const Home = (props) => {
             justify-content: center;
             background-color: var(--dl-color-carasso-plainwhite);
           }
-          .home-container5 {
+          .home-container4 {
             display: flex;
             align-self: stretch;
             align-items: center;
