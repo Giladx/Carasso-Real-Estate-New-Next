@@ -6,21 +6,21 @@ import PropTypes from 'prop-types'
 const Projectcard = (props) => {
   return (
     <>
-      <div id="image-container" className="projectcard-projectcard projectcard">
+      <div id="image-container" className="projectcard">
         <div className="project-inner">
           <div className="projectcard-projectstatus">
             <span className="projectcard-text">{props.text}</span>
             <img
-              alt={props.vectorStrokeAlt}
-              src={props.vectorStrokeSrc}
+              alt={props.VectorStroke_alt}
+              src={props.VectorStroke_src}
               className="projectcard-vector-stroke"
             />
           </div>
           <div className="projectcard-projectcontent">
             <img
               id="btn-1"
-              alt={props.projectarrowbuttonAlt}
-              src={props.projectarrowbuttonSrc}
+              alt={props.projectarrowbutton_alt}
+              src={props.projectarrowbutton_src}
               loading="lazy"
               className="projectcard-projectarrowbutton"
             />
@@ -37,8 +37,8 @@ const Projectcard = (props) => {
         <div className="project-img-small">
           <img
             id="mask"
-            alt={props.imageAlt}
-            src={props.imageSrc}
+            alt={props.image_alt}
+            src={props.image_src}
             className="mask"
           />
         </div>
@@ -73,11 +73,6 @@ transition: .35s all 0.3s ease-in-out;
       </div>
       <style jsx>
         {`
-          .projectcard-projectcard {
-            height: 520px;
-            position: relative;
-            direction: ltr;
-          }
           .projectcard-projectstatus {
             gap: 9px;
             cursor: pointer;
@@ -94,7 +89,7 @@ transition: .35s all 0.3s ease-in-out;
             font-size: 14px;
             font-style: DemiBold;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 400;
             line-height: 100%;
             font-stretch: normal;
@@ -138,7 +133,7 @@ transition: .35s all 0.3s ease-in-out;
             font-size: 16px;
             font-style: Bold;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 700;
             font-stretch: normal;
             text-decoration: none;
@@ -149,7 +144,7 @@ transition: .35s all 0.3s ease-in-out;
             font-size: 50px;
             font-style: Light;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular;
             font-weight: 300;
             font-stretch: normal;
             text-decoration: none;
@@ -162,7 +157,7 @@ transition: .35s all 0.3s ease-in-out;
             align-self: flex-end;
             font-style: Light;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 300;
             line-height: 140%;
             font-stretch: normal;
@@ -197,26 +192,26 @@ Projectcard.defaultProps = {
   text3:
     'בבסיס התכנון של המתחם עומדת האהבה לבישול ולאירוח, אהבה שניתן להרגיש החל במרחבים המשותפים, דרך הדירות עצמן ועד למטבחים.',
   text1: 'קריית אונו',
-  vectorStrokeAlt: 'VectorStroke3708',
-  imageAlt: 'image',
-  imageSrc: '/elipse-image-on-hover-400w.png',
-  vectorStrokeSrc: '/external/vectorstroke3708-4itf.svg',
+  VectorStroke_alt: 'VectorStroke3708',
+  image_alt: 'image',
+  image_src: '/elipse-image-on-hover-400w.png',
+  VectorStroke_src: '/external/vectorstroke3708-4itf.svg',
   text2: 'אומאמי',
-  projectarrowbuttonAlt: 'projectarrowbutton3708',
-  projectarrowbuttonSrc: '/external/projectarrowbutton3708-a4n.svg',
+  projectarrowbutton_alt: 'projectarrowbutton3708',
+  projectarrowbutton_src: '/external/projectarrowbutton3708-a4n.svg',
   text: 'בתכנון',
 }
 
 Projectcard.propTypes = {
   text3: PropTypes.string,
   text1: PropTypes.string,
-  vectorStrokeAlt: PropTypes.string,
-  imageAlt: PropTypes.string,
-  imageSrc: PropTypes.string,
-  vectorStrokeSrc: PropTypes.string,
+  VectorStroke_alt: PropTypes.string,
+  image_alt: PropTypes.string,
+  image_src: PropTypes.string,
+  VectorStroke_src: PropTypes.string,
   text2: PropTypes.string,
-  projectarrowbuttonAlt: PropTypes.string,
-  projectarrowbuttonSrc: PropTypes.string,
+  projectarrowbutton_alt: PropTypes.string,
+  projectarrowbutton_src: PropTypes.string,
   text: PropTypes.string,
 }
 

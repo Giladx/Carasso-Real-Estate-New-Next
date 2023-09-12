@@ -30,41 +30,71 @@ class CustomDocument extends Document {
             type="icon/png"
             sizes="32x32"
           ></link>
-          <link
-            rel="stylesheet"
-            href="https://storage.googleapis.com/playground-bucket-v2.teleporthq.io/bd438ef8-05f7-4c29-9c01-eea7ae17edea/ee087bae-3add-4f3e-8ab3-8e746093c7ca"
-            data-tag="font"
-          ></link>
-          <link
-            rel="stylesheet"
-            href="https://storage.googleapis.com/playground-bucket-v2.teleporthq.io/bd438ef8-05f7-4c29-9c01-eea7ae17edea/50f1e84b-2ce6-4dbd-8de1-2814ed91f705"
-            data-tag="font"
-          ></link>
-          <link
-            rel="stylesheet"
-            href="https://storage.googleapis.com/playground-bucket-v2.teleporthq.io/bd438ef8-05f7-4c29-9c01-eea7ae17edea/b742d646-6083-4670-9d53-2f6d8055824f"
-            data-tag="font"
-          ></link>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA Medium woff";font-weight: 500;font-style: normal;font-display: swap;src: url("./fonts/ploni-medium-aaa.woff") format("woff");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA Regular";font-weight: 400;font-style: normal;font-display: swap;src: url("./fonts/ploni-regular-aaa.woff2") format("woff2");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA Light";font-weight: 300;font-style: normal;font-display: swap;src: url("./fonts/ploni-ml-v2-aaa-light.woff2") format("woff2");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA D-Bold woff";font-weight: 600;font-style: normal;font-display: swap;src: url("./fonts/ploni-demibold-aaa.woff") format("woff");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA";font-weight: 700;font-style: normal;font-display: swap;src: url("./fonts/ploni-bold-aaa.woff2") format("woff2");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA woff";font-weight: 700;font-style: normal;font-display: swap;src: url("./fonts/ploni-bold-aaa.woff") format("woff");}',
+            }}
+          ></style>
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
             data-tag="font"
           ></link>
-          <link
-            rel="stylesheet"
-            href="https://storage.googleapis.com/playground-bucket-v2.teleporthq.io/bd438ef8-05f7-4c29-9c01-eea7ae17edea/d28a4301-0975-405a-a337-efa106995180"
-            data-tag="font"
-          ></link>
-          <link
-            rel="stylesheet"
-            href="https://storage.googleapis.com/playground-bucket-v2.teleporthq.io/bd438ef8-05f7-4c29-9c01-eea7ae17edea/ef3c6140-520d-4c44-b8fb-c42982aa23d1"
-            data-tag="font"
-          ></link>
-          <link
-            rel="stylesheet"
-            href="https://011.ninja/fonts/carasso/ploni/stylesheet.css"
-            data-tag="font"
-          ></link>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA Regular woff";font-weight: 400;font-style: normal;font-display: swap;src: url("./fonts/ploni-regular-aaa.woff") format("woff");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA D-Bold";font-weight: 600;font-style: normal;font-display: swap;src: url("./fonts/ploni-demibold-aaa.woff2") format("woff2");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA Medium";font-weight: 500;font-style: normal;font-display: swap;src: url("./fonts/ploni-medium-aaa.woff2") format("woff2");}',
+            }}
+          ></style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '@font-face {font-family: "Ploni ML v2 AAA Light woff";font-weight: 300;font-style: normal;font-display: swap;src: url("./fonts/ploni-ml-v2-aaa-light.woff") format("woff");}',
+            }}
+          ></style>
           <noscript
             dangerouslySetInnerHTML={{
               __html:

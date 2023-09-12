@@ -18,7 +18,7 @@ const Home = (props) => {
         <section className="home-projects">
           <div className="home-container1">
             <div id="slider" className="draggable">
-              <div className="home-div">
+              <div className="home-code-embed">
                 <Script
                   html={`<script>
 touchScroll('.draggable');
@@ -84,17 +84,9 @@ function touchScroll (\$bind = '') {
 //scroll
   var item = document.getElementById("slider");
   window.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
+    // evt.preventDefault();
     item.scrollLeft -= evt.deltaY * 12;
   });
-// Bottom Arrows Navigation
-function pullRight() {
-  window.scrollBy(420, 0);
-}
-
-function pushLeft() {
-  window.scrollBy(-420, 0);
-}
 </script>
 `}
                 ></Script>
@@ -159,8 +151,8 @@ function pushLeft() {
                     </a>
                   </div>
                 </div>
-                <button className="home-carassobutton">
-                  <button className="home-buttontextarrow">
+                <div className="home-container2">
+                  <button type="button" className="home-buttontextarrow">
                     <img
                       alt="Arrow7Stroke3708"
                       src="/external/arrow7stroke3708-fasf.svg"
@@ -168,30 +160,64 @@ function pushLeft() {
                     />
                     <span className="home-text09">לפרויקטים נוספים</span>
                   </button>
-                  <button className="home-buttongrayline"></button>
-                </button>
+                </div>
               </div>
             </div>
           </div>
           <div className="home-arrow-container">
             <div className="home-arrows">
-              <img
-                alt="arrowforward3708"
-                src="/external/arrowforward3708-k3sa.svg"
+              <button
+                type="button"
                 onclick="pushLeft()"
-                className="home-arrowforward"
-              />
-              <img
-                alt="arrowbackward3708"
-                src="/external/arrowbackward3708-8d3e.svg"
+                id="btnl"
+                className="home-button-left button"
+              >
+                <img
+                  alt="arrowforward3708"
+                  src="/external/arrowforward3708-k3sa.svg"
+                  loading="lazy"
+                  className="home-arrowforward"
+                />
+              </button>
+              <button
+                type="button"
                 onclick="pullRight()"
-                className="home-arrowbackward"
-              />
+                id="btnr"
+                className="home-button-right button"
+              >
+                <img
+                  alt="arrowbackward3708"
+                  src="/external/arrowbackward3708-8d3e.svg"
+                  loading="lazy"
+                  className="home-arrowbackward"
+                />
+              </button>
+              <div className="home-div">
+                <Script
+                  html={`<script>
+// Bottom Arrows Navigation
+document.getElementById("btnr").addEventListener("click", function pullRight()
+{
+const cont1 = document.getElementById("slider")
+cont1.scrollLeft +=407 * 2;
+console.log(cont1.scroll);
+});
+
+document.getElementById("btnl").addEventListener("click", function pushLeft()
+{
+const cont2 = document.getElementById("slider")
+cont2.scrollLeft -=407 * 2;
+console.log(cont2.scroll);
+});
+</script>
+`}
+                ></Script>
+              </div>
             </div>
           </div>
         </section>
         <div className="home-success-story">
-          <div className="home-container2">
+          <div className="home-container3">
             <div className="home-leftcoloumn1">
               <div className="home-successcopycontent">
                 <div className="home-successnumbercontent">
@@ -253,7 +279,7 @@ function pushLeft() {
                       </div>
                       <div className="home-numberrowcontainer1">
                         <div className="home-bignumberblock2">
-                          <button className="home-carassobutton1">
+                          <button className="home-carassobutton">
                             <button className="home-buttontextarrow1">
                               <img
                                 alt="Arrow7Stroke3606"
@@ -264,7 +290,7 @@ function pushLeft() {
                                 <span>סיפורי הצלחה</span>
                               </span>
                             </button>
-                            <button className="home-buttongrayline1"></button>
+                            <button className="home-buttongrayline"></button>
                           </button>
                         </div>
                         <div className="home-bignumberblock3">
@@ -308,7 +334,7 @@ function pushLeft() {
           </div>
         </div>
         <div className="home-urban-renewal">
-          <div className="home-container3">
+          <div className="home-container4">
             <div className="home-leftcoloumn2">
               <img
                 alt="circle3606"
@@ -342,7 +368,7 @@ function pushLeft() {
                       </span>
                     </span>
                   </div>
-                  <button className="home-carassobutton2">
+                  <button className="home-carassobutton1">
                     <button className="home-buttontextarrow2">
                       <img
                         alt="Arrow7Stroke3606"
@@ -353,7 +379,7 @@ function pushLeft() {
                         <span>התחדשות עירונית</span>
                       </span>
                     </button>
-                    <button className="home-buttongrayline2"></button>
+                    <button className="home-buttongrayline1"></button>
                   </button>
                 </div>
               </div>
@@ -361,7 +387,7 @@ function pushLeft() {
           </div>
         </div>
         <div className="home-footer">
-          <div className="home-container4">
+          <div className="home-container5">
             <div className="home-leftcoloumn3">
               <div className="home-links">
                 <div className="home-footersocialmedialinks">
@@ -534,7 +560,7 @@ function pushLeft() {
                     </div>
                   </div>
                 </div>
-                <button className="home-carassobutton3">
+                <button className="home-carassobutton2">
                   <button className="home-buttontextarrow3">
                     <img
                       alt="Arrow7Stroke3606"
@@ -545,7 +571,7 @@ function pushLeft() {
                       <span>שלח</span>
                     </span>
                   </button>
-                  <button className="home-buttongrayline3"></button>
+                  <button className="home-buttongrayline2"></button>
                 </button>
               </div>
               <img
@@ -589,7 +615,7 @@ function pushLeft() {
             flex-shrink: 0;
             justify-content: space-between;
           }
-          .home-div {
+          .home-code-embed {
             display: contents;
           }
           .home-rightcoloumn {
@@ -617,7 +643,7 @@ function pushLeft() {
             font-size: 50px;
             font-style: Light;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Light;
             font-weight: 300;
             line-height: 100%;
             font-stretch: normal;
@@ -638,7 +664,7 @@ function pushLeft() {
             font-style: DemiBold;
             text-align: right;
             transition: 0.3s;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 400;
             line-height: 100%;
             font-stretch: normal;
@@ -663,7 +689,7 @@ function pushLeft() {
             font-style: Light;
             text-align: right;
             transition: 0.3s;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 300;
             line-height: 100%;
             font-stretch: normal;
@@ -688,7 +714,7 @@ function pushLeft() {
             font-style: Light;
             text-align: right;
             transition: 0.3s;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 300;
             line-height: 100%;
             font-stretch: normal;
@@ -700,8 +726,9 @@ function pushLeft() {
           .home-text07:active {
             color: var(--dl-color-carasso-primaryblack);
           }
-          .home-carassobutton {
-            gap: 12px;
+          .home-container2 {
+            flex: 0 0 auto;
+            width: auto;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
@@ -711,6 +738,12 @@ function pushLeft() {
             cursor: pointer;
             display: flex;
             align-items: center;
+            border-color: rgba(187, 187, 187, 1);
+            border-width: 1px;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 1px;
           }
           .home-arrow7stroke {
             width: 8px;
@@ -723,21 +756,10 @@ function pushLeft() {
             font-size: 18px;
             font-style: DemiBold;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 400;
             font-stretch: normal;
             text-decoration: none;
-          }
-          .home-buttongrayline {
-            gap: 10px;
-            height: 1px;
-            display: flex;
-            align-self: stretch;
-            align-items: flex-end;
-            flex-shrink: 0;
-            flex-direction: column;
-            justify-content: center;
-            background-color: rgba(187, 187, 187, 1);
           }
           .home-arrow-container {
             gap: 10px;
@@ -752,13 +774,26 @@ function pushLeft() {
             display: flex;
             align-items: flex-start;
           }
+          .home-button-left {
+            display: flex;
+            border-width: 0px;
+            flex-direction: row;
+          }
           .home-arrowforward {
             width: 39px;
             height: 27px;
           }
+          .home-button-right {
+            display: flex;
+            border-width: 0px;
+            flex-direction: row;
+          }
           .home-arrowbackward {
             width: 39px;
             height: 27px;
+          }
+          .home-div {
+            display: contents;
           }
           .home-success-story {
             width: 100%;
@@ -771,7 +806,7 @@ function pushLeft() {
             justify-content: center;
             background-color: var(--dl-color-carasso-lightblue);
           }
-          .home-container2 {
+          .home-container3 {
             gap: 32px;
             display: flex;
             align-self: stretch;
@@ -974,7 +1009,7 @@ function pushLeft() {
             flex-direction: column;
             justify-content: flex-end;
           }
-          .home-carassobutton1 {
+          .home-carassobutton {
             gap: 12px;
             height: 24px;
             display: flex;
@@ -1003,7 +1038,7 @@ function pushLeft() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-buttongrayline1 {
+          .home-buttongrayline {
             gap: 10px;
             display: flex;
             flex-grow: 1;
@@ -1104,7 +1139,7 @@ function pushLeft() {
             justify-content: center;
             background-color: var(--dl-color-carasso-backgroundcolor);
           }
-          .home-container3 {
+          .home-container4 {
             gap: 2px;
             display: flex;
             align-self: stretch;
@@ -1198,7 +1233,7 @@ function pushLeft() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-carassobutton2 {
+          .home-carassobutton1 {
             gap: 12px;
             display: flex;
             align-items: flex-start;
@@ -1225,7 +1260,7 @@ function pushLeft() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-buttongrayline2 {
+          .home-buttongrayline1 {
             gap: 10px;
             height: 1px;
             display: flex;
@@ -1247,7 +1282,7 @@ function pushLeft() {
             justify-content: center;
             background-color: var(--dl-color-carasso-plainwhite);
           }
-          .home-container4 {
+          .home-container5 {
             display: flex;
             align-self: stretch;
             align-items: center;
@@ -1849,7 +1884,7 @@ function pushLeft() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-carassobutton3 {
+          .home-carassobutton2 {
             gap: 12px;
             height: 24px;
             display: flex;
@@ -1878,7 +1913,7 @@ function pushLeft() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-buttongrayline3 {
+          .home-buttongrayline2 {
             gap: 10px;
             display: flex;
             flex-grow: 1;

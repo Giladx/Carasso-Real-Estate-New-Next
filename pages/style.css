@@ -82,17 +82,17 @@
 .projectcard {
   gap: 10px;
   width: 407px;
-  cursor: grab;
+  cursor: w-resize;
+  height: 520px;
   display: flex;
   padding: 36px;
+  position: relative;
+  direction: ltr;
   align-self: stretch;
   background: linear-gradient(0deg, rgba(28, 28, 28, 0.60) 0%, rgba(28, 28, 28, 0.60) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url(https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/9fcf239a-5523-451d-9e18-6a9734911cc2?org_if_sml=1&q=80&w=500), lightgray 50% / contain no-repeat; background-blend-mode: luminosity, soft-light, normal;
   flex-shrink: 0;
   border-radius: 20px;
   background-blend-mode: luminosity, soft-light, normal;
-}
-.projectcard:active {
-  cursor: grabbing;
 }
 .projectinfo {
   gap: 16px;
