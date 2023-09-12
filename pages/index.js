@@ -87,6 +87,14 @@ function touchScroll (\$bind = '') {
     evt.preventDefault();
     item.scrollLeft -= evt.deltaY * 12;
   });
+// Bottom Arrows Navigation
+function pullRight() {
+  window.scrollBy(420, 0);
+}
+
+function pushLeft() {
+  window.scrollBy(-420, 0);
+}
 </script>
 `}
                 ></Script>
@@ -170,11 +178,13 @@ function touchScroll (\$bind = '') {
               <img
                 alt="arrowforward3708"
                 src="/external/arrowforward3708-k3sa.svg"
+                onclick="pushLeft()"
                 className="home-arrowforward"
               />
               <img
                 alt="arrowbackward3708"
                 src="/external/arrowbackward3708-8d3e.svg"
+                onclick="pullRight()"
                 className="home-arrowbackward"
               />
             </div>
