@@ -21,7 +21,6 @@ const Home = (props) => {
               <div className="home-div">
                 <Script
                   html={`<script>
- // https://codepen.io/LCweb/pen/YZGVRg?editors=0010
 touchScroll('.draggable');
 
 function touchScroll (\$bind = '') {
@@ -82,6 +81,12 @@ function touchScroll (\$bind = '') {
     }
   }
 }
+//scroll
+  var item = document.getElementById("slider");
+  window.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    item.scrollLeft -= evt.deltaY * 12;
+  });
 </script>
 `}
                 ></Script>
