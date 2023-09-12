@@ -21,62 +21,67 @@ const Home = (props) => {
               <div className="home-div">
                 <Script
                   html={`<script>
-  const slider = document.querySelector(".draggable");
-  let mouseDown = false;
-  let startX, scrollLeft;
+ // https://codepen.io/LCweb/pen/YZGVRg?editors=0010
+touchScroll('.draggable');
 
-  let startDragging = function (e) {
-    mouseDown = true;
+function touchScroll (\$bind = '') {
+  const slider = document.querySelector(\$bind);
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
-  };
-  let stopDragging = function (event) {
-    mouseDown = false;
-  };
+    cancelMomentumTracking();
+  });
 
-  slider.addEventListener("mousemove", (e) => {
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+    beginMomentumTracking();
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
     e.preventDefault();
-    if (!mouseDown) {
-      return;
-    }
     const x = e.pageX - slider.offsetLeft;
-    const scroll = x - startX;
-    slider.scrollLeft = scrollLeft - scroll;
+    const walk = (x - startX) * 3; //scroll-fast
+    var prevScrollLeft = slider.scrollLeft;
+    slider.scrollLeft = scrollLeft - walk;
+    velX = slider.scrollLeft - prevScrollLeft;
   });
-  // Add the event listeners
-  slider.addEventListener("mousedown", startDragging, false);
-  slider.addEventListener("mouseup", stopDragging, false);
-  slider.addEventListener("mouseleave", stopDragging, false);
-  //scroll
-  var item = document.getElementById("slider");
-  window.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    item.scrollLeft += evt.deltaY;
-  });
-  /*
-   @param pos: the y-position to scroll to (in pixels)
-   @param time: the exact amount of time the scrolling will take (in milliseconds)
-  */
-  function scrollToSmoothly(pos, time) {
-    var currentPos = window.pageXOffset;
-    var start = null;
-    if (time == null) time = 1500;
-    (pos = +pos), (time = +time);
-    window.requestAnimationFrame(function step(currentTime) {
-      start = !start ? currentTime : start;
-      var progress = currentTime - start;
-      if (currentPos < pos) {
-        window.scrollTo(0, ((pos - currentPos) * progress) / time + currentPos);
-      } else {
-        window.scrollTo(0, currentPos - ((currentPos - pos) * progress) / time);
-      }
-      if (progress < time) {
-        window.requestAnimationFrame(step);
-      } else {
-        window.scrollTo(0, pos);
-      }
-    });
+  
+  slider.addEventListener('wheel', (e) => {
+    cancelMomentumTracking();
+  });  
+
+  // Detect animation
+  var velX = 0;
+  var momentumID;
+
+  function beginMomentumTracking(){
+    cancelMomentumTracking();
+    momentumID = requestAnimationFrame(momentumLoop);
   }
+  function cancelMomentumTracking(){
+    cancelAnimationFrame(momentumID);
+  }
+  function momentumLoop(){
+    slider.scrollLeft += velX;
+    velX *= 0.95; 
+    if (Math.abs(velX) > 0.5){
+      momentumID = requestAnimationFrame(momentumLoop);
+    }
+  }
+}
 </script>
 `}
                 ></Script>
