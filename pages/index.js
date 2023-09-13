@@ -397,17 +397,14 @@ animateValue(obj2, 0, 11100, 5000);
                     </span>
                   </div>
                   <button className="home-carassobutton1">
-                    <button className="home-buttontextarrow2">
-                      <img
-                        alt="Arrow7Stroke3606"
-                        src="/external/arrow7stroke3606-z8r.svg"
-                        className="home-arrow7stroke2"
-                      />
-                      <span className="home-text37">
-                        <span>התחדשות עירונית</span>
-                      </span>
-                    </button>
-                    <button className="home-buttongrayline1"></button>
+                    <img
+                      alt="Arrow7Stroke3606"
+                      src="/external/arrow7stroke3606-z8r.svg"
+                      className="home-arrow7stroke2"
+                    />
+                    <span className="home-text37">
+                      <span>התחדשות עירונית</span>
+                    </span>
                   </button>
                 </div>
               </div>
@@ -589,7 +586,7 @@ animateValue(obj2, 0, 11100, 5000);
                   </div>
                 </div>
                 <button className="home-carassobutton2">
-                  <button className="home-buttontextarrow3">
+                  <button className="home-buttontextarrow2">
                     <img
                       alt="Arrow7Stroke3606"
                       src="/external/arrow7stroke3606-nkv4.svg"
@@ -599,7 +596,7 @@ animateValue(obj2, 0, 11100, 5000);
                       <span>שלח</span>
                     </span>
                   </button>
-                  <button className="home-buttongrayline2"></button>
+                  <button className="home-buttongrayline1"></button>
                 </button>
               </div>
               <img
@@ -1308,16 +1305,17 @@ animateValue(obj2, 0, 11100, 5000);
             gap: 12px;
             display: flex;
             align-items: flex-start;
-            flex-direction: column;
-          }
-          .home-buttontextarrow2 {
-            gap: 8px;
-            display: flex;
-            align-items: center;
+            border-color: var(--dl-color-carasso-graytextcolor);
+            border-width: 1px;
+            flex-direction: row;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
           }
           .home-arrow7stroke2 {
             width: 8px;
             height: 7px;
+            margin-top: var(--dl-space-space-halfunit);
           }
           .home-text37 {
             color: var(--dl-color-carasso-primaryblack);
@@ -1330,17 +1328,6 @@ animateValue(obj2, 0, 11100, 5000);
             line-height: 139.9999976158142%;
             font-stretch: normal;
             text-decoration: none;
-          }
-          .home-buttongrayline1 {
-            gap: 10px;
-            height: 1px;
-            display: flex;
-            align-self: stretch;
-            align-items: flex-end;
-            flex-shrink: 0;
-            flex-direction: column;
-            justify-content: center;
-            background-color: rgba(187, 187, 187, 1);
           }
           .home-footer {
             width: 100%;
@@ -1963,7 +1950,7 @@ animateValue(obj2, 0, 11100, 5000);
             flex-shrink: 0;
             flex-direction: column;
           }
-          .home-buttontextarrow3 {
+          .home-buttontextarrow2 {
             gap: 8px;
             display: flex;
             align-items: center;
@@ -1984,7 +1971,7 @@ animateValue(obj2, 0, 11100, 5000);
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-buttongrayline2 {
+          .home-buttongrayline1 {
             gap: 10px;
             display: flex;
             flex-grow: 1;
