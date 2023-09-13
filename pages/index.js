@@ -169,7 +169,6 @@ function touchScroll (\$bind = '') {
               <button
                 id="btnl"
                 type="button"
-                onclick="pushLeft()"
                 className="home-button-left button"
               >
                 <img
@@ -182,7 +181,6 @@ function touchScroll (\$bind = '') {
               <button
                 id="btnr"
                 type="button"
-                onclick="pullRight()"
                 className="home-button-right button"
               >
                 <img
