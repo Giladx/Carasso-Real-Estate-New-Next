@@ -827,7 +827,7 @@ animateValue(obj2, 0, 11100, 5000);
           .home-success-story {
             width: 100%;
             height: auto;
-            display: flex;
+            display: none;
             overflow: hidden;
             align-items: flex-end;
             flex-shrink: 0;
