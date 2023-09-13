@@ -314,6 +314,31 @@ console.log(cont2.scroll);
                           </div>
                         </div>
                       </div>
+                      <div className="home-div1">
+                        <Script
+                          html={`<script>
+function animateValue(obj, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    obj.innerHTML = Math.floor(progress * (end - start) + start);
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+const obj = document.getElementById("value");
+animateValue(obj, 0, 54, 5000);
+const obj1 = document.getElementById("value1");
+animateValue(obj1, 0, 4462, 5000);
+const obj2 = document.getElementById("value2");
+animateValue(obj2, 0, 11100, 5000);
+</script>`}
+                        ></Script>
+                      </div>
                     </div>
                   </div>
                   <img
@@ -325,15 +350,14 @@ console.log(cont2.scroll);
               </div>
             </div>
             <div className="home-rightcoloumn">
-              <div className="home-container3">
-                <div className="home-container4">
-                  <img
-                    alt="successstoryimage3606"
-                    src="/external/successstoryimage3606-aqc9.svg"
-                    className="home-successstoryimage"
-                  />
-                </div>
-              </div>
+              <img
+                alt="successstoryimage3606"
+                src="/external/successstoryimage3606-aqc9.svg"
+                loading="lazy"
+                className="home-successstoryimage"
+              />
+              <div className="home-container3"></div>
+              <div className="home-container4"></div>
             </div>
           </div>
         </div>
@@ -603,6 +627,7 @@ console.log(cont2.scroll);
             display: flex;
             padding: 80px 0;
             overflow: hidden;
+            overflow-y: hidden;
             align-items: flex-end;
             flex-shrink: 0;
             flex-direction: column;
@@ -812,8 +837,9 @@ console.log(cont2.scroll);
           }
           .home-container2 {
             gap: 32px;
-            height: 735px;
+            height: 900px;
             display: flex;
+            overflow: visible;
             align-self: stretch;
             align-items: center;
             flex-shrink: 0;
@@ -1111,6 +1137,9 @@ console.log(cont2.scroll);
             font-stretch: normal;
             text-decoration: none;
           }
+          .home-div1 {
+            display: contents;
+          }
           .home-biglinedecorativeline {
             top: 410px;
             left: -85px;
@@ -1131,14 +1160,22 @@ console.log(cont2.scroll);
             align-self: flex-start;
             align-items: center;
           }
+          .home-successstoryimage {
+            width: 735px;
+            height: 735px;
+            display: none;
+            transform: rotate(-30deg);
+          }
           .home-container3 {
             top: 0px;
             flex: 0 0 auto;
-            left: 0px;
+            left: 269px;
             width: 538px;
+            border: 2px dashed rgba(120, 120, 120, 0.4);
             height: 538px;
             display: flex;
             position: absolute;
+            transform: rotate(30deg);
             align-items: flex-start;
             border-color: var(--dl-color-carasso-blue);
             border-width: 5px;
@@ -1146,11 +1183,13 @@ console.log(cont2.scroll);
             flex-direction: column;
           }
           .home-container4 {
-            top: 0px;
+            top: 500px;
             flex: 0 0 auto;
-            left: 0px;
-            width: auto;
-            height: auto;
+            left: 269px;
+            width: 642px;
+            border: 2px dashed rgba(120, 120, 120, 0.4);
+            bottom: 0px;
+            height: 642px;
             display: flex;
             position: absolute;
             align-items: flex-start;
@@ -1158,10 +1197,6 @@ console.log(cont2.scroll);
             border-width: 5px;
             border-radius: var(--dl-radius-radius-round);
             flex-direction: column;
-          }
-          .home-successstoryimage {
-            width: 735px;
-            height: 735px;
           }
           .home-urban-renewal {
             width: 100%;

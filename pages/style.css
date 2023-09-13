@@ -143,6 +143,7 @@
   flex-grow: 1;
   align-self: stretch;
   overflow-x: hidden;
+  overflow-y: hidden;
   user-select: none;
   flex-direction: row;
   pointer-events: all;
