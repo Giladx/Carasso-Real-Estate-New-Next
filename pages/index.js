@@ -16,7 +16,7 @@ const Home = (props) => {
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <section className="home-projects">
-          <div className="home-container1">
+          <div className="home-selected-projects">
             <div id="slider" className="draggable">
               <div className="home-code-embed">
                 <Script
@@ -107,7 +107,7 @@ function touchScroll (\$bind = '') {
               <Projectcard></Projectcard>
               <Projectcard></Projectcard>
             </div>
-            <div className="home-rightcoloumn">
+            <div className="home-right-column">
               <div className="home-projectsrightblock">
                 <div className="home-projectsheadlineandtabs">
                   <span className="home-text">
@@ -151,7 +151,7 @@ function touchScroll (\$bind = '') {
                     </a>
                   </div>
                 </div>
-                <div className="home-container2">
+                <div className="home-container1">
                   <button type="button" className="home-buttontextarrow">
                     <img
                       alt="Arrow7Stroke3708"
@@ -167,9 +167,9 @@ function touchScroll (\$bind = '') {
           <div className="home-arrow-container">
             <div className="home-arrows">
               <button
+                id="btnl"
                 type="button"
                 onclick="pushLeft()"
-                id="btnl"
                 className="home-button-left button"
               >
                 <img
@@ -180,9 +180,9 @@ function touchScroll (\$bind = '') {
                 />
               </button>
               <button
+                id="btnr"
                 type="button"
                 onclick="pullRight()"
-                id="btnr"
                 className="home-button-right button"
               >
                 <img
@@ -217,8 +217,8 @@ console.log(cont2.scroll);
           </div>
         </section>
         <div className="home-success-story">
-          <div className="home-container3">
-            <div className="home-leftcoloumn1">
+          <div className="home-container2">
+            <div className="home-leftcoloumn">
               <div className="home-successcopycontent">
                 <div className="home-successnumbercontent">
                   <div className="home-bignumberscontent">
@@ -310,7 +310,7 @@ console.log(cont2.scroll);
                               src="/external/vector3606-icrh.svg"
                               className="home-vector2"
                             />
-                            <span className="home-text28">1 1,110</span>
+                            <span className="home-text28">11,110</span>
                           </div>
                         </div>
                       </div>
@@ -324,18 +324,22 @@ console.log(cont2.scroll);
                 </div>
               </div>
             </div>
-            <div className="home-rightcoloumn1">
-              <img
-                alt="successstoryimage3606"
-                src="/external/successstoryimage3606-aqc9.svg"
-                className="home-successstoryimage"
-              />
+            <div className="home-rightcoloumn">
+              <div className="home-container3">
+                <div className="home-container4">
+                  <img
+                    alt="successstoryimage3606"
+                    src="/external/successstoryimage3606-aqc9.svg"
+                    className="home-successstoryimage"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div className="home-urban-renewal">
-          <div className="home-container4">
-            <div className="home-leftcoloumn2">
+          <div className="home-container5">
+            <div className="home-leftcoloumn1">
               <img
                 alt="circle3606"
                 src="/external/circle3606-ha99.svg"
@@ -347,7 +351,7 @@ console.log(cont2.scroll);
                 className="home-manontherightonhover"
               />
             </div>
-            <div className="home-rightcoloumn2">
+            <div className="home-rightcoloumn1">
               <div className="home-urbanrenewalcontentborder">
                 <div className="home-urbanrenewalcontent">
                   <div className="home-urbanrenewalheadingsummary">
@@ -387,8 +391,8 @@ console.log(cont2.scroll);
           </div>
         </div>
         <div className="home-footer">
-          <div className="home-container5">
-            <div className="home-leftcoloumn3">
+          <div className="home-container6">
+            <div className="home-leftcoloumn2">
               <div className="home-links">
                 <div className="home-footersocialmedialinks">
                   <img
@@ -495,7 +499,7 @@ console.log(cont2.scroll);
                 className="home-fig12"
               />
             </div>
-            <div className="home-rightcoloumn3">
+            <div className="home-rightcoloumn2">
               <div className="home-contactform">
                 <div className="home-contact">
                   <span className="home-text79">
@@ -605,7 +609,7 @@ console.log(cont2.scroll);
             justify-content: center;
             background-color: var(--dl-color-carasso-backgroundcolor);
           }
-          .home-container1 {
+          .home-selected-projects {
             gap: 2px;
             display: flex;
             padding: 0 90px 0 0;
@@ -618,7 +622,7 @@ console.log(cont2.scroll);
           .home-code-embed {
             display: contents;
           }
-          .home-rightcoloumn {
+          .home-right-column {
             gap: 10px;
             display: flex;
             padding: 0 0 0 90px;
@@ -726,7 +730,7 @@ console.log(cont2.scroll);
           .home-text07:active {
             color: var(--dl-color-carasso-primaryblack);
           }
-          .home-container2 {
+          .home-container1 {
             flex: 0 0 auto;
             width: auto;
             display: flex;
@@ -798,7 +802,7 @@ console.log(cont2.scroll);
           .home-success-story {
             width: 100%;
             height: auto;
-            display: none;
+            display: flex;
             overflow: hidden;
             align-items: flex-end;
             flex-shrink: 0;
@@ -806,15 +810,16 @@ console.log(cont2.scroll);
             justify-content: center;
             background-color: var(--dl-color-carasso-lightblue);
           }
-          .home-container3 {
+          .home-container2 {
             gap: 32px;
+            height: 735px;
             display: flex;
             align-self: stretch;
             align-items: center;
             flex-shrink: 0;
             justify-content: space-between;
           }
-          .home-leftcoloumn1 {
+          .home-leftcoloumn {
             display: flex;
             padding: 0 70px 20px 150px;
             flex-grow: 1;
@@ -853,7 +858,7 @@ console.log(cont2.scroll);
             font-size: 50px;
             font-style: Light;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 300;
             line-height: 100%;
             font-stretch: normal;
@@ -929,7 +934,7 @@ console.log(cont2.scroll);
             font-size: 80px;
             font-style: Medium;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 500;
             line-height: 139.9999976158142%;
             font-stretch: normal;
@@ -987,7 +992,7 @@ console.log(cont2.scroll);
             font-size: 80px;
             font-style: Medium;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 500;
             font-stretch: normal;
             text-decoration: none;
@@ -1100,7 +1105,7 @@ console.log(cont2.scroll);
             font-size: 80px;
             font-style: Medium;
             text-align: right;
-            font-family: Ploni ML v2 AAA;
+            font-family: Ploni ML v2 AAA Regular woff;
             font-weight: 500;
             line-height: 140%;
             font-stretch: normal;
@@ -1116,12 +1121,43 @@ console.log(cont2.scroll);
             z-index: 1;
             position: absolute;
           }
-          .home-rightcoloumn1 {
+          .home-rightcoloumn {
             gap: 10px;
+            width: 765px;
+            height: auto;
             display: flex;
+            position: relative;
             flex-grow: 1;
-            align-self: stretch;
+            align-self: flex-start;
             align-items: center;
+          }
+          .home-container3 {
+            top: 0px;
+            flex: 0 0 auto;
+            left: 0px;
+            width: 538px;
+            height: 538px;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            border-color: var(--dl-color-carasso-blue);
+            border-width: 5px;
+            border-radius: 20px;
+            flex-direction: column;
+          }
+          .home-container4 {
+            top: 0px;
+            flex: 0 0 auto;
+            left: 0px;
+            width: auto;
+            height: auto;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            border-color: var(--dl-color-carasso-red);
+            border-width: 5px;
+            border-radius: var(--dl-radius-radius-round);
+            flex-direction: column;
           }
           .home-successstoryimage {
             width: 735px;
@@ -1139,7 +1175,7 @@ console.log(cont2.scroll);
             justify-content: center;
             background-color: var(--dl-color-carasso-backgroundcolor);
           }
-          .home-container4 {
+          .home-container5 {
             gap: 2px;
             display: flex;
             align-self: stretch;
@@ -1147,7 +1183,7 @@ console.log(cont2.scroll);
             flex-shrink: 0;
             justify-content: space-between;
           }
-          .home-leftcoloumn2 {
+          .home-leftcoloumn1 {
             gap: 20px;
             width: 100%;
             display: flex;
@@ -1175,7 +1211,7 @@ console.log(cont2.scroll);
             z-index: 1;
             position: absolute;
           }
-          .home-rightcoloumn2 {
+          .home-rightcoloumn1 {
             gap: 10px;
             width: 100%;
             display: flex;
@@ -1282,14 +1318,14 @@ console.log(cont2.scroll);
             justify-content: center;
             background-color: var(--dl-color-carasso-plainwhite);
           }
-          .home-container5 {
+          .home-container6 {
             display: flex;
             align-self: stretch;
             align-items: center;
             flex-shrink: 0;
             justify-content: center;
           }
-          .home-leftcoloumn3 {
+          .home-leftcoloumn2 {
             gap: 90px;
             height: 574px;
             display: flex;
@@ -1623,7 +1659,7 @@ console.log(cont2.scroll);
             z-index: 2;
             position: absolute;
           }
-          .home-rightcoloumn3 {
+          .home-rightcoloumn2 {
             gap: 90px;
             width: 874px;
             display: flex;
