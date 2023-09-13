@@ -249,7 +249,7 @@ console.log(cont2.scroll);
                               src="/external/vector3606-jflg.svg"
                               className="home-vector"
                             />
-                            <span className="home-text18">
+                            <span id="value1" className="home-text18">
                               <span>4,462</span>
                             </span>
                           </div>
@@ -271,7 +271,7 @@ console.log(cont2.scroll);
                               src="/external/vector3606-a79p.svg"
                               className="home-vector1"
                             />
-                            <span className="home-text22">
+                            <span id="value" className="home-text22">
                               <span>54</span>
                             </span>
                           </div>
@@ -310,7 +310,9 @@ console.log(cont2.scroll);
                               src="/external/vector3606-icrh.svg"
                               className="home-vector2"
                             />
-                            <span className="home-text28">11,110</span>
+                            <span id="value2" className="home-text28">
+                              11,110
+                            </span>
                           </div>
                         </div>
                       </div>
