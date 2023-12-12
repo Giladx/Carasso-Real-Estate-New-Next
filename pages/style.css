@@ -1,3 +1,38 @@
+@font-face {
+  font-family: "Ploni ML v2 AAA D-Bold";
+  font-style: normal;
+  font-format: woff;
+  font-weight: 600;
+  src: url("/fonts/ploni-demibold-aaa.woff") ;
+}
+@font-face {
+  font-family: "Ploni ML v2 AAA Medium";
+  font-style: normal;
+  font-format: woff2;
+  font-weight: 500;
+  src: url("/fonts/ploni-medium-aaa.woff2") ;
+}
+@font-face {
+  font-family: "Ploni ML v2 AAA Light";
+  font-style: normal;
+  font-format: woff2;
+  font-weight: 300;
+  src: url("/fonts/ploni-ml-v2-aaa-light.woff2") ;
+}
+@font-face {
+  font-family: "Ploni ML v2 AAA Bold";
+  font-style: normal;
+  font-format: woff2;
+  font-weight: 700;
+  src: url("/fonts/ploni-bold-aaa.woff2") ;
+}
+@font-face {
+  font-family: "Ploni ML v2 AAA";
+  font-style: normal;
+  font-format: woff2;
+  font-weight: 400;
+  src: url("/fonts/ploni-regular-aaa.woff2") ;
+}
 :root {
   --dl-size-size-large: 144px;
   --dl-size-size-small: 48px;
@@ -27,14 +62,17 @@
   --dl-radius-radius-radius8: 8px;
   --dl-space-space-fiveunits: 80px;
   --dl-space-space-fourunits: 64px;
+  --dl-radius-radius-radius20: 20px;
   --dl-space-space-threeunits: 48px;
   --dl-color-carasso-lightblue: rgba(231, 235, 243, 1);
   --dl-color-carasso-darkergray: rgba(115, 119, 123, 1);
   --dl-color-carasso-plainwhite: rgba(255, 255, 255, 1);
   --dl-color-carasso-umamicolor: rgba(199, 154, 121, 1);
+  --dl-color-carasso-tagselected: rgba(62, 84, 103, 1);
   --dl-color-carasso-primaryblack: rgba(42, 42, 42, 1);
   --dl-color-carasso-graytextcolor: rgba(187, 188, 191, 1);
   --dl-space-space-oneandhalfunits: 24px;
+  --dl-color-carasso-tagnotselected: rgba(237, 239, 241, 1);
   --dl-color-carasso-backgroundcolor: rgba(246, 246, 246, 1);
 }
 .button {
@@ -80,7 +118,7 @@
 }
 .teleport-show {
   display: flex !important;
-  transform: none !important;
+  transform: translateX(0%) !important;
 }
 .projectcard {
   gap: 10px;
@@ -92,14 +130,14 @@
   position: relative;
   direction: ltr;
   align-self: stretch;
-  background: linear-gradient(0deg, rgba(28, 28, 28, 0.60) 0%, rgba(28, 28, 28, 0.60) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url(https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/9fcf239a-5523-451d-9e18-6a9734911cc2?org_if_sml=1&q=80&w=500), lightgray 50% / contain no-repeat; background-blend-mode: luminosity, soft-light, normal;
+  background: linear-gradient(0deg, rgba(28, 28, 28, 0.60) 0%, rgba(28, 28, 28, 0.60) 100%),linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%),url(https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/9fcf239a-5523-451d-9e18-6a9734911cc2?org_if_sml=1&q=80&w=500),lightgray 50% / contain no-repeat; background-blend-mode: luminosity,soft-light,normal;
   flex-shrink: 0;
   border-radius: 20px;
   background-blend-mode: luminosity, soft-light, normal;
 }
 .projectinfo {
   gap: 16px;
-  top: -64px;
+  top: -70px;
   left: 0px;
   cursor: pointer;
   display: flex;
@@ -136,13 +174,12 @@
 }
 
 .draggable {
-  gap: 20px;
   width: auto;
   display: flex;
   direction: rtl;
   flex-grow: 1;
   align-self: stretch;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: hidden;
   user-select: none;
   flex-direction: row;
@@ -150,126 +187,17 @@
   scroll-behavior: smooth;
   scroll-snap-stop: always;
 }
-.H4 {
-  font-size: 26px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 500px;
-  font-stretch: normal;
+.responsive_frame {
+  width: 100%;
+  height: auto;
 }
 .Content {
-  font-size: 16px;
-  font-family: Inter;
+  font-size: 1rem;
+  font-family: "Inter";
   font-weight: 400;
   line-height: 1.15;
   text-transform: none;
   text-decoration: none;
-}
-.P-22 {
-  font-size: 22px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 300px;
-  font-stretch: normal;
-}
-.P-20 {
-  font-size: 20px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 300px;
-  font-stretch: normal;
-}
-.H2 {
-  font-size: 50px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 500px;
-  font-stretch: normal;
-}
-.H1 {
-  font-size: 84px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 300px;
-  font-stretch: normal;
-}
-.Label-2 {
-  font-size: 14px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.Label-5 {
-  font-size: 12px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.Heading {
-  font-size: 32px;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: 1.15;
-  text-transform: none;
-  text-decoration: none;
-}
-.Label-4 {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 300px;
-  font-stretch: normal;
-}
-.CTA {
-  font-size: 20px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.Label-Button {
-  font-size: 18px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.Label-3 {
-  font-size: 14px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 300px;
-  font-stretch: normal;
-}
-.Label-1 {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 700px;
-  font-stretch: normal;
-}
-.H3 {
-  font-size: 32px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.Label {
-  font-size: 20px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.P-18 {
-  font-size: 18px;
-  font-style: normal;
-  font-family: Ploni ML v2 AAA;
-  font-weight: 300px;
-  font-stretch: normal;
 }
 
 

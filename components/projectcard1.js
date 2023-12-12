@@ -3,43 +3,43 @@ import React from 'react'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-const Projectcard = (props) => {
+const Projectcard1 = (props) => {
   return (
     <>
       <div
         id="image-container"
-        className={`projectcard projectcard-projectcard ${props.rootClassName} `}
+        className={`projectcard projectcard1-projectcard ${props.rootClassName} `}
       >
         <div className="project-inner">
-          <div className="projectcard-projectstatus">
-            <span className="projectcard-text">{props.cardTag}</span>
+          <div className="projectcard1-projectstatus">
+            <span className="projectcard1-text">{props.cardTag}</span>
             <img
               alt={props.vectorStrokeAlt}
               src={props.vectorStrokeSrc}
-              className="projectcard-vector-stroke"
+              className="projectcard1-vector-stroke"
             />
           </div>
-          <div className="projectcard-projectcontent">
+          <div className="projectcard1-projectcontent">
             <img
               id="btn-1"
               alt={props.projectarrowbuttonAlt}
               src={props.projectarrowbuttonSrc}
               loading="lazy"
-              className="projectcard-projectarrowbutton"
+              className="projectcard1-projectarrowbutton"
             />
-            <div className="projectcard-projectdetails">
+            <div className="projectcard1-projectdetails">
               <div
                 id="info"
-                className="projectinfo projectcard-projectnamelocation"
+                className="projectinfo projectcard1-projectnamelocation"
               >
-                <span className="projectcard-text1">{props.cardSubTitle}</span>
-                <span className="projectcard-text2">{props.cardTitle}</span>
-                <span className="projectcard-text3">{props.exp}</span>
+                <span className="projectcard1-text1">{props.cardSubTitle}</span>
+                <span className="projectcard1-text2">{props.cardTitle}</span>
+                <span className="projectcard1-text3">{props.exp}</span>
               </div>
             </div>
           </div>
         </div>
-        <div className="projectcard-circle"></div>
+        <div className="projectcard1-circle"></div>
         <div className="project-img-small">
           <img
             id="mask"
@@ -49,7 +49,7 @@ const Projectcard = (props) => {
           />
         </div>
         <div>
-          <div className="projectcard-container1">
+          <div className="projectcard1-container1">
             <Script
               html={`<style>
 #image-container:hover #mask {
@@ -81,7 +81,7 @@ transition: .35s all 0.3s ease-in-out;
       </div>
       <style jsx>
         {`
-          .projectcard-projectstatus {
+          .projectcard1-projectstatus {
             gap: 9px;
             cursor: pointer;
             display: flex;
@@ -91,7 +91,7 @@ transition: .35s all 0.3s ease-in-out;
             justify-content: flex-end;
             background-color: rgba(255, 255, 255, 0.30000001192092896);
           }
-          .projectcard-text {
+          .projectcard1-text {
             color: var(--dl-color-carasso-plainwhite);
             height: auto;
             font-size: 14px;
@@ -102,11 +102,11 @@ transition: .35s all 0.3s ease-in-out;
             font-stretch: normal;
             text-decoration: none;
           }
-          .projectcard-vector-stroke {
+          .projectcard1-vector-stroke {
             width: 12px;
             height: 12px;
           }
-          .projectcard-projectcontent {
+          .projectcard1-projectcontent {
             gap: 15px;
             width: 322px;
             display: flex;
@@ -116,7 +116,7 @@ transition: .35s all 0.3s ease-in-out;
             flex-shrink: 0;
             justify-content: flex-end;
           }
-          .projectcard-projectarrowbutton {
+          .projectcard1-projectarrowbutton {
             top: 0;
             left: 0px;
             width: auto;
@@ -124,7 +124,7 @@ transition: .35s all 0.3s ease-in-out;
             height: auto;
             position: absolute;
           }
-          .projectcard-projectdetails {
+          .projectcard1-projectdetails {
             gap: 24px;
             width: auto;
             display: flex;
@@ -134,7 +134,7 @@ transition: .35s all 0.3s ease-in-out;
             flex-shrink: 0;
             flex-direction: column;
           }
-          .projectcard-text1 {
+          .projectcard1-text1 {
             color: var(--dl-color-carasso-plainwhite);
             height: 5px;
             font-size: 16px;
@@ -144,7 +144,7 @@ transition: .35s all 0.3s ease-in-out;
             font-stretch: normal;
             text-decoration: none;
           }
-          .projectcard-text2 {
+          .projectcard1-text2 {
             color: var(--dl-color-carasso-plainwhite);
             height: 40px;
             font-size: 50px;
@@ -154,7 +154,7 @@ transition: .35s all 0.3s ease-in-out;
             font-stretch: normal;
             text-decoration: none;
           }
-          .projectcard-text3 {
+          .projectcard1-text3 {
             color: var(--dl-color-carasso-plainwhite);
             width: 75%;
             height: auto;
@@ -166,7 +166,7 @@ transition: .35s all 0.3s ease-in-out;
             line-height: 140%;
             font-stretch: normal;
           }
-          .projectcard-circle {
+          .projectcard1-circle {
             top: 36px;
             flex: 0 0 auto;
             left: -72px;
@@ -183,25 +183,25 @@ transition: .35s all 0.3s ease-in-out;
             flex-direction: column;
             pointer-events: none;
           }
-          .projectcard-container1 {
+          .projectcard1-container1 {
             display: contents;
           }
 
           @media (max-width: 1200px) {
-            .projectcard-projectcard {
+            .projectcard1-projectcard {
               margin-left: 20px;
             }
           }
           @media (max-width: 991px) {
-            .projectcard-projectcard {
+            .projectcard1-projectcard {
               margin-left: 20px;
             }
           }
           @media (max-width: 479px) {
-            .projectcard-projectcard {
+            .projectcard1-projectcard {
               width: 350px;
             }
-            .projectcard-projectnamelocation {
+            .projectcard1-projectnamelocation {
               right: 70px;
             }
           }
@@ -211,32 +211,32 @@ transition: .35s all 0.3s ease-in-out;
   )
 }
 
-Projectcard.defaultProps = {
-  exp: 'בבסיס התכנון של המתחם עומדת האהבה לבישול ולאירוח, אהבה שניתן להרגיש החל במרחבים המשותפים, דרך הדירות עצמן ועד למטבחים.',
+Projectcard1.defaultProps = {
   cardSubTitle: 'קריית אונו',
+  imageSrc: '13c2adeb-f2f6-42e4-8373-e90c1ea0f10c',
   vectorStrokeAlt: 'VectorStroke3708',
+  vectorStrokeSrc: '/external/vectorstroke3708-4itf.svg',
   imageAlt: 'image',
-  rootClassName: '',
-  imageSrc: '/elipse-image-on-hover-400w.png',
-  vectorStrokeSrc: '/external/VectorStroke3708-4itf1.svg',
   cardTitle: 'אומאמי',
-  projectarrowbuttonAlt: 'projectarrowbutton3708',
-  projectarrowbuttonSrc: '/external/projectarrowbutton3708-a4n.svg',
+  rootClassName: '',
+  projectarrowbuttonSrc: '/external/projectarrowbutton3708-a4n1.svg',
   cardTag: 'בתכנון',
+  projectarrowbuttonAlt: 'projectarrowbutton3708',
+  exp: 'בבסיס התכנון של המתחם עומדת האהבה לבישול ולאירוח, אהבה שניתן להרגיש החל במרחבים המשותפים, דרך הדירות עצמן ועד למטבחים.',
 }
 
-Projectcard.propTypes = {
-  exp: PropTypes.string,
+Projectcard1.propTypes = {
   cardSubTitle: PropTypes.string,
-  vectorStrokeAlt: PropTypes.string,
-  imageAlt: PropTypes.string,
-  rootClassName: PropTypes.string,
   imageSrc: PropTypes.string,
+  vectorStrokeAlt: PropTypes.string,
   vectorStrokeSrc: PropTypes.string,
+  imageAlt: PropTypes.string,
   cardTitle: PropTypes.string,
-  projectarrowbuttonAlt: PropTypes.string,
+  rootClassName: PropTypes.string,
   projectarrowbuttonSrc: PropTypes.string,
   cardTag: PropTypes.string,
+  projectarrowbuttonAlt: PropTypes.string,
+  exp: PropTypes.string,
 }
 
-export default Projectcard
+export default Projectcard1
