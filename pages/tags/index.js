@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialProps0a55bResource from '../../resources/authors-page-initial-props-0a55b'
+import tagsPageInitialPropsEe397Resource from '../../resources/tags-page-initial-props-ee397'
 
-const Authors = (props) => {
+const Tags = (props) => {
   return (
     <>
-      <div className="authors-container">
+      <div className="tags-container">
         <Head>
-          <title>Authors - Carasso Real Estate</title>
+          <title>Tags - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Authors - Carasso Real Estate" />
+          <meta property="og:title" content="Tags - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -21,26 +21,25 @@ const Authors = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(AuthorsEntities) => (
+                renderItem={(TagsEntities) => (
                   <>
-                    <div className="authors-container1">
-                      <h1>{AuthorsEntities?.name}</h1>
-                      <span>{AuthorsEntities?.name}</span>
-                      <span>{AuthorsEntities?.email}</span>
+                    <div className="tags-container1">
+                      <span>{TagsEntities?.tag}</span>
+                      <span>{TagsEntities?.id}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.authorsEntities}
+          initialData={props.tagsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .authors-container {
+          .tags-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +47,7 @@ const Authors = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .authors-container1 {
+          .tags-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +60,19 @@ const Authors = (props) => {
   )
 }
 
-Authors.defaultProps = {
-  authorsEntities: [],
+Tags.defaultProps = {
+  tagsEntities: [],
 }
 
-Authors.propTypes = {
-  authorsEntities: PropTypes.array,
+Tags.propTypes = {
+  tagsEntities: PropTypes.array,
 }
 
-export default Authors
+export default Tags
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialProps0a55bResource({
+    const response = await tagsPageInitialPropsEe397Resource({
       ...context?.params,
     })
     if (!response) {
@@ -83,7 +82,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        authorsEntities: response,
+        tagsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

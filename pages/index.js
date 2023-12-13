@@ -77,13 +77,11 @@ const Home = (props) => {
                   />
                 </div>
                 <nav className="home-links1">
-                  <Link href="/posts">
-                    <a className="home-link1">בלוג</a>
-                  </Link>
-                  <span className="home-text005">Features</span>
-                  <span className="home-text006">Blog</span>
-                  <span className="home-text007">Pricing</span>
-                  <span className="home-text008">Team</span>
+                  <span className="home-text005">בלוג</span>
+                  <span className="home-text006">Features</span>
+                  <span className="home-text007">Blog</span>
+                  <span className="home-text008">Pricing</span>
+                  <span className="home-text009">Team</span>
                 </nav>
                 <div className="home-buttons1">
                   <button className="home-login1 button">Login</button>
@@ -191,12 +189,12 @@ window.addEventListener('DOMContentLoaded', function() {
                 src="/external/arrow7stroke3882-sj2n1.svg"
                 className="home-arrow7-stroke"
               />
-              <span className="home-text009">
+              <span className="home-text010">
                 <span>פרויקטים למגורים</span>
               </span>
             </button>
             <div className="home-projectsheadlineandtabs">
-              <span className="home-text011">
+              <span className="home-text012">
                 <span>
                   <span>
                     <span>
@@ -236,17 +234,17 @@ window.addEventListener('DOMContentLoaded', function() {
               </span>
               <div className="home-projectstabs">
                 <div className="home-frame70">
-                  <span className="home-text020">
+                  <span className="home-text021">
                     <span>משרדים ותעסוקה</span>
                   </span>
                 </div>
                 <div className="home-frame69">
-                  <span className="home-text022">
+                  <span className="home-text023">
                     <span>מרכזים מסחריים</span>
                   </span>
                 </div>
                 <div className="home-frame">
-                  <span className="home-text024">
+                  <span className="home-text025">
                     <span>מגורים</span>
                   </span>
                 </div>
@@ -349,12 +347,12 @@ function touchScroll (\$bind = '') {
             <div className="home-right-column">
               <div className="home-projectsrightblock1">
                 <div className="home-projectsheadlineandtabs1">
-                  <span className="home-text026">
+                  <span className="home-text027">
                     <span>פרויקטים נבחרים</span>
                     <br></br>
                   </span>
                   <div className="home-projectstabs1">
-                    <span className="home-text029">
+                    <span className="home-text030">
                       <span>מגורים</span>
                     </span>
                     <img
@@ -362,7 +360,7 @@ function touchScroll (\$bind = '') {
                       src="/external/vector543708-5chc1.svg"
                       className="home-vector54"
                     />
-                    <span className="home-text031">
+                    <span className="home-text032">
                       <span>מרכזים מסחריים</span>
                     </span>
                     <img
@@ -370,7 +368,7 @@ function touchScroll (\$bind = '') {
                       src="/external/vector553708-3m2r1.svg"
                       className="home-vector55"
                     />
-                    <span className="home-text033">משרדים ותעסוקה</span>
+                    <span className="home-text034">משרדים ותעסוקה</span>
                   </div>
                 </div>
                 <div className="home-container05">
@@ -380,7 +378,7 @@ function touchScroll (\$bind = '') {
                       src="/external/arrow7stroke3708-fasf1.svg"
                       className="home-arrow7-stroke1"
                     />
-                    <span className="home-text034">לפרויקטים נוספים</span>
+                    <span className="home-text035">לפרויקטים נוספים</span>
                   </button>
                 </div>
               </div>
@@ -446,8 +444,8 @@ function touchScroll (\$bind = '') {
               <div className="home-successcopycontent">
                 <div className="home-successnumbercontent">
                   <div className="home-bignumberscontent">
-                    <span className="home-text035">
-                      <span className="home-text036">
+                    <span className="home-text036">
+                      <span className="home-text037">
                         <span>90 שנים</span>
                         <br></br>
                         <span></span>
@@ -463,7 +461,7 @@ function touchScroll (\$bind = '') {
                               src="/external/vector5472-civk.svg"
                               className="home-vector"
                             />
-                            <span className="home-text041">
+                            <span className="home-text042">
                               <span>4,462</span>
                             </span>
                           </div>
@@ -473,7 +471,7 @@ function touchScroll (\$bind = '') {
                               src="/external/usersthree5472-lqi6.svg"
                               className="home-users-three"
                             />
-                            <span className="home-text043">
+                            <span className="home-text044">
                               <span>בעלי דירות שותפים</span>
                             </span>
                           </div>
@@ -485,7 +483,7 @@ function touchScroll (\$bind = '') {
                               src="/external/vector5472-le6b.svg"
                               className="home-vector1"
                             />
-                            <span className="home-text045">
+                            <span className="home-text046">
                               <span>54</span>
                             </span>
                           </div>
@@ -495,7 +493,7 @@ function touchScroll (\$bind = '') {
                               src="/external/buildingsicon5472-xnx4.svg"
                               className="home-buildingsicon"
                             />
-                            <span className="home-text047">
+                            <span className="home-text048">
                               <span>פרויקטים למגורים</span>
                             </span>
                           </div>
@@ -510,7 +508,7 @@ function touchScroll (\$bind = '') {
                                 src="/external/arrow7stroke5472-k5fk.svg"
                                 className="home-arrow7-stroke2"
                               />
-                              <span className="home-text049">
+                              <span className="home-text050">
                                 <span>סיפורי הצלחה</span>
                               </span>
                             </div>
@@ -523,7 +521,7 @@ function touchScroll (\$bind = '') {
                               src="/external/vector5472-wrob.svg"
                               className="home-vector2"
                             />
-                            <span className="home-text051">
+                            <span className="home-text052">
                               <span>11,110</span>
                             </span>
                           </div>
@@ -533,7 +531,7 @@ function touchScroll (\$bind = '') {
                               src="/external/arrowsquareout5472-jjvr.svg"
                               className="home-arrow-square-out"
                             />
-                            <span className="home-text053">
+                            <span className="home-text054">
                               <span>דירות לשיווק</span>
                             </span>
                           </div>
@@ -558,15 +556,15 @@ function touchScroll (\$bind = '') {
             <div className="home-leftcoloumn1"></div>
             <div className="home-rightcoloumn1">
               <div className="home-frame1261158162">
-                <span className="home-text055">
-                  <span className="home-text056">
+                <span className="home-text056">
+                  <span className="home-text057">
                     <span>השותפים שלך</span>
                     <br></br>
                     <span></span>
                   </span>
                   <span>להתחדשות עירונית</span>
                 </span>
-                <span className="home-text061">
+                <span className="home-text062">
                   <span>
                     אנחנו מחלוצי ההתחדשות העירונית בארץ, עם מעל ל-12 שנה של
                     ניסיון בתחום. אנחנו פעילים בהתחדשות שכונות ופרויקטים רחבי
@@ -582,7 +580,7 @@ function touchScroll (\$bind = '') {
                       src="/external/arrow7stroke5472-dn3f.svg"
                       className="home-arrow7-stroke3"
                     />
-                    <span className="home-text063">
+                    <span className="home-text064">
                       <span>התחדשות עירונית</span>
                     </span>
                   </div>
@@ -595,18 +593,18 @@ function touchScroll (\$bind = '') {
           <div className="home-leftcoloumn2">
             <div className="home-links2">
               <div className="home-linksrow2">
-                <span className="home-text065">
+                <span className="home-text066">
                   <span>פנו אלינו</span>
                 </span>
                 <div className="home-links3">
                   <div className="home-frame133">
-                    <span className="home-text067">
+                    <span className="home-text068">
                       <span>+972 050 123 1234</span>
                     </span>
-                    <span className="home-text069">
+                    <span className="home-text070">
                       <span>ריב״ל 24, תל אביב-יפו</span>
                     </span>
-                    <span className="home-text071">
+                    <span className="home-text072">
                       <span>info@carasso-nadlan.com</span>
                     </span>
                   </div>
@@ -630,42 +628,42 @@ function touchScroll (\$bind = '') {
                 </div>
               </div>
               <div className="home-linksrow21">
-                <span className="home-text073">
+                <span className="home-text074">
                   <span>פרויקטים</span>
                 </span>
                 <div className="home-links4">
-                  <span className="home-text075">
+                  <span className="home-text076">
                     <span>פרויקטים למגורים</span>
                   </span>
-                  <span className="home-text077">
+                  <span className="home-text078">
                     <span>סיפורי הצלחה</span>
                   </span>
-                  <span className="home-text079">
+                  <span className="home-text080">
                     <span>מרכזי קניות</span>
                   </span>
-                  <span className="home-text081">
+                  <span className="home-text082">
                     <span>משרדים והייטק</span>
                   </span>
                 </div>
               </div>
               <div className="home-linksrow1">
-                <span className="home-text083">
+                <span className="home-text084">
                   <span>על החברה</span>
                 </span>
                 <div className="home-links5">
-                  <span className="home-text085">
+                  <span className="home-text086">
                     <span>דף הבית</span>
                   </span>
-                  <span className="home-text087">
+                  <span className="home-text088">
                     <span>הסיפור שלנו</span>
                   </span>
-                  <span className="home-text089">
+                  <span className="home-text090">
                     <span>התחדשות עירונית</span>
                   </span>
-                  <span className="home-text091">
+                  <span className="home-text092">
                     <span>חדשות ועידכונים</span>
                   </span>
-                  <span className="home-text093">
+                  <span className="home-text094">
                     <span>יצירת קשר</span>
                   </span>
                 </div>
@@ -673,20 +671,20 @@ function touchScroll (\$bind = '') {
             </div>
             <div className="home-info">
               <div className="home-termslinks">
-                <span className="home-text095">
+                <span className="home-text096">
                   <span>הצהרת נגישות</span>
                 </span>
-                <span className="home-text097">
+                <span className="home-text098">
                   <span>איסוף נתונים</span>
                 </span>
-                <span className="home-text099">
+                <span className="home-text100">
                   <span>מדיניות פרטיות</span>
                 </span>
-                <span className="home-text101">
+                <span className="home-text102">
                   <span>אחריות תאגידית</span>
                 </span>
                 <div className="home-frame56">
-                  <span className="home-text103">
+                  <span className="home-text104">
                     <span>2023 קרסו</span>
                   </span>
                   <img
@@ -711,7 +709,7 @@ function touchScroll (\$bind = '') {
             />
             <div className="home-moveo-design-credit">
               <div className="home-moveologo">
-                <span className="home-text105">
+                <span className="home-text106">
                   <span>Designed by</span>
                 </span>
                 <img
@@ -898,12 +896,9 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-link1 {
-            margin-bottom: var(--dl-space-space-unit);
-            text-decoration: none;
-          }
           .home-text005 {
             margin-bottom: var(--dl-space-space-unit);
+            text-decoration: none;
           }
           .home-text006 {
             margin-bottom: var(--dl-space-space-unit);
@@ -912,6 +907,9 @@ function touchScroll (\$bind = '') {
             margin-bottom: var(--dl-space-space-unit);
           }
           .home-text008 {
+            margin-bottom: var(--dl-space-space-unit);
+          }
+          .home-text009 {
             margin-bottom: var(--dl-space-space-unit);
           }
           .home-buttons1 {
@@ -987,7 +985,7 @@ function touchScroll (\$bind = '') {
             width: 8px;
             height: 7px;
           }
-          .home-text009 {
+          .home-text010 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1008,7 +1006,7 @@ function touchScroll (\$bind = '') {
             flex-direction: column;
             justify-content: flex-end;
           }
-          .home-text011 {
+          .home-text012 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 42px;
@@ -1035,7 +1033,7 @@ function touchScroll (\$bind = '') {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .home-text020 {
+          .home-text021 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -1056,7 +1054,7 @@ function touchScroll (\$bind = '') {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .home-text022 {
+          .home-text023 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -1077,7 +1075,7 @@ function touchScroll (\$bind = '') {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .home-text024 {
+          .home-text025 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1123,7 +1121,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text026 {
+          .home-text027 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 50px;
@@ -1140,7 +1138,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text029 {
+          .home-text030 {
             color: rgba(187, 189, 191, 1);
             cursor: pointer;
             height: auto;
@@ -1153,10 +1151,10 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text029:hover {
+          .home-text030:hover {
             color: var(--dl-color-carasso-primaryblack);
           }
-          .home-text029:active {
+          .home-text030:active {
             color: var(--dl-color-carasso-primaryblack);
           }
           .home-vector54 {
@@ -1164,7 +1162,7 @@ function touchScroll (\$bind = '') {
             height: 1px;
             align-self: stretch;
           }
-          .home-text031 {
+          .home-text032 {
             color: rgba(187, 189, 191, 1);
             cursor: pointer;
             height: auto;
@@ -1177,10 +1175,10 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text031:hover {
+          .home-text032:hover {
             color: var(--dl-color-carasso-primaryblack);
           }
-          .home-text031:active {
+          .home-text032:active {
             color: var(--dl-color-carasso-primaryblack);
           }
           .home-vector55 {
@@ -1188,7 +1186,7 @@ function touchScroll (\$bind = '') {
             height: 1px;
             align-self: stretch;
           }
-          .home-text033 {
+          .home-text034 {
             color: rgb(187, 189, 191);
             cursor: pointer;
             height: auto;
@@ -1201,10 +1199,10 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text033:hover {
+          .home-text034:hover {
             color: var(--dl-color-carasso-primaryblack);
           }
-          .home-text033:active {
+          .home-text034:active {
             color: var(--dl-color-carasso-primaryblack);
           }
           .home-container05 {
@@ -1230,7 +1228,7 @@ function touchScroll (\$bind = '') {
             width: 8px;
             height: 7px;
           }
-          .home-text034 {
+          .home-text035 {
             color: var(--dl-color-carasso-primaryblack);
             cursor: pointer;
             height: auto;
@@ -1328,7 +1326,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text035 {
+          .home-text036 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 50px;
@@ -1340,7 +1338,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text036 {
+          .home-text037 {
             font-weight: 300;
           }
           .home-bignumbers {
@@ -1375,7 +1373,7 @@ function touchScroll (\$bind = '') {
             width: 15px;
             height: 15px;
           }
-          .home-text041 {
+          .home-text042 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 80px;
@@ -1403,7 +1401,7 @@ function touchScroll (\$bind = '') {
             width: 24px;
             height: 24px;
           }
-          .home-text043 {
+          .home-text044 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1433,7 +1431,7 @@ function touchScroll (\$bind = '') {
             width: 15px;
             height: 15px;
           }
-          .home-text045 {
+          .home-text046 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 80px;
@@ -1461,7 +1459,7 @@ function touchScroll (\$bind = '') {
             width: 24px;
             height: 24px;
           }
-          .home-text047 {
+          .home-text048 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1508,7 +1506,7 @@ function touchScroll (\$bind = '') {
             width: 8px;
             height: 7px;
           }
-          .home-text049 {
+          .home-text050 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1538,7 +1536,7 @@ function touchScroll (\$bind = '') {
             width: 15px;
             height: 15px;
           }
-          .home-text051 {
+          .home-text052 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 80px;
@@ -1566,7 +1564,7 @@ function touchScroll (\$bind = '') {
             width: 24px;
             height: 24px;
           }
-          .home-text053 {
+          .home-text054 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1635,7 +1633,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text055 {
+          .home-text056 {
             color: var(--dl-color-carasso-primaryblack);
             width: 407px;
             height: auto;
@@ -1648,10 +1646,10 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text056 {
+          .home-text057 {
             font-weight: 300;
           }
-          .home-text061 {
+          .home-text062 {
             color: var(--dl-color-carasso-primaryblack);
             width: 407px;
             height: auto;
@@ -1683,7 +1681,7 @@ function touchScroll (\$bind = '') {
             width: 8px;
             height: 7px;
           }
-          .home-text063 {
+          .home-text064 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1727,7 +1725,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text065 {
+          .home-text066 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1752,7 +1750,7 @@ function touchScroll (\$bind = '') {
             flex-direction: column;
             justify-content: center;
           }
-          .home-text067 {
+          .home-text068 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1764,7 +1762,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text069 {
+          .home-text070 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1776,7 +1774,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text071 {
+          .home-text072 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1811,7 +1809,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text073 {
+          .home-text074 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1829,7 +1827,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text075 {
+          .home-text076 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1841,7 +1839,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text077 {
+          .home-text078 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1853,7 +1851,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text079 {
+          .home-text080 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1865,7 +1863,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text081 {
+          .home-text082 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1883,7 +1881,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text083 {
+          .home-text084 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1901,7 +1899,7 @@ function touchScroll (\$bind = '') {
             align-items: flex-end;
             flex-direction: column;
           }
-          .home-text085 {
+          .home-text086 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1913,7 +1911,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text087 {
+          .home-text088 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1925,7 +1923,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text089 {
+          .home-text090 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1937,7 +1935,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text091 {
+          .home-text092 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1949,7 +1947,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text093 {
+          .home-text094 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1972,7 +1970,7 @@ function touchScroll (\$bind = '') {
             display: flex;
             align-items: center;
           }
-          .home-text095 {
+          .home-text096 {
             color: rgba(153, 153, 153, 1);
             height: auto;
             font-size: 16px;
@@ -1984,7 +1982,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text097 {
+          .home-text098 {
             color: rgba(153, 153, 153, 1);
             height: auto;
             font-size: 16px;
@@ -1996,7 +1994,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text099 {
+          .home-text100 {
             color: rgba(153, 153, 153, 1);
             height: auto;
             font-size: 16px;
@@ -2008,7 +2006,7 @@ function touchScroll (\$bind = '') {
             font-stretch: normal;
             text-decoration: none;
           }
-          .home-text101 {
+          .home-text102 {
             color: rgba(153, 153, 153, 1);
             height: auto;
             font-size: 16px;
@@ -2025,7 +2023,7 @@ function touchScroll (\$bind = '') {
             display: flex;
             align-items: center;
           }
-          .home-text103 {
+          .home-text104 {
             color: rgba(153, 153, 153, 1);
             height: auto;
             font-size: 16px;
@@ -2080,7 +2078,7 @@ function touchScroll (\$bind = '') {
             align-items: center;
             justify-content: center;
           }
-          .home-text105 {
+          .home-text106 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 14px;
@@ -2144,7 +2142,7 @@ function touchScroll (\$bind = '') {
             .home-projectsheadlineandtabs {
               width: auto;
             }
-            .home-text011 {
+            .home-text012 {
               font-style: normal;
               font-weight: 400;
             }
@@ -2169,11 +2167,7 @@ function touchScroll (\$bind = '') {
               align-items: center;
               justify-content: center;
             }
-            .home-link1 {
-              margin-bottom: var(--dl-space-space-unit);
-            }
             .home-text005 {
-              margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
             .home-text006 {
@@ -2185,6 +2179,10 @@ function touchScroll (\$bind = '') {
               margin-bottom: var(--dl-space-space-unit);
             }
             .home-text008 {
+              margin-left: 0;
+              margin-bottom: var(--dl-space-space-unit);
+            }
+            .home-text009 {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }

@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialProps0a55bResource from '../../resources/authors-page-initial-props-0a55b'
+import projectsPageInitialProps690dcResource from '../../resources/projects-page-initial-props-690dc'
 
-const Authors = (props) => {
+const Projects = (props) => {
   return (
     <>
-      <div className="authors-container">
+      <div className="projects-container">
         <Head>
-          <title>Authors - Carasso Real Estate</title>
+          <title>Projects - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Authors - Carasso Real Estate" />
+          <meta property="og:title" content="Projects - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -21,26 +21,26 @@ const Authors = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(AuthorsEntities) => (
+                renderItem={(ProjectsEntities) => (
                   <>
-                    <div className="authors-container1">
-                      <h1>{AuthorsEntities?.name}</h1>
-                      <span>{AuthorsEntities?.name}</span>
-                      <span>{AuthorsEntities?.email}</span>
+                    <div className="projects-container1">
+                      <span>{ProjectsEntities?.project_name}</span>
+                      <span>{ProjectsEntities?.City}</span>
+                      <span>{ProjectsEntities?.Summery}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.authorsEntities}
+          initialData={props.projectsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .authors-container {
+          .projects-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Authors = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .authors-container1 {
+          .projects-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Authors = (props) => {
   )
 }
 
-Authors.defaultProps = {
-  authorsEntities: [],
+Projects.defaultProps = {
+  projectsEntities: [],
 }
 
-Authors.propTypes = {
-  authorsEntities: PropTypes.array,
+Projects.propTypes = {
+  projectsEntities: PropTypes.array,
 }
 
-export default Authors
+export default Projects
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialProps0a55bResource({
+    const response = await projectsPageInitialProps690dcResource({
       ...context?.params,
     })
     if (!response) {
@@ -83,7 +83,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        authorsEntities: response,
+        projectsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

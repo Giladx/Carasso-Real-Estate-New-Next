@@ -4,23 +4,23 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPaths11ecaResource from '../../resources/posts-page-initial-paths-11eca'
-import postsPageInitialPropsB5589Resource from '../../resources/posts-page-initial-props-b5589'
+import postsPageInitialPathsFe1caResource from '../../resources/posts-page-initial-paths-fe1ca'
+import postsPageInitialProps480fdResource from '../../resources/posts-page-initial-props-480fd'
 
-const Posts = (props) => {
+const Posts11 = (props) => {
   return (
     <>
-      <div className="posts-container">
+      <div className="posts11-container">
         <Head>
-          <title>Posts - Carasso Real Estate</title>
+          <title>Posts1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts - Carasso Real Estate" />
+          <meta property="og:title" content="Posts1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(PostsEntity) => (
             <>
-              <div className="posts-container1">
+              <div className="posts11-container1">
                 <h1>{PostsEntity?.Title}</h1>
                 <span>{PostsEntity?.Content}</span>
                 <span>{PostsEntity?.slug}</span>
@@ -34,7 +34,7 @@ const Posts = (props) => {
       </div>
       <style jsx>
         {`
-          .posts-container {
+          .posts11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -42,7 +42,7 @@ const Posts = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts-container1 {
+          .posts11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -54,19 +54,19 @@ const Posts = (props) => {
   )
 }
 
-Posts.defaultProps = {
+Posts11.defaultProps = {
   postsEntity: [],
 }
 
-Posts.propTypes = {
+Posts11.propTypes = {
   postsEntity: PropTypes.array,
 }
 
-export default Posts
+export default Posts11
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPaths11ecaResource({})
+    const response = await postsPageInitialPathsFe1caResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsB5589Resource({
+    const response = await postsPageInitialProps480fdResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -100,6 +100,7 @@ export async function getStaticProps(context) {
         postsEntity: response?.data?.[0],
         ...response?.meta,
       },
+      revalidate: 60,
     }
   } catch (error) {
     return {

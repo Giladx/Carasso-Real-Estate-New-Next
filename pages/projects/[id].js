@@ -4,37 +4,37 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialPaths3d35fResource from '../../resources/authors-page-initial-paths-3d35f'
-import authorsPageInitialProps0bc17Resource from '../../resources/authors-page-initial-props-0bc17'
+import projectsPageInitialPathsEcaacResource from '../../resources/projects-page-initial-paths-ecaac'
+import projectsPageInitialProps9f4ddResource from '../../resources/projects-page-initial-props-9f4dd'
 
-const Authors11 = (props) => {
+const Projects11 = (props) => {
   return (
     <>
-      <div className="authors11-container">
+      <div className="projects11-container">
         <Head>
-          <title>Authors1 - Carasso Real Estate</title>
+          <title>Projects1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Authors1 - Carasso Real Estate" />
+          <meta property="og:title" content="Projects1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
-          renderSuccess={(AuthorsEntity) => (
+          renderSuccess={(ProjectsEntity) => (
             <>
-              <div className="authors11-container1">
-                <h1>{AuthorsEntity?.name}</h1>
-                <span>{AuthorsEntity?.email}</span>
-                <span>{AuthorsEntity?.id}</span>
+              <div className="projects11-container1">
+                <span>{ProjectsEntity?.project_name}</span>
+                <span>{ProjectsEntity?.City}</span>
+                <span>{ProjectsEntity?.Summery}</span>
               </div>
             </>
           )}
-          initialData={props.authorsEntity}
+          initialData={props.projectsEntity}
           persistDataDuringLoading={true}
-          key={props?.authorsEntity?.id}
+          key={props?.projectsEntity?.id}
         />
       </div>
       <style jsx>
         {`
-          .authors11-container {
+          .projects11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -42,7 +42,7 @@ const Authors11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .authors11-container1 {
+          .projects11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -54,19 +54,19 @@ const Authors11 = (props) => {
   )
 }
 
-Authors11.defaultProps = {
-  authorsEntity: [],
+Projects11.defaultProps = {
+  projectsEntity: [],
 }
 
-Authors11.propTypes = {
-  authorsEntity: PropTypes.array,
+Projects11.propTypes = {
+  projectsEntity: PropTypes.array,
 }
 
-export default Authors11
+export default Projects11
 
 export async function getStaticPaths() {
   try {
-    const response = await authorsPageInitialPaths3d35fResource({})
+    const response = await projectsPageInitialPathsEcaacResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialProps0bc17Resource({
+    const response = await projectsPageInitialProps9f4ddResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -97,7 +97,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        authorsEntity: response?.data?.[0],
+        projectsEntity: response?.data?.[0],
         ...response?.meta,
       },
       revalidate: 60,

@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPaths2ad0cResource from '../../../resources/posts-page-initial-paths-2ad0c'
-import postsPageInitialProps9dee3Resource from '../../../resources/posts-page-initial-props-9dee3'
+import projectsPageInitialPaths87677Resource from '../../../resources/projects-page-initial-paths-87677'
+import projectsPageInitialPropsD20fbResource from '../../../resources/projects-page-initial-props-d20fb'
 
-const Posts1 = (props) => {
+const Projects1 = (props) => {
   return (
     <>
-      <div className="posts1-container">
+      <div className="projects1-container">
         <Head>
-          <title>Posts - Carasso Real Estate</title>
+          <title>Projects - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts - Carasso Real Estate" />
+          <meta property="og:title" content="Projects - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -22,26 +22,26 @@ const Posts1 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(PostsEntities) => (
+                renderItem={(ProjectsEntities) => (
                   <>
-                    <div className="posts1-container1">
-                      <h1>{PostsEntities?.Title}</h1>
-                      <span>{PostsEntities?.Title}</span>
-                      <span>{PostsEntities?.Content}</span>
+                    <div className="projects1-container1">
+                      <span>{ProjectsEntities?.project_name}</span>
+                      <span>{ProjectsEntities?.City}</span>
+                      <span>{ProjectsEntities?.Summery}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.postsEntities}
+          initialData={props.projectsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .posts1-container {
+          .projects1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -49,7 +49,7 @@ const Posts1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts1-container1 {
+          .projects1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -62,19 +62,19 @@ const Posts1 = (props) => {
   )
 }
 
-Posts1.defaultProps = {
-  postsEntities: [],
+Projects1.defaultProps = {
+  projectsEntities: [],
 }
 
-Posts1.propTypes = {
-  postsEntities: PropTypes.array,
+Projects1.propTypes = {
+  projectsEntities: PropTypes.array,
 }
 
-export default Posts1
+export default Projects1
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPaths2ad0cResource({})
+    const response = await projectsPageInitialPaths87677Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialProps9dee3Resource({
+    const response = await projectsPageInitialPropsD20fbResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -111,7 +111,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        postsEntities: response,
+        projectsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,
