@@ -6,8 +6,8 @@ import Script from 'dangerous-html/react'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPathsE1be1Resource from '../../../resources/posts-page-initial-paths-e1be1'
-import postsPageInitialPropsDf32cResource from '../../../resources/posts-page-initial-props-df32c'
+import postsPageInitialPaths1acf5Resource from '../../../resources/posts-page-initial-paths-1acf5'
+import postsPageInitialProps84dbeResource from '../../../resources/posts-page-initial-props-84dbe'
 
 const Posts11 = (props) => {
   return (
@@ -719,7 +719,7 @@ export default Posts11
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPathsE1be1Resource({})
+    const response = await postsPageInitialPaths1acf5Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -745,7 +745,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsDf32cResource({
+    const response = await postsPageInitialProps84dbeResource({
       ...context?.params,
       start: (context.params.page - 1) * 100,
     })
