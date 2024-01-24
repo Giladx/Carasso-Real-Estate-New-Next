@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import brandsPageInitialPropsBa1a6Resource from '../../resources/brands-page-initial-props-ba1a6'
+import brandsPageInitialProps7a462Resource from '../../resources/brands-page-initial-props-7a462'
 
 const Brands = (props) => {
   return (
@@ -73,7 +73,7 @@ export default Brands
 
 export async function getStaticProps(context) {
   try {
-    const response = await brandsPageInitialPropsBa1a6Resource({
+    const response = await brandsPageInitialProps7a462Resource({
       ...context?.params,
     })
     if (!response) {

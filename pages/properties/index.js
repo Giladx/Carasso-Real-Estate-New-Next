@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import propertiesPageInitialPropsBb83aResource from '../../resources/properties-page-initial-props-bb83a'
+import propertiesPageInitialProps560e5Resource from '../../resources/properties-page-initial-props-560e5'
 
 const Properties = (props) => {
   return (
@@ -78,7 +78,7 @@ export default Properties
 
 export async function getStaticProps(context) {
   try {
-    const response = await propertiesPageInitialPropsBb83aResource({
+    const response = await propertiesPageInitialProps560e5Resource({
       ...context?.params,
     })
     if (!response) {
