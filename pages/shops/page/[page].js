@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPaths46a2dResource from '../../../resources/tags-page-initial-paths-46a2d'
-import tagsPageInitialPropsBd8caResource from '../../../resources/tags-page-initial-props-bd8ca'
+import shopsPageInitialPaths06daeResource from '../../../resources/shops-page-initial-paths-06dae'
+import shopsPageInitialProps3a309Resource from '../../../resources/shops-page-initial-props-3a309'
 
-const Tags11 = (props) => {
+const Shops11 = (props) => {
   return (
     <>
-      <div className="tags11-container">
+      <div className="shops11-container">
         <Head>
-          <title>Tags1 - Carasso Real Estate</title>
+          <title>Shops1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
+          <meta property="og:title" content="Shops1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -22,25 +22,26 @@ const Tags11 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(TagsEntities) => (
+                renderItem={(ShopsEntities) => (
                   <>
-                    <div className="tags11-container1">
-                      <span>{TagsEntities?.tag}</span>
-                      <span>{TagsEntities?.id}</span>
+                    <div className="shops11-container1">
+                      <span>{ShopsEntities?.Shop_title}</span>
+                      <span>{ShopsEntities?.Shop_phone}</span>
+                      <span>{ShopsEntities?.Shop_opening_hours}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.tagsEntities}
+          initialData={props.shopsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .tags11-container {
+          .shops11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +49,7 @@ const Tags11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags11-container1 {
+          .shops11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +62,19 @@ const Tags11 = (props) => {
   )
 }
 
-Tags11.defaultProps = {
-  tagsEntities: [],
+Shops11.defaultProps = {
+  shopsEntities: [],
 }
 
-Tags11.propTypes = {
-  tagsEntities: PropTypes.array,
+Shops11.propTypes = {
+  shopsEntities: PropTypes.array,
 }
 
-export default Tags11
+export default Shops11
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPaths46a2dResource({})
+    const response = await shopsPageInitialPaths06daeResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -99,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialPropsBd8caResource({
+    const response = await shopsPageInitialProps3a309Resource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -110,7 +111,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        tagsEntities: response,
+        shopsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

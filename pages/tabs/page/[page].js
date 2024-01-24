@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPaths46a2dResource from '../../../resources/tags-page-initial-paths-46a2d'
-import tagsPageInitialPropsBd8caResource from '../../../resources/tags-page-initial-props-bd8ca'
+import tabsPageInitialPathsCa94eResource from '../../../resources/tabs-page-initial-paths-ca94e'
+import tabsPageInitialPropsB3f4cResource from '../../../resources/tabs-page-initial-props-b3f4c'
 
-const Tags11 = (props) => {
+const Tabs11 = (props) => {
   return (
     <>
-      <div className="tags11-container">
+      <div className="tabs11-container">
         <Head>
-          <title>Tags1 - Carasso Real Estate</title>
+          <title>Tabs1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tabs1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -22,25 +22,24 @@ const Tags11 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(TagsEntities) => (
+                renderItem={(TabsEntities) => (
                   <>
-                    <div className="tags11-container1">
-                      <span>{TagsEntities?.tag}</span>
-                      <span>{TagsEntities?.id}</span>
+                    <div className="tabs11-container1">
+                      <span>{TabsEntities?.id}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.tagsEntities}
+          initialData={props.tabsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .tags11-container {
+          .tabs11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +47,7 @@ const Tags11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags11-container1 {
+          .tabs11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +60,19 @@ const Tags11 = (props) => {
   )
 }
 
-Tags11.defaultProps = {
-  tagsEntities: [],
+Tabs11.defaultProps = {
+  tabsEntities: [],
 }
 
-Tags11.propTypes = {
-  tagsEntities: PropTypes.array,
+Tabs11.propTypes = {
+  tabsEntities: PropTypes.array,
 }
 
-export default Tags11
+export default Tabs11
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPaths46a2dResource({})
+    const response = await tabsPageInitialPathsCa94eResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -99,7 +98,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialPropsBd8caResource({
+    const response = await tabsPageInitialPropsB3f4cResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -110,7 +109,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        tagsEntities: response,
+        tabsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import projectsPageInitialPathsEcaacResource from '../../resources/projects-page-initial-paths-ecaac'
-import projectsPageInitialProps9f4ddResource from '../../resources/projects-page-initial-props-9f4dd'
+import projectsPageInitialPathsA1954Resource from '../../resources/projects-page-initial-paths-a1954'
+import projectsPageInitialProps133f4Resource from '../../resources/projects-page-initial-props-133f4'
 
 const Projects11 = (props) => {
   return (
@@ -21,9 +21,9 @@ const Projects11 = (props) => {
           renderSuccess={(ProjectsEntity) => (
             <>
               <div className="projects11-container1">
-                <span>{ProjectsEntity?.project_name}</span>
-                <span>{ProjectsEntity?.City}</span>
-                <span>{ProjectsEntity?.Summery}</span>
+                <span>{ProjectsEntity?.Brand_name}</span>
+                <span>{ProjectsEntity?.Brand_Slogan}</span>
+                <span>{ProjectsEntity?.City__c}</span>
               </div>
             </>
           )}
@@ -66,7 +66,7 @@ export default Projects11
 
 export async function getStaticPaths() {
   try {
-    const response = await projectsPageInitialPathsEcaacResource({})
+    const response = await projectsPageInitialPathsA1954Resource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await projectsPageInitialProps9f4ddResource({
+    const response = await projectsPageInitialProps133f4Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

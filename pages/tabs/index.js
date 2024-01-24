@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPropsCb351Resource from '../../resources/posts-page-initial-props-cb351'
+import tabsPageInitialPropsD6908Resource from '../../resources/tabs-page-initial-props-d6908'
 
-const Posts1 = (props) => {
+const Tabs1 = (props) => {
   return (
     <>
-      <div className="posts1-container">
+      <div className="tabs1-container">
         <Head>
-          <title>Posts1 - Carasso Real Estate</title>
+          <title>Tabs1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tabs1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -21,26 +21,24 @@ const Posts1 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(PostsEntities) => (
+                renderItem={(TabsEntities) => (
                   <>
-                    <div className="posts1-container1">
-                      <h1>{PostsEntities?.Title}</h1>
-                      <span>{PostsEntities?.Title}</span>
-                      <span>{PostsEntities?.Content}</span>
+                    <div className="tabs1-container1">
+                      <span>{TabsEntities?.id}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.postsEntities}
+          initialData={props.tabsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .posts1-container {
+          .tabs1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +46,7 @@ const Posts1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts1-container1 {
+          .tabs1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +59,19 @@ const Posts1 = (props) => {
   )
 }
 
-Posts1.defaultProps = {
-  postsEntities: [],
+Tabs1.defaultProps = {
+  tabsEntities: [],
 }
 
-Posts1.propTypes = {
-  postsEntities: PropTypes.array,
+Tabs1.propTypes = {
+  tabsEntities: PropTypes.array,
 }
 
-export default Posts1
+export default Tabs1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsCb351Resource({
+    const response = await tabsPageInitialPropsD6908Resource({
       ...context?.params,
     })
     if (!response) {
@@ -83,7 +81,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        postsEntities: response,
+        tabsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

@@ -4,16 +4,19 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPropsCb351Resource from '../../resources/posts-page-initial-props-cb351'
+import propertiesPageInitialPropsBb83aResource from '../../resources/properties-page-initial-props-bb83a'
 
-const Posts1 = (props) => {
+const Properties = (props) => {
   return (
     <>
-      <div className="posts1-container">
+      <div className="properties-container">
         <Head>
-          <title>Posts1 - Carasso Real Estate</title>
+          <title>Properties - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts1 - Carasso Real Estate" />
+          <meta
+            property="og:title"
+            content="Properties - Carasso Real Estate"
+          />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -21,26 +24,28 @@ const Posts1 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(PostsEntities) => (
+                renderItem={(PropertiesEntities) => (
                   <>
-                    <div className="posts1-container1">
-                      <h1>{PostsEntities?.Title}</h1>
-                      <span>{PostsEntities?.Title}</span>
-                      <span>{PostsEntities?.Content}</span>
+                    <div className="properties-container1">
+                      <span>{PropertiesEntities?.Internal_Property_ID__c}</span>
+                      <span>{PropertiesEntities?.Apartment_Model_text__c}</span>
+                      <span>
+                        {PropertiesEntities?.Building_Number_for_formula__c}
+                      </span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.postsEntities}
+          initialData={props.propertiesEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .posts1-container {
+          .properties-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +53,7 @@ const Posts1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts1-container1 {
+          .properties-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +66,19 @@ const Posts1 = (props) => {
   )
 }
 
-Posts1.defaultProps = {
-  postsEntities: [],
+Properties.defaultProps = {
+  propertiesEntities: [],
 }
 
-Posts1.propTypes = {
-  postsEntities: PropTypes.array,
+Properties.propTypes = {
+  propertiesEntities: PropTypes.array,
 }
 
-export default Posts1
+export default Properties
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsCb351Resource({
+    const response = await propertiesPageInitialPropsBb83aResource({
       ...context?.params,
     })
     if (!response) {
@@ -83,7 +88,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        postsEntities: response,
+        propertiesEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

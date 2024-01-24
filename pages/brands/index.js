@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPropsCb351Resource from '../../resources/posts-page-initial-props-cb351'
+import brandsPageInitialPropsBa1a6Resource from '../../resources/brands-page-initial-props-ba1a6'
 
-const Posts1 = (props) => {
+const Brands = (props) => {
   return (
     <>
-      <div className="posts1-container">
+      <div className="brands-container">
         <Head>
-          <title>Posts1 - Carasso Real Estate</title>
+          <title>Brands - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts1 - Carasso Real Estate" />
+          <meta property="og:title" content="Brands - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -21,26 +21,26 @@ const Posts1 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(PostsEntities) => (
+                renderItem={(BrandsEntities) => (
                   <>
-                    <div className="posts1-container1">
-                      <h1>{PostsEntities?.Title}</h1>
-                      <span>{PostsEntities?.Title}</span>
-                      <span>{PostsEntities?.Content}</span>
+                    <div className="brands-container1">
+                      <span>{BrandsEntities?.Brand_name}</span>
+                      <span>{BrandsEntities?.Brand_Slogan}</span>
+                      <span>{BrandsEntities?.City_c}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.postsEntities}
+          initialData={props.brandsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .posts1-container {
+          .brands-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Posts1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts1-container1 {
+          .brands-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Posts1 = (props) => {
   )
 }
 
-Posts1.defaultProps = {
-  postsEntities: [],
+Brands.defaultProps = {
+  brandsEntities: [],
 }
 
-Posts1.propTypes = {
-  postsEntities: PropTypes.array,
+Brands.propTypes = {
+  brandsEntities: PropTypes.array,
 }
 
-export default Posts1
+export default Brands
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsCb351Resource({
+    const response = await brandsPageInitialPropsBa1a6Resource({
       ...context?.params,
     })
     if (!response) {
@@ -83,7 +83,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        postsEntities: response,
+        brandsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

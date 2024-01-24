@@ -4,36 +4,40 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPaths7b91eResource from '../../resources/tags-page-initial-paths-7b91e'
-import tagsPageInitialProps61f62Resource from '../../resources/tags-page-initial-props-61f62'
+import propertiesPageInitialPathsF2789Resource from '../../resources/properties-page-initial-paths-f2789'
+import propertiesPageInitialPropsA01ceResource from '../../resources/properties-page-initial-props-a01ce'
 
-const Tags = (props) => {
+const Properties11 = (props) => {
   return (
     <>
-      <div className="tags-container">
+      <div className="properties11-container">
         <Head>
-          <title>Tags - Carasso Real Estate</title>
+          <title>Properties1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags - Carasso Real Estate" />
+          <meta
+            property="og:title"
+            content="Properties1 - Carasso Real Estate"
+          />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
-          renderSuccess={(TagsEntity) => (
+          renderSuccess={(PropertiesEntity) => (
             <>
-              <div className="tags-container1">
-                <span>{TagsEntity?.tag}</span>
-                <span>{TagsEntity?.id}</span>
+              <div className="properties11-container1">
+                <span>{PropertiesEntity?.Internal_Property_ID__c}</span>
+                <span>{PropertiesEntity?.Apartment_Model_text__c}</span>
+                <span>{PropertiesEntity?.Building_Number_for_formula__c}</span>
               </div>
             </>
           )}
-          initialData={props.tagsEntity}
+          initialData={props.propertiesEntity}
           persistDataDuringLoading={true}
-          key={props?.tagsEntity?.id}
+          key={props?.propertiesEntity?.id}
         />
       </div>
       <style jsx>
         {`
-          .tags-container {
+          .properties11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -41,7 +45,7 @@ const Tags = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags-container1 {
+          .properties11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -53,19 +57,19 @@ const Tags = (props) => {
   )
 }
 
-Tags.defaultProps = {
-  tagsEntity: [],
+Properties11.defaultProps = {
+  propertiesEntity: [],
 }
 
-Tags.propTypes = {
-  tagsEntity: PropTypes.array,
+Properties11.propTypes = {
+  propertiesEntity: PropTypes.array,
 }
 
-export default Tags
+export default Properties11
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPaths7b91eResource({})
+    const response = await propertiesPageInitialPathsF2789Resource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -86,7 +90,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialProps61f62Resource({
+    const response = await propertiesPageInitialPropsA01ceResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -96,7 +100,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        tagsEntity: response?.data?.[0],
+        propertiesEntity: response?.data?.[0],
         ...response?.meta,
       },
       revalidate: 60,

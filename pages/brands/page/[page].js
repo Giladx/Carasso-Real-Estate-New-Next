@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPaths46a2dResource from '../../../resources/tags-page-initial-paths-46a2d'
-import tagsPageInitialPropsBd8caResource from '../../../resources/tags-page-initial-props-bd8ca'
+import brandsPageInitialPathsDaa4eResource from '../../../resources/brands-page-initial-paths-daa4e'
+import brandsPageInitialProps7398dResource from '../../../resources/brands-page-initial-props-7398d'
 
-const Tags11 = (props) => {
+const Brands1 = (props) => {
   return (
     <>
-      <div className="tags11-container">
+      <div className="brands1-container">
         <Head>
-          <title>Tags1 - Carasso Real Estate</title>
+          <title>Brands - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
+          <meta property="og:title" content="Brands - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -22,25 +22,26 @@ const Tags11 = (props) => {
             <>
               <Repeater
                 items={params}
-                renderItem={(TagsEntities) => (
+                renderItem={(BrandsEntities) => (
                   <>
-                    <div className="tags11-container1">
-                      <span>{TagsEntities?.tag}</span>
-                      <span>{TagsEntities?.id}</span>
+                    <div className="brands1-container1">
+                      <span>{BrandsEntities?.Brand_name}</span>
+                      <span>{BrandsEntities?.Brand_Slogan}</span>
+                      <span>{BrandsEntities?.City_c}</span>
                     </div>
                   </>
                 )}
               />
             </>
           )}
-          initialData={props.tagsEntities}
+          initialData={props.brandsEntities}
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
       </div>
       <style jsx>
         {`
-          .tags11-container {
+          .brands1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +49,7 @@ const Tags11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags11-container1 {
+          .brands1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +62,19 @@ const Tags11 = (props) => {
   )
 }
 
-Tags11.defaultProps = {
-  tagsEntities: [],
+Brands1.defaultProps = {
+  brandsEntities: [],
 }
 
-Tags11.propTypes = {
-  tagsEntities: PropTypes.array,
+Brands1.propTypes = {
+  brandsEntities: PropTypes.array,
 }
 
-export default Tags11
+export default Brands1
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPaths46a2dResource({})
+    const response = await brandsPageInitialPathsDaa4eResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -99,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialPropsBd8caResource({
+    const response = await brandsPageInitialProps7398dResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -110,7 +111,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        tagsEntities: response,
+        brandsEntities: response,
         ...response?.meta,
       },
       revalidate: 60,

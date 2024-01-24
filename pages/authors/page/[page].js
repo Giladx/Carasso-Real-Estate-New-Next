@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialPaths2f604Resource from '../../../resources/authors-page-initial-paths-2f604'
-import authorsPageInitialPropsB9f56Resource from '../../../resources/authors-page-initial-props-b9f56'
+import authorsPageInitialPaths275ebResource from '../../../resources/authors-page-initial-paths-275eb'
+import authorsPageInitialProps26ae8Resource from '../../../resources/authors-page-initial-props-26ae8'
 
-const Authors1 = (props) => {
+const Authors11 = (props) => {
   return (
     <>
-      <div className="authors1-container">
+      <div className="authors11-container">
         <Head>
-          <title>Authors - Carasso Real Estate</title>
+          <title>Authors1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Authors - Carasso Real Estate" />
+          <meta property="og:title" content="Authors1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -24,7 +24,7 @@ const Authors1 = (props) => {
                 items={params}
                 renderItem={(AuthorsEntities) => (
                   <>
-                    <div className="authors1-container1">
+                    <div className="authors11-container1">
                       <h1>{AuthorsEntities?.name}</h1>
                       <span>{AuthorsEntities?.name}</span>
                       <span>{AuthorsEntities?.email}</span>
@@ -41,7 +41,7 @@ const Authors1 = (props) => {
       </div>
       <style jsx>
         {`
-          .authors1-container {
+          .authors11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -49,7 +49,7 @@ const Authors1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .authors1-container1 {
+          .authors11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -62,19 +62,19 @@ const Authors1 = (props) => {
   )
 }
 
-Authors1.defaultProps = {
+Authors11.defaultProps = {
   authorsEntities: [],
 }
 
-Authors1.propTypes = {
+Authors11.propTypes = {
   authorsEntities: PropTypes.array,
 }
 
-export default Authors1
+export default Authors11
 
 export async function getStaticPaths() {
   try {
-    const response = await authorsPageInitialPaths2f604Resource({})
+    const response = await authorsPageInitialPaths275ebResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialPropsB9f56Resource({
+    const response = await authorsPageInitialProps26ae8Resource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })

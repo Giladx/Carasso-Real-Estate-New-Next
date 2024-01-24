@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import projectsPageInitialPaths87677Resource from '../../../resources/projects-page-initial-paths-87677'
-import projectsPageInitialPropsD20fbResource from '../../../resources/projects-page-initial-props-d20fb'
+import projectsPageInitialPaths221a7Resource from '../../../resources/projects-page-initial-paths-221a7'
+import projectsPageInitialProps43d0fResource from '../../../resources/projects-page-initial-props-43d0f'
 
 const Projects1 = (props) => {
   return (
@@ -25,9 +25,9 @@ const Projects1 = (props) => {
                 renderItem={(ProjectsEntities) => (
                   <>
                     <div className="projects1-container1">
-                      <span>{ProjectsEntities?.project_name}</span>
-                      <span>{ProjectsEntities?.City}</span>
-                      <span>{ProjectsEntities?.Summery}</span>
+                      <span>{ProjectsEntities?.Brand_name}</span>
+                      <span>{ProjectsEntities?.Brand_Slogan}</span>
+                      <span>{ProjectsEntities?.City__c}</span>
                     </div>
                   </>
                 )}
@@ -74,7 +74,7 @@ export default Projects1
 
 export async function getStaticPaths() {
   try {
-    const response = await projectsPageInitialPaths87677Resource({})
+    const response = await projectsPageInitialPaths221a7Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await projectsPageInitialPropsD20fbResource({
+    const response = await projectsPageInitialProps43d0fResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })

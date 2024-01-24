@@ -4,36 +4,37 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPaths7b91eResource from '../../resources/tags-page-initial-paths-7b91e'
-import tagsPageInitialProps61f62Resource from '../../resources/tags-page-initial-props-61f62'
+import shopsPageInitialPathsA18a3Resource from '../../resources/shops-page-initial-paths-a18a3'
+import shopsPageInitialProps41990Resource from '../../resources/shops-page-initial-props-41990'
 
-const Tags = (props) => {
+const Shops = (props) => {
   return (
     <>
-      <div className="tags-container">
+      <div className="shops-container">
         <Head>
-          <title>Tags - Carasso Real Estate</title>
+          <title>Shops - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags - Carasso Real Estate" />
+          <meta property="og:title" content="Shops - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
-          renderSuccess={(TagsEntity) => (
+          renderSuccess={(ShopsEntity) => (
             <>
-              <div className="tags-container1">
-                <span>{TagsEntity?.tag}</span>
-                <span>{TagsEntity?.id}</span>
+              <div className="shops-container1">
+                <span>{ShopsEntity?.Shop_title}</span>
+                <span>{ShopsEntity?.Shop_phone}</span>
+                <span>{ShopsEntity?.Shop_opening_hours}</span>
               </div>
             </>
           )}
-          initialData={props.tagsEntity}
+          initialData={props.shopsEntity}
           persistDataDuringLoading={true}
-          key={props?.tagsEntity?.id}
+          key={props?.shopsEntity?.id}
         />
       </div>
       <style jsx>
         {`
-          .tags-container {
+          .shops-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -41,7 +42,7 @@ const Tags = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags-container1 {
+          .shops-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -53,19 +54,19 @@ const Tags = (props) => {
   )
 }
 
-Tags.defaultProps = {
-  tagsEntity: [],
+Shops.defaultProps = {
+  shopsEntity: [],
 }
 
-Tags.propTypes = {
-  tagsEntity: PropTypes.array,
+Shops.propTypes = {
+  shopsEntity: PropTypes.array,
 }
 
-export default Tags
+export default Shops
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPaths7b91eResource({})
+    const response = await shopsPageInitialPathsA18a3Resource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -86,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialProps61f62Resource({
+    const response = await shopsPageInitialProps41990Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -96,7 +97,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
-        tagsEntity: response?.data?.[0],
+        shopsEntity: response?.data?.[0],
         ...response?.meta,
       },
       revalidate: 60,

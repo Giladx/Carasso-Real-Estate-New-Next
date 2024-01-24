@@ -219,7 +219,7 @@ Projectcard1.defaultProps = {
   imageAlt: 'image',
   cardTitle: 'אומאמי',
   rootClassName: '',
-  projectarrowbuttonSrc: '/external/projectarrowbutton3708-a4n1.svg',
+  projectarrowbuttonSrc: '421fdc50-5820-4581-8039-8f2fc0574b34',
   cardTag: 'בתכנון',
   projectarrowbuttonAlt: 'projectarrowbutton3708',
   exp: 'בבסיס התכנון של המתחם עומדת האהבה לבישול ולאירוח, אהבה שניתן להרגיש החל במרחבים המשותפים, דרך הדירות עצמן ועד למטבחים.',
