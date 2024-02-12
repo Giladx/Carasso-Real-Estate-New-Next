@@ -179,7 +179,7 @@ FeaturedPost.defaultProps = {
   featuredTitle: 'איך נראת דירה לאנשים שאוהבים לארח ולבשל לכל המשפחה',
   featuredExcerpt:
     'בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח, תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים',
-  imagesrc: '/left-coloumn-news-1500w.png',
+  imagesrc: '/left-coloumn-news-1500w.webp',
 }
 
 FeaturedPost.propTypes = {

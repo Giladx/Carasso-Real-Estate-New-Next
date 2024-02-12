@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialPropsFbf3cResource from '../../resources/authors-page-initial-props-fbf3c'
+import authorsPageInitialPropsTq6iResource from '../../resources/authors-page-initial-props-tq_6i'
 
-const Authors1 = (props) => {
+const Authors = (props) => {
   return (
     <>
-      <div className="authors1-container">
+      <div className="authors-container">
         <Head>
-          <title>Authors1 - Carasso Real Estate</title>
+          <title>Authors - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Authors1 - Carasso Real Estate" />
+          <meta property="og:title" content="Authors - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -23,7 +23,7 @@ const Authors1 = (props) => {
                 items={params}
                 renderItem={(AuthorsEntities) => (
                   <>
-                    <div className="authors1-container1">
+                    <div className="authors-container1">
                       <h1>{AuthorsEntities?.name}</h1>
                       <span>{AuthorsEntities?.name}</span>
                       <span>{AuthorsEntities?.email}</span>
@@ -40,7 +40,7 @@ const Authors1 = (props) => {
       </div>
       <style jsx>
         {`
-          .authors1-container {
+          .authors-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Authors1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .authors1-container1 {
+          .authors-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Authors1 = (props) => {
   )
 }
 
-Authors1.defaultProps = {
+Authors.defaultProps = {
   authorsEntities: [],
 }
 
-Authors1.propTypes = {
+Authors.propTypes = {
   authorsEntities: PropTypes.array,
 }
 
-export default Authors1
+export default Authors
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialPropsFbf3cResource({
+    const response = await authorsPageInitialPropsTq6iResource({
       ...context?.params,
     })
     if (!response) {

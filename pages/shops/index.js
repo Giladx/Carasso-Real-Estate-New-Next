@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import shopsPageInitialPropsB79d0Resource from '../../resources/shops-page-initial-props-b79d0'
+import shopsPageInitialPropsTq29Resource from '../../resources/shops-page-initial-props-tq_29'
 
-const Shops1 = (props) => {
+const Shops = (props) => {
   return (
     <>
-      <div className="shops1-container">
+      <div className="shops-container">
         <Head>
-          <title>Shops1 - Carasso Real Estate</title>
+          <title>Shops - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Shops1 - Carasso Real Estate" />
+          <meta property="og:title" content="Shops - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -23,7 +23,7 @@ const Shops1 = (props) => {
                 items={params}
                 renderItem={(ShopsEntities) => (
                   <>
-                    <div className="shops1-container1">
+                    <div className="shops-container1">
                       <span>{ShopsEntities?.Shop_title}</span>
                       <span>{ShopsEntities?.Shop_phone}</span>
                       <span>{ShopsEntities?.Shop_opening_hours}</span>
@@ -40,7 +40,7 @@ const Shops1 = (props) => {
       </div>
       <style jsx>
         {`
-          .shops1-container {
+          .shops-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Shops1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .shops1-container1 {
+          .shops-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Shops1 = (props) => {
   )
 }
 
-Shops1.defaultProps = {
+Shops.defaultProps = {
   shopsEntities: [],
 }
 
-Shops1.propTypes = {
+Shops.propTypes = {
   shopsEntities: PropTypes.array,
 }
 
-export default Shops1
+export default Shops
 
 export async function getStaticProps(context) {
   try {
-    const response = await shopsPageInitialPropsB79d0Resource({
+    const response = await shopsPageInitialPropsTq29Resource({
       ...context?.params,
     })
     if (!response) {

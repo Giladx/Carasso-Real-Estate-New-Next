@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPaths7687dResource from '../../../resources/tags-page-initial-paths-7687d'
-import tagsPageInitialProps0170fResource from '../../../resources/tags-page-initial-props-0170f'
+import tagsPageInitialPathsTqTeResource from '../../../resources/tags-page-initial-paths-tq_te'
+import tagsPageInitialPropsTqRiResource from '../../../resources/tags-page-initial-props-tq_ri'
 
-const Tags11 = (props) => {
+const Tags1 = (props) => {
   return (
     <>
-      <div className="tags11-container">
+      <div className="tags1-container">
         <Head>
-          <title>Tags1 - Carasso Real Estate</title>
+          <title>Tags - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tags - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -24,7 +24,7 @@ const Tags11 = (props) => {
                 items={params}
                 renderItem={(TagsEntities) => (
                   <>
-                    <div className="tags11-container1">
+                    <div className="tags1-container1">
                       <span>{TagsEntities?.tag}</span>
                       <span>{TagsEntities?.id}</span>
                     </div>
@@ -40,7 +40,7 @@ const Tags11 = (props) => {
       </div>
       <style jsx>
         {`
-          .tags11-container {
+          .tags1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Tags11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags11-container1 {
+          .tags1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Tags11 = (props) => {
   )
 }
 
-Tags11.defaultProps = {
+Tags1.defaultProps = {
   tagsEntities: [],
 }
 
-Tags11.propTypes = {
+Tags1.propTypes = {
   tagsEntities: PropTypes.array,
 }
 
-export default Tags11
+export default Tags1
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPaths7687dResource({})
+    const response = await tagsPageInitialPathsTqTeResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -99,7 +99,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialProps0170fResource({
+    const response = await tagsPageInitialPropsTqRiResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })

@@ -217,7 +217,7 @@ Projectcard.defaultProps = {
   vectorStrokeAlt: 'VectorStroke3708',
   imageAlt: 'image',
   rootClassName: '',
-  imageSrc: '/elipse-image-on-hover-400w.png',
+  imageSrc: '/elipse-image-on-hover-400w.webp',
   vectorStrokeSrc: '/external/VectorStroke3708-4itf1.svg',
   cardTitle: 'אומאמי',
   projectarrowbuttonAlt: 'projectarrowbutton3708',

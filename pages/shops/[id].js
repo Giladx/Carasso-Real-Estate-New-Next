@@ -4,23 +4,23 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import shopsPageInitialPaths8ca13Resource from '../../resources/shops-page-initial-paths-8ca13'
-import shopsPageInitialProps82b05Resource from '../../resources/shops-page-initial-props-82b05'
+import shopsPageInitialPathsTq0iResource from '../../resources/shops-page-initial-paths-tq_0i'
+import shopsPageInitialPropsTqIbResource from '../../resources/shops-page-initial-props-tq_ib'
 
-const Shops = (props) => {
+const Shops11 = (props) => {
   return (
     <>
-      <div className="shops-container">
+      <div className="shops11-container">
         <Head>
-          <title>Shops - Carasso Real Estate</title>
+          <title>Shops1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Shops - Carasso Real Estate" />
+          <meta property="og:title" content="Shops1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(ShopsEntity) => (
             <>
-              <div className="shops-container1">
+              <div className="shops11-container1">
                 <span>{ShopsEntity?.Shop_title}</span>
                 <span>{ShopsEntity?.Shop_phone}</span>
                 <span>{ShopsEntity?.Shop_opening_hours}</span>
@@ -34,7 +34,7 @@ const Shops = (props) => {
       </div>
       <style jsx>
         {`
-          .shops-container {
+          .shops11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -42,7 +42,7 @@ const Shops = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .shops-container1 {
+          .shops11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -54,19 +54,19 @@ const Shops = (props) => {
   )
 }
 
-Shops.defaultProps = {
+Shops11.defaultProps = {
   shopsEntity: [],
 }
 
-Shops.propTypes = {
+Shops11.propTypes = {
   shopsEntity: PropTypes.array,
 }
 
-export default Shops
+export default Shops11
 
 export async function getStaticPaths() {
   try {
-    const response = await shopsPageInitialPaths8ca13Resource({})
+    const response = await shopsPageInitialPathsTq0iResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await shopsPageInitialProps82b05Resource({
+    const response = await shopsPageInitialPropsTqIbResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

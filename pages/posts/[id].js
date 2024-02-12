@@ -2,28 +2,32 @@ import React from 'react'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
+import ReactMarkdown from 'react-markdown'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPathsA4e01Resource from '../../resources/posts-page-initial-paths-a4e01'
-import postsPageInitialPropsBb020Resource from '../../resources/posts-page-initial-props-bb020'
+import postsPageInitialPathsTq6zResource from '../../resources/posts-page-initial-paths-tq_6z'
+import postsPageInitialPropsTqCaResource from '../../resources/posts-page-initial-props-tq_ca'
 
-const Posts = (props) => {
+const Posts11 = (props) => {
   return (
     <>
-      <div className="posts-container">
+      <div className="posts11-container">
         <Head>
-          <title>Posts - Carasso Real Estate</title>
+          <title>Posts1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts - Carasso Real Estate" />
+          <meta property="og:title" content="Posts1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(PostsEntity) => (
             <>
-              <div className="posts-container1">
+              <div className="posts11-container1">
                 <h1>{PostsEntity?.Title}</h1>
                 <span>{PostsEntity?.Content}</span>
                 <span>{PostsEntity?.slug}</span>
+                <div className="posts11-container2">
+                  <ReactMarkdown>{PostsEntity?.Markdown}</ReactMarkdown>
+                </div>
               </div>
             </>
           )}
@@ -34,7 +38,7 @@ const Posts = (props) => {
       </div>
       <style jsx>
         {`
-          .posts-container {
+          .posts11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -42,11 +46,15 @@ const Posts = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts-container1 {
+          .posts11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
             flex-direction: column;
+          }
+          .posts11-container2 {
+            width: 100%;
+            align-self: stretch;
           }
         `}
       </style>
@@ -54,19 +62,19 @@ const Posts = (props) => {
   )
 }
 
-Posts.defaultProps = {
+Posts11.defaultProps = {
   postsEntity: [],
 }
 
-Posts.propTypes = {
+Posts11.propTypes = {
   postsEntity: PropTypes.array,
 }
 
-export default Posts
+export default Posts11
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPathsA4e01Resource({})
+    const response = await postsPageInitialPathsTq6zResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +95,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsBb020Resource({
+    const response = await postsPageInitialPropsTqCaResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

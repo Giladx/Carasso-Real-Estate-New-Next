@@ -198,7 +198,9 @@ window.addEventListener('DOMContentLoaded', function() {
                     <div className="news-frame9">
                       <img
                         alt="image"
-                        src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.jpeg"
+                        sizes="(min-width: 768px) 800px, 480px"
+                        src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp"
+                        srcSet="blog//c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp 800w, blog/c416e0d7a51cd55e8fe5e745cd82e4b5-mobile.webp 480w"
                         className="news-image3"
                       />
                     </div>
@@ -222,7 +224,9 @@ window.addEventListener('DOMContentLoaded', function() {
                   <div className="news-frame91">
                     <img
                       alt="image"
-                      src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.jpeg"
+                      sizes="(min-width: 768px) 800px, 480px"
+                      src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp"
+                      srcSet="blog//c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp 800w, blog/c416e0d7a51cd55e8fe5e745cd82e4b5-mobile.webp 480w"
                       className="news-image4"
                     />
                   </div>

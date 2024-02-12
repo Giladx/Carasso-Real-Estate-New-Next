@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPropsA5d9cResource from '../../resources/tags-page-initial-props-a5d9c'
+import tagsPageInitialPropsTqO1Resource from '../../resources/tags-page-initial-props-tq_o1'
 
-const Tags1 = (props) => {
+const Tags = (props) => {
   return (
     <>
-      <div className="tags1-container">
+      <div className="tags-container">
         <Head>
-          <title>Tags1 - Carasso Real Estate</title>
+          <title>Tags - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tags - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -23,7 +23,7 @@ const Tags1 = (props) => {
                 items={params}
                 renderItem={(TagsEntities) => (
                   <>
-                    <div className="tags1-container1">
+                    <div className="tags-container1">
                       <span>{TagsEntities?.tag}</span>
                       <span>{TagsEntities?.id}</span>
                     </div>
@@ -39,7 +39,7 @@ const Tags1 = (props) => {
       </div>
       <style jsx>
         {`
-          .tags1-container {
+          .tags-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -47,7 +47,7 @@ const Tags1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags1-container1 {
+          .tags-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -60,19 +60,19 @@ const Tags1 = (props) => {
   )
 }
 
-Tags1.defaultProps = {
+Tags.defaultProps = {
   tagsEntities: [],
 }
 
-Tags1.propTypes = {
+Tags.propTypes = {
   tagsEntities: PropTypes.array,
 }
 
-export default Tags1
+export default Tags
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialPropsA5d9cResource({
+    const response = await tagsPageInitialPropsTqO1Resource({
       ...context?.params,
     })
     if (!response) {

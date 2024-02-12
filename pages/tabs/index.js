@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tabsPageInitialProps50d84Resource from '../../resources/tabs-page-initial-props-50d84'
+import tabsPageInitialPropsTqFResource from '../../resources/tabs-page-initial-props-tq_f_'
 
-const Tabs1 = (props) => {
+const Tabs = (props) => {
   return (
     <>
-      <div className="tabs1-container">
+      <div className="tabs-container">
         <Head>
-          <title>Tabs1 - Carasso Real Estate</title>
+          <title>Tabs - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tabs1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tabs - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -23,8 +23,10 @@ const Tabs1 = (props) => {
                 items={params}
                 renderItem={(TabsEntities) => (
                   <>
-                    <div className="tabs1-container1">
-                      <span>{TabsEntities?.id}</span>
+                    <div className="tabs-container1">
+                      <span>{TabsEntities?.tab_name_type_a}</span>
+                      <span>{TabsEntities?.Tab_subtitle_a}</span>
+                      <span>{TabsEntities?.Tab_description_a}</span>
                     </div>
                   </>
                 )}
@@ -38,7 +40,7 @@ const Tabs1 = (props) => {
       </div>
       <style jsx>
         {`
-          .tabs1-container {
+          .tabs-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -46,7 +48,7 @@ const Tabs1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tabs1-container1 {
+          .tabs-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -59,19 +61,19 @@ const Tabs1 = (props) => {
   )
 }
 
-Tabs1.defaultProps = {
+Tabs.defaultProps = {
   tabsEntities: [],
 }
 
-Tabs1.propTypes = {
+Tabs.propTypes = {
   tabsEntities: PropTypes.array,
 }
 
-export default Tabs1
+export default Tabs
 
 export async function getStaticProps(context) {
   try {
-    const response = await tabsPageInitialProps50d84Resource({
+    const response = await tabsPageInitialPropsTqFResource({
       ...context?.params,
     })
     if (!response) {

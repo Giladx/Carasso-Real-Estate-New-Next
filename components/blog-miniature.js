@@ -169,7 +169,7 @@ BlogMiniature.defaultProps = {
   imagealt: 'image',
   date: '18 בינואר, 2023',
   postTitle: 'איך נראת דירה לאנשים שאוהבים לארח',
-  imagesrc: '/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-200h.jpeg',
+  imagesrc: '/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-200h.webp',
 }
 
 BlogMiniature.propTypes = {

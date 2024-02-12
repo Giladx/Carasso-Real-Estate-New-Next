@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tabsPageInitialPaths9e12cResource from '../../../resources/tabs-page-initial-paths-9e12c'
-import tabsPageInitialProps75dd0Resource from '../../../resources/tabs-page-initial-props-75dd0'
+import tabsPageInitialPathsTqResource from '../../../resources/tabs-page-initial-paths-tq__-'
+import tabsPageInitialPropsTq1xResource from '../../../resources/tabs-page-initial-props-tq_1x'
 
-const Tabs11 = (props) => {
+const Tabs1 = (props) => {
   return (
     <>
-      <div className="tabs11-container">
+      <div className="tabs1-container">
         <Head>
-          <title>Tabs1 - Carasso Real Estate</title>
+          <title>Tabs - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tabs1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tabs - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -24,8 +24,10 @@ const Tabs11 = (props) => {
                 items={params}
                 renderItem={(TabsEntities) => (
                   <>
-                    <div className="tabs11-container1">
-                      <span>{TabsEntities?.id}</span>
+                    <div className="tabs1-container1">
+                      <span>{TabsEntities?.tab_name_type_a}</span>
+                      <span>{TabsEntities?.Tab_subtitle_a}</span>
+                      <span>{TabsEntities?.Tab_description_a}</span>
                     </div>
                   </>
                 )}
@@ -39,7 +41,7 @@ const Tabs11 = (props) => {
       </div>
       <style jsx>
         {`
-          .tabs11-container {
+          .tabs1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -47,7 +49,7 @@ const Tabs11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tabs11-container1 {
+          .tabs1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -60,19 +62,19 @@ const Tabs11 = (props) => {
   )
 }
 
-Tabs11.defaultProps = {
+Tabs1.defaultProps = {
   tabsEntities: [],
 }
 
-Tabs11.propTypes = {
+Tabs1.propTypes = {
   tabsEntities: PropTypes.array,
 }
 
-export default Tabs11
+export default Tabs1
 
 export async function getStaticPaths() {
   try {
-    const response = await tabsPageInitialPaths9e12cResource({})
+    const response = await tabsPageInitialPathsTqResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -98,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tabsPageInitialProps75dd0Resource({
+    const response = await tabsPageInitialPropsTq1xResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })

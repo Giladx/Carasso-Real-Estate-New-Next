@@ -177,7 +177,9 @@ window.addEventListener('DOMContentLoaded', function() {
         <div className="home-background">
           <img
             alt="image"
-            src="/carasso-fbf_00001-1500w.jpg"
+            sizes="(min-width: 992px) 1200px, (min-width: 768px) 800px, 480px"
+            src="/carasso-fbf_00001-1500w.webp"
+            srcSet="/carasso-fbf_00001-1500w.webp 1200w, /carasso-fbf_00001-tablet.webp 800w, /carasso-fbf_00001-mobile.webp 480w"
             className="home-image3"
           />
         </div>
@@ -528,7 +530,7 @@ function touchScroll (\$bind = '') {
                           <div className="home-bignumbertitleandicon2">
                             <img
                               alt="ArrowSquareOut5472"
-                              src="/external/arrowsquareout5472-jjvr.svg"
+                              src="/arrowsquareout5472-jjvr.svg"
                               className="home-arrow-square-out"
                             />
                             <span className="home-text054">
