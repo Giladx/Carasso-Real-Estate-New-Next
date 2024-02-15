@@ -4,18 +4,18 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import apartmentsPageInitialPropsTq5vResource from '../../resources/apartments-page-initial-props-tq_5v'
+import apartmentsPageInitialPropsTqZLResource from '../../resources/apartments-page-initial-props-tq_z-l'
 
-const Apartments = (props) => {
+const Apartments1 = (props) => {
   return (
     <>
-      <div className="apartments-container">
+      <div className="apartments1-container">
         <Head>
-          <title>Apartments - Carasso Real Estate</title>
+          <title>Apartments1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
           <meta
             property="og:title"
-            content="Apartments - Carasso Real Estate"
+            content="Apartments1 - Carasso Real Estate"
           />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
@@ -26,7 +26,7 @@ const Apartments = (props) => {
                 items={params}
                 renderItem={(ApartmentsEntities) => (
                   <>
-                    <div className="apartments-container1">
+                    <div className="apartments1-container1">
                       <span>{ApartmentsEntities?.Description_c}</span>
                       <span>{ApartmentsEntities?.Number_of_Rooms__c}</span>
                       <span>{ApartmentsEntities?.Model_Code_Label__c}</span>
@@ -43,7 +43,7 @@ const Apartments = (props) => {
       </div>
       <style jsx>
         {`
-          .apartments-container {
+          .apartments1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -51,7 +51,7 @@ const Apartments = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .apartments-container1 {
+          .apartments1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -64,19 +64,19 @@ const Apartments = (props) => {
   )
 }
 
-Apartments.defaultProps = {
+Apartments1.defaultProps = {
   apartmentsEntities: [],
 }
 
-Apartments.propTypes = {
+Apartments1.propTypes = {
   apartmentsEntities: PropTypes.array,
 }
 
-export default Apartments
+export default Apartments1
 
 export async function getStaticProps(context) {
   try {
-    const response = await apartmentsPageInitialPropsTq5vResource({
+    const response = await apartmentsPageInitialPropsTqZLResource({
       ...context?.params,
     })
     if (!response) {

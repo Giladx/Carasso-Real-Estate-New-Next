@@ -4,26 +4,23 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import buildingsPageInitialPathsTq10Resource from '../../resources/buildings-page-initial-paths-tq_10'
-import buildingsPageInitialPropsTqTJResource from '../../resources/buildings-page-initial-props-tq_t-j'
+import buildingsPageInitialPathsTqB8Resource from '../../resources/buildings-page-initial-paths-tq_b8'
+import buildingsPageInitialPropsTqToResource from '../../resources/buildings-page-initial-props-tq_to'
 
-const Buildings11 = (props) => {
+const Buildings = (props) => {
   return (
     <>
-      <div className="buildings11-container">
+      <div className="buildings-container">
         <Head>
-          <title>Buildings1 - Carasso Real Estate</title>
+          <title>Buildings - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta
-            property="og:title"
-            content="Buildings1 - Carasso Real Estate"
-          />
+          <meta property="og:title" content="Buildings - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(BuildingsEntity) => (
             <>
-              <div className="buildings11-container1">
+              <div className="buildings-container1">
                 <span>{BuildingsEntity?.Building_name}</span>
                 <span>{BuildingsEntity?.Building_status}</span>
                 <span>{BuildingsEntity?.SF_id}</span>
@@ -37,7 +34,7 @@ const Buildings11 = (props) => {
       </div>
       <style jsx>
         {`
-          .buildings11-container {
+          .buildings-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -45,7 +42,7 @@ const Buildings11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .buildings11-container1 {
+          .buildings-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -57,19 +54,19 @@ const Buildings11 = (props) => {
   )
 }
 
-Buildings11.defaultProps = {
+Buildings.defaultProps = {
   buildingsEntity: [],
 }
 
-Buildings11.propTypes = {
+Buildings.propTypes = {
   buildingsEntity: PropTypes.array,
 }
 
-export default Buildings11
+export default Buildings
 
 export async function getStaticPaths() {
   try {
-    const response = await buildingsPageInitialPathsTq10Resource({})
+    const response = await buildingsPageInitialPathsTqB8Resource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -90,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await buildingsPageInitialPropsTqTJResource({
+    const response = await buildingsPageInitialPropsTqToResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

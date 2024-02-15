@@ -78,7 +78,7 @@ const News = (props) => {
                   />
                 </div>
                 <nav className="news-links1">
-                  <span className="news-text05">About</span>
+                  <span className="news-text05">בלוג</span>
                   <span className="news-text06">Features</span>
                   <span className="news-text07">Blog</span>
                   <span className="news-text08">Pricing</span>
@@ -115,7 +115,7 @@ const News = (props) => {
                 <Script
                   html={`<style>
 header.inverted {
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.8);
   box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, 0.1);
 }
 header.inverted a {
@@ -141,7 +141,7 @@ window.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         var content = document.getElementById('navsearch');
         if (window.pageYOffset >= content.offsetTop + 60) {
-            content.style.filter = 'invert(0)';
+            content.style.filter = 'invert(1)';
         } else {
             content.style.filter = 'invert(0)';
         }
@@ -152,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', function() {
       var content = document.getElementById('navmenu');
       if (window.pageYOffset >= content.offsetTop + 60) {
-          content.style.filter = 'invert(0)';
+          content.style.filter = 'invert(1)';
       } else {
           content.style.filter = 'invert(0)';
       }
@@ -163,7 +163,7 @@ window.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', function() {
       var content = document.getElementById('logo');
       if (window.pageYOffset >= content.offsetTop + 60) {
-          content.style.filter = 'invert(0)';
+          content.style.filter = 'invert(1)';
       } else {
           content.style.filter = 'invert(0)';
       }
@@ -459,6 +459,7 @@ window.addEventListener('DOMContentLoaded', function() {
           .news-image {
             width: 24px;
             cursor: pointer;
+            filter: invert();
             object-fit: cover;
           }
           .news-logo {
@@ -476,6 +477,7 @@ window.addEventListener('DOMContentLoaded', function() {
           }
           .news-image1 {
             cursor: pointer;
+            filter: invert();
             height: auto;
             align-self: center;
             text-decoration: none;
@@ -522,9 +524,9 @@ window.addEventListener('DOMContentLoaded', function() {
             justify-content: flex-end;
           }
           .news-image2 {
-            fill: var(--dl-color-carasso-plainwhite);
             width: auto;
             cursor: pointer;
+            filter: invert();
             height: 10px;
             object-fit: cover;
           }
@@ -586,6 +588,7 @@ window.addEventListener('DOMContentLoaded', function() {
           }
           .news-text05 {
             margin-bottom: var(--dl-space-space-unit);
+            text-decoration: none;
           }
           .news-text06 {
             margin-bottom: var(--dl-space-space-unit);

@@ -530,7 +530,7 @@ function touchScroll (\$bind = '') {
                           <div className="home-bignumbertitleandicon2">
                             <img
                               alt="ArrowSquareOut5472"
-                              src="/arrowsquareout5472-jjvr.svg"
+                              src="/external/arrowsquareout5472-jjvr.svg"
                               className="home-arrow-square-out"
                             />
                             <span className="home-text054">

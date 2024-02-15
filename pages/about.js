@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
+import Timelinesection from '../components/timelinesection'
+
 const About = (props) => {
   return (
     <>
@@ -89,142 +91,19 @@ const About = (props) => {
             </div>
           </div>
         </div>
-        <div className="about-timelinesection">
-          <div className="about-container2">
-            <div className="about-center">
-              <div className="about-header">
-                <span className="about-text12">
-                  <span className="about-text13">
-                    הדרך שלנו
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
-                  </span>
-                  <span>לאורך השנים</span>
-                </span>
-                <div className="about-years">
-                  <div className="about-frame293">
-                    <img
-                      alt="Line294942"
-                      src="/external/line294942-x7k8.svg"
-                      className="about-line29"
-                    />
-                    <span className="about-text15">
-                      <span>2022</span>
-                    </span>
-                  </div>
-                  <div className="about-frame302">
-                    <img
-                      alt="Line294942"
-                      src="/external/line294942-vo02.svg"
-                      className="about-line291"
-                    />
-                    <span className="about-text17">
-                      <span>2019</span>
-                    </span>
-                  </div>
-                  <div className="about-frame300">
-                    <img
-                      alt="Line294942"
-                      src="/external/line294942-h98b.svg"
-                      className="about-line292"
-                    />
-                    <span className="about-text19">
-                      <span>2011</span>
-                    </span>
-                  </div>
-                  <div className="about-frame298">
-                    <img
-                      alt="Line304942"
-                      src="/external/line304942-q5w.svg"
-                      className="about-line30"
-                    />
-                    <span className="about-text21">
-                      <span>2010</span>
-                    </span>
-                  </div>
-                  <div className="about-frame296">
-                    <img
-                      alt="Line294942"
-                      src="/external/line294942-j6j.svg"
-                      className="about-line293"
-                    />
-                    <span className="about-text23">
-                      <span>2009</span>
-                    </span>
-                  </div>
-                  <div className="about-frame303">
-                    <img
-                      alt="Line304942"
-                      src="/external/line304942-gvdk.svg"
-                      className="about-line301"
-                    />
-                    <span className="about-text25">
-                      <span>1945</span>
-                    </span>
-                  </div>
-                  <div className="about-frame292">
-                    <img
-                      alt="Line294942"
-                      src="/external/line294942-6wgh.svg"
-                      className="about-line294"
-                    />
-                    <span className="about-text27">
-                      <span>1933</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="about-content2">
-                <div className="about-leftcoloumn1">
-                  <div className="about-frame321">
-                    <div className="about-frame318">
-                      <img
-                        alt="Vector4942"
-                        src="/external/vector4942-k6q.svg"
-                        className="about-vector2"
-                      />
-                      <span className="about-text29">
-                        <span>1933</span>
-                      </span>
-                    </div>
-                    <div className="about-frame320">
-                      <span className="about-text31">
-                        <span>קרסו, נעים להכיר</span>
-                      </span>
-                      <span className="about-text33">
-                        <span>
-                          משפחת קרסו הגיעה מפיראוס בתחילת המאה ה-20 ומאז ועד
-                          היום אנחנו יוזמים מפתחים ומקימים פרויקטים מגוונים
-                          ברחבי הארץ.
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <img
-                  alt="rightcoloumn4942"
-                  src="/external/rightcoloumn4942-ygmd.svg"
-                  className="about-rightcoloumn1"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Timelinesection></Timelinesection>
         <div className="about-teamsection">
-          <div className="about-container3">
-            <div className="about-content3">
+          <div className="about-container2">
+            <div className="about-content2">
               <div className="about-teammembers">
                 <div className="about-memberblock">
                   <div className="about-topimage"></div>
                   <div className="about-bottomtext">
                     <div className="about-frame278">
-                      <span className="about-text35">
+                      <span className="about-text12">
                         <span>ירון צוברי</span>
                       </span>
-                      <span className="about-text37">
+                      <span className="about-text14">
                         <span>מנהל חטיבת מגורים</span>
                       </span>
                     </div>
@@ -234,10 +113,10 @@ const About = (props) => {
                   <div className="about-topimage01"></div>
                   <div className="about-bottomtext01">
                     <div className="about-frame2781">
-                      <span className="about-text39">
+                      <span className="about-text16">
                         <span>דן פרנס</span>
                       </span>
-                      <span className="about-text41">
+                      <span className="about-text18">
                         <span>מנכ״ל</span>
                       </span>
                     </div>
@@ -245,16 +124,16 @@ const About = (props) => {
                 </div>
                 <div className="about-memberblock02">
                   <div className="about-frame1261158170">
-                    <span className="about-text43">
-                      <span className="about-text44">
+                    <span className="about-text20">
+                      <span className="about-text21">
                         <span>הדלת שלנו</span>
                         <br></br>
                         <span></span>
                       </span>
                       <span>פתוחה תמיד</span>
                     </span>
-                    <span className="about-text49">
-                      <span className="about-text50">
+                    <span className="about-text26">
+                      <span className="about-text27">
                         מסַּפרים על משה קרסו, האב המייסד, שכל מי שנכנס למשרדו
                         התקבל במאור פנים, בין שהיה עובד או שר בממשלה. הוא היה
                         קורא לכולם &apos;מי אלמה&apos;, נשמה שלי.
@@ -266,7 +145,7 @@ const About = (props) => {
                       </span>
                       <span>זה ה-DNA שלנו עד היום.</span>
                     </span>
-                    <span className="about-text52">
+                    <span className="about-text29">
                       <span>
                         אנחנו לא נקרא לכם &apos;מי אלמה&apos;, אבל מערכות יחסים
                         חמות והדדיות עם לקוחות, ספקים ועובדים – הן הבסיס להצלחה
@@ -286,10 +165,10 @@ const About = (props) => {
                   <div className="about-topimage02"></div>
                   <div className="about-bottomtext02">
                     <div className="about-frame2782">
-                      <span className="about-text54">
+                      <span className="about-text31">
                         <span>חמי שאול</span>
                       </span>
-                      <span className="about-text56">
+                      <span className="about-text33">
                         <span>מנהל חטיבת מגורים בוטיק</span>
                       </span>
                     </div>
@@ -299,10 +178,10 @@ const About = (props) => {
                   <div className="about-topimage03"></div>
                   <div className="about-bottomtext03">
                     <div className="about-frame2783">
-                      <span className="about-text58">
+                      <span className="about-text35">
                         <span>ראובן קידר</span>
                       </span>
-                      <span className="about-text60">
+                      <span className="about-text37">
                         <span>סמנכ״ל כספים</span>
                       </span>
                     </div>
@@ -312,10 +191,10 @@ const About = (props) => {
                   <div className="about-topimage04"></div>
                   <div className="about-bottomtext04">
                     <div className="about-frame2784">
-                      <span className="about-text62">
+                      <span className="about-text39">
                         <span>עדי ברילובסקי</span>
                       </span>
-                      <span className="about-text64">
+                      <span className="about-text41">
                         <span>סמנכ״לית חווית לקוח ומשאבי אנוש</span>
                       </span>
                     </div>
@@ -332,10 +211,10 @@ const About = (props) => {
                   <div className="about-topimage05"></div>
                   <div className="about-bottomtext05">
                     <div className="about-frame2785">
-                      <span className="about-text66">
+                      <span className="about-text43">
                         <span>הראל שהם</span>
                       </span>
-                      <span className="about-text68">
+                      <span className="about-text45">
                         <span>יועץ משפטי ומזכיר</span>
                       </span>
                     </div>
@@ -346,10 +225,10 @@ const About = (props) => {
                   <div className="about-bottomtext06">
                     <div className="about-frame275">
                       <div className="about-frame274">
-                        <span className="about-text70">
+                        <span className="about-text47">
                           <span>מיכל גליק</span>
                         </span>
-                        <span className="about-text72">
+                        <span className="about-text49">
                           <span>סמנכ״לית שיווק</span>
                         </span>
                       </div>
@@ -360,10 +239,10 @@ const About = (props) => {
                   <div className="about-topimage07"></div>
                   <div className="about-bottomtext07">
                     <div className="about-frame2786">
-                      <span className="about-text74">
+                      <span className="about-text51">
                         <span>מוטי להב</span>
                       </span>
-                      <span className="about-text76">
+                      <span className="about-text53">
                         <span>סמנכ״ל פיתוח עסקי</span>
                       </span>
                     </div>
@@ -380,10 +259,10 @@ const About = (props) => {
                   <div className="about-topimage08"></div>
                   <div className="about-bottomtext08">
                     <div className="about-frame2787">
-                      <span className="about-text78">
+                      <span className="about-text55">
                         <span>איציק טובול</span>
                       </span>
-                      <span className="about-text80">
+                      <span className="about-text57">
                         <span>סמנכ״ל הנדסה</span>
                       </span>
                     </div>
@@ -393,10 +272,10 @@ const About = (props) => {
                   <div className="about-topimage09"></div>
                   <div className="about-bottomtext09">
                     <div className="about-frame2788">
-                      <span className="about-text82">
+                      <span className="about-text59">
                         <span>יוני ישראלי</span>
                       </span>
-                      <span className="about-text84">
+                      <span className="about-text61">
                         <span>מנהל חטיבת מניבים</span>
                       </span>
                     </div>
@@ -601,7 +480,7 @@ const About = (props) => {
             border-style: solid;
             border-width: 1px;
           }
-          .about-timelinesection {
+          .about-teamsection {
             gap: 50px;
             width: 100%;
             height: auto;
@@ -615,325 +494,6 @@ const About = (props) => {
           }
           .about-container2 {
             display: flex;
-            padding: 0 90px;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-          }
-          .about-center {
-            gap: 30px;
-            display: flex;
-            padding: 130px 0 0;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-header {
-            gap: 60px;
-            display: flex;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-text12 {
-            color: var(--dl-color-carasso-primaryblack);
-            height: auto;
-            font-size: 32px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-text13 {
-            font-weight: 300;
-          }
-          .about-years {
-            gap: 42px;
-            display: flex;
-            padding: 0 310px;
-            align-self: stretch;
-            align-items: flex-start;
-            flex-shrink: 0;
-            justify-content: space-between;
-          }
-          .about-frame293 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line29 {
-            width: 5px;
-            height: 1px;
-          }
-          .about-text15 {
-            color: var(--dl-color-carasso-darkergray);
-            height: auto;
-            font-size: 18px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame302 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line291 {
-            width: 5px;
-            height: 1px;
-          }
-          .about-text17 {
-            color: var(--dl-color-carasso-darkergray);
-            height: auto;
-            font-size: 18px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame300 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line292 {
-            width: 5px;
-            height: 1px;
-          }
-          .about-text19 {
-            color: var(--dl-color-carasso-darkergray);
-            height: auto;
-            font-size: 18px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame298 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line30 {
-            width: 5px;
-            height: 1px;
-          }
-          .about-text21 {
-            color: var(--dl-color-carasso-darkergray);
-            height: auto;
-            font-size: 18px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame296 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line293 {
-            width: 5px;
-            height: 1px;
-          }
-          .about-text23 {
-            color: var(--dl-color-carasso-darkergray);
-            height: auto;
-            font-size: 18px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame303 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line301 {
-            width: 5px;
-            height: 1px;
-          }
-          .about-text25 {
-            color: var(--dl-color-carasso-darkergray);
-            height: auto;
-            font-size: 18px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame292 {
-            gap: 16px;
-            display: flex;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: center;
-            flex-direction: column;
-          }
-          .about-line294 {
-            width: 15px;
-            height: 1px;
-          }
-          .about-text27 {
-            color: var(--dl-color-carasso-red);
-            height: auto;
-            font-size: 18px;
-            font-style: Medium;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 500;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-content2 {
-            display: flex;
-            padding: 50px 10px 0;
-            overflow: hidden;
-            flex-grow: 1;
-            align-self: stretch;
-            align-items: flex-start;
-            justify-content: center;
-          }
-          .about-leftcoloumn1 {
-            gap: 10px;
-            height: 369px;
-            display: flex;
-            padding: 0 32px 0 0;
-            align-self: stretch;
-            align-items: flex-end;
-            flex-shrink: 0;
-            flex-direction: column;
-          }
-          .about-frame321 {
-            gap: 40px;
-            width: 354px;
-            display: flex;
-            align-items: flex-end;
-            flex-shrink: 0;
-            flex-direction: column;
-          }
-          .about-frame318 {
-            gap: 205px;
-            display: flex;
-            padding: 0 0 30px;
-            align-self: stretch;
-            align-items: flex-end;
-            flex-shrink: 0;
-            border-color: rgba(255, 82, 61, 1);
-            border-style: solid;
-            border-width: 0 0 0.5px;
-            justify-content: space-between;
-          }
-          .about-vector2 {
-            width: 17px;
-            height: 19px;
-          }
-          .about-text29 {
-            color: var(--dl-color-carasso-red);
-            height: auto;
-            font-size: 32px;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-frame320 {
-            gap: 40px;
-            display: flex;
-            align-self: stretch;
-            align-items: flex-end;
-            flex-direction: column;
-          }
-          .about-text31 {
-            color: var(--dl-color-carasso-primaryblack);
-            width: 276px;
-            height: auto;
-            font-size: 32px;
-            font-style: Medium;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 500;
-            line-height: 110.00000238418579%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-text33 {
-            color: var(--dl-color-carasso-primaryblack);
-            height: auto;
-            font-size: 18px;
-            align-self: stretch;
-            font-style: Light;
-            text-align: right;
-            font-family: Ploni ML v2 AAA;
-            font-weight: 300;
-            line-height: 129.99999523162842%;
-            font-stretch: normal;
-            text-decoration: none;
-          }
-          .about-rightcoloumn1 {
-            width: 370px;
-            height: 330px;
-          }
-          .about-teamsection {
-            gap: 50px;
-            width: 100%;
-            height: auto;
-            display: flex;
-            overflow: hidden;
-            align-items: flex-end;
-            flex-shrink: 0;
-            flex-direction: column;
-            justify-content: center;
-            background-color: rgba(240, 240, 240, 1);
-          }
-          .about-container3 {
-            display: flex;
             flex-grow: 1;
             align-self: stretch;
             align-items: center;
@@ -943,7 +503,7 @@ const About = (props) => {
             flex-direction: column;
             padding-bottom: var(--dl-space-space-sixunits);
           }
-          .about-content3 {
+          .about-content2 {
             display: flex;
             align-items: flex-end;
             flex-direction: column;
@@ -994,7 +554,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text35 {
+          .about-text12 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1006,7 +566,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text37 {
+          .about-text14 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1059,7 +619,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text39 {
+          .about-text16 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1071,7 +631,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text41 {
+          .about-text18 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1100,7 +660,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text43 {
+          .about-text20 {
             color: var(--dl-color-carasso-red);
             width: 276px;
             height: auto;
@@ -1113,10 +673,10 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text44 {
+          .about-text21 {
             font-weight: 300;
           }
-          .about-text49 {
+          .about-text26 {
             color: var(--dl-color-carasso-primaryblack);
             width: 333px;
             height: auto;
@@ -1129,10 +689,10 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text50 {
+          .about-text27 {
             font-weight: 300;
           }
-          .about-text52 {
+          .about-text29 {
             color: var(--dl-color-carasso-primaryblack);
             width: 300px;
             height: auto;
@@ -1196,7 +756,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text54 {
+          .about-text31 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1208,7 +768,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text56 {
+          .about-text33 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1261,7 +821,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text58 {
+          .about-text35 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1273,7 +833,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text60 {
+          .about-text37 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1326,7 +886,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text62 {
+          .about-text39 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1338,7 +898,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text64 {
+          .about-text41 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1401,7 +961,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text66 {
+          .about-text43 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1413,7 +973,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text68 {
+          .about-text45 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1473,7 +1033,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text70 {
+          .about-text47 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1485,7 +1045,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text72 {
+          .about-text49 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1538,7 +1098,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text74 {
+          .about-text51 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1550,7 +1110,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text76 {
+          .about-text53 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1613,7 +1173,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text78 {
+          .about-text55 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1625,7 +1185,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text80 {
+          .about-text57 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1678,7 +1238,7 @@ const About = (props) => {
             align-items: flex-end;
             flex-direction: column;
           }
-          .about-text82 {
+          .about-text59 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 32px;
@@ -1690,7 +1250,7 @@ const About = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .about-text84 {
+          .about-text61 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;

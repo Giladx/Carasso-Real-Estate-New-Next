@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import projectsPageInitialPropsTqHpResource from '../../resources/projects-page-initial-props-tq_hp'
+import projectsPageInitialPropsTqDResource from '../../resources/projects-page-initial-props-tq_-d'
 
-const Projects = (props) => {
+const Projects1 = (props) => {
   return (
     <>
-      <div className="projects-container">
+      <div className="projects1-container">
         <Head>
-          <title>Projects - Carasso Real Estate</title>
+          <title>Projects1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Projects - Carasso Real Estate" />
+          <meta property="og:title" content="Projects1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -23,7 +23,7 @@ const Projects = (props) => {
                 items={params}
                 renderItem={(ProjectsEntities) => (
                   <>
-                    <div className="projects-container1">
+                    <div className="projects1-container1">
                       <span>{ProjectsEntities?.Brand_name}</span>
                       <span>{ProjectsEntities?.Brand_Slogan}</span>
                       <span>{ProjectsEntities?.City__c}</span>
@@ -40,7 +40,7 @@ const Projects = (props) => {
       </div>
       <style jsx>
         {`
-          .projects-container {
+          .projects1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Projects = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .projects-container1 {
+          .projects1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Projects = (props) => {
   )
 }
 
-Projects.defaultProps = {
+Projects1.defaultProps = {
   projectsEntities: [],
 }
 
-Projects.propTypes = {
+Projects1.propTypes = {
   projectsEntities: PropTypes.array,
 }
 
-export default Projects
+export default Projects1
 
 export async function getStaticProps(context) {
   try {
-    const response = await projectsPageInitialPropsTqHpResource({
+    const response = await projectsPageInitialPropsTqDResource({
       ...context?.params,
     })
     if (!response) {

@@ -4,16 +4,16 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPropsTqTTResource from '../../resources/posts-page-initial-props-tq_t-t'
+import postsPageInitialPropsTqPResource from '../../resources/posts-page-initial-props-tq_p-'
 
-const Posts = (props) => {
+const Posts1 = (props) => {
   return (
     <>
-      <div className="posts-container">
+      <div className="posts1-container">
         <Head>
-          <title>Posts - Carasso Real Estate</title>
+          <title>Posts1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Posts - Carasso Real Estate" />
+          <meta property="og:title" content="Posts1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -23,7 +23,7 @@ const Posts = (props) => {
                 items={params}
                 renderItem={(PostsEntities) => (
                   <>
-                    <div className="posts-container1">
+                    <div className="posts1-container1">
                       <h1>{PostsEntities?.Title}</h1>
                       <span>{PostsEntities?.Title}</span>
                       <span>{PostsEntities?.Content}</span>
@@ -40,7 +40,7 @@ const Posts = (props) => {
       </div>
       <style jsx>
         {`
-          .posts-container {
+          .posts1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +48,7 @@ const Posts = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .posts-container1 {
+          .posts1-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +61,19 @@ const Posts = (props) => {
   )
 }
 
-Posts.defaultProps = {
+Posts1.defaultProps = {
   postsEntities: [],
 }
 
-Posts.propTypes = {
+Posts1.propTypes = {
   postsEntities: PropTypes.array,
 }
 
-export default Posts
+export default Posts1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsTqTTResource({
+    const response = await postsPageInitialPropsTqPResource({
       ...context?.params,
     })
     if (!response) {

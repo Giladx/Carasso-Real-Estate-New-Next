@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import projectsPageInitialPathsTqL8Resource from '../../../resources/projects-page-initial-paths-tq_l8'
-import projectsPageInitialPropsTqD9Resource from '../../../resources/projects-page-initial-props-tq_d9'
+import projectsPageInitialPathsTqJHResource from '../../../resources/projects-page-initial-paths-tq_j-h'
+import projectsPageInitialPropsTqSmResource from '../../../resources/projects-page-initial-props-tq_sm'
 
-const Projects1 = (props) => {
+const Projects11 = (props) => {
   return (
     <>
-      <div className="projects1-container">
+      <div className="projects11-container">
         <Head>
-          <title>Projects - Carasso Real Estate</title>
+          <title>Projects1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Projects - Carasso Real Estate" />
+          <meta property="og:title" content="Projects1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -24,7 +24,7 @@ const Projects1 = (props) => {
                 items={params}
                 renderItem={(ProjectsEntities) => (
                   <>
-                    <div className="projects1-container1">
+                    <div className="projects11-container1">
                       <span>{ProjectsEntities?.Brand_name}</span>
                       <span>{ProjectsEntities?.Brand_Slogan}</span>
                       <span>{ProjectsEntities?.City__c}</span>
@@ -41,7 +41,7 @@ const Projects1 = (props) => {
       </div>
       <style jsx>
         {`
-          .projects1-container {
+          .projects11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -49,7 +49,7 @@ const Projects1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .projects1-container1 {
+          .projects11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -62,19 +62,19 @@ const Projects1 = (props) => {
   )
 }
 
-Projects1.defaultProps = {
+Projects11.defaultProps = {
   projectsEntities: [],
 }
 
-Projects1.propTypes = {
+Projects11.propTypes = {
   projectsEntities: PropTypes.array,
 }
 
-export default Projects1
+export default Projects11
 
 export async function getStaticPaths() {
   try {
-    const response = await projectsPageInitialPathsTqL8Resource({})
+    const response = await projectsPageInitialPathsTqJHResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await projectsPageInitialPropsTqD9Resource({
+    const response = await projectsPageInitialPropsTqSmResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })

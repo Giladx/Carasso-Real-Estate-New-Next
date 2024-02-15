@@ -4,17 +4,17 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import shopsPageInitialPathsTq3vResource from '../../../resources/shops-page-initial-paths-tq_3v'
-import shopsPageInitialPropsTqVRResource from '../../../resources/shops-page-initial-props-tq_v-r'
+import shopsPageInitialPathsTqHOResource from '../../../resources/shops-page-initial-paths-tq_h-o'
+import shopsPageInitialPropsTqEGResource from '../../../resources/shops-page-initial-props-tq_e-g'
 
-const Shops1 = (props) => {
+const Shops11 = (props) => {
   return (
     <>
-      <div className="shops1-container">
+      <div className="shops11-container">
         <Head>
-          <title>Shops - Carasso Real Estate</title>
+          <title>Shops1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Shops - Carasso Real Estate" />
+          <meta property="og:title" content="Shops1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
@@ -24,7 +24,7 @@ const Shops1 = (props) => {
                 items={params}
                 renderItem={(ShopsEntities) => (
                   <>
-                    <div className="shops1-container1">
+                    <div className="shops11-container1">
                       <span>{ShopsEntities?.Shop_title}</span>
                       <span>{ShopsEntities?.Shop_phone}</span>
                       <span>{ShopsEntities?.Shop_opening_hours}</span>
@@ -41,7 +41,7 @@ const Shops1 = (props) => {
       </div>
       <style jsx>
         {`
-          .shops1-container {
+          .shops11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -49,7 +49,7 @@ const Shops1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .shops1-container1 {
+          .shops11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -62,19 +62,19 @@ const Shops1 = (props) => {
   )
 }
 
-Shops1.defaultProps = {
+Shops11.defaultProps = {
   shopsEntities: [],
 }
 
-Shops1.propTypes = {
+Shops11.propTypes = {
   shopsEntities: PropTypes.array,
 }
 
-export default Shops1
+export default Shops11
 
 export async function getStaticPaths() {
   try {
-    const response = await shopsPageInitialPathsTq3vResource({})
+    const response = await shopsPageInitialPathsTqHOResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await shopsPageInitialPropsTqVRResource({
+    const response = await shopsPageInitialPropsTqEGResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })

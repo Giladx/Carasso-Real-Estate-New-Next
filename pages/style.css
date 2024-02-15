@@ -46,6 +46,7 @@
   --dl-size-size-xsmall: 16px;
   --dl-space-space-unit: 16px;
   --dl-color-carasso-red: rgba(255, 82, 61, 1);
+  --dl-color-primary-300: #0074F0;
   --dl-color-success-300: #199033;
   --dl-color-success-500: #32A94C;
   --dl-color-success-700: #4CC366;
@@ -190,6 +191,42 @@
 .responsive_frame {
   width: 100%;
   height: auto;
+}
+
+.main-container {
+  gap: var(--dl-space-space-twounits);
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-twounits);
+  max-width: var(--dl-size-size-maxwidth);
+  flex-direction: column;
+}
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+.tab-titles {
+  gap: 16px;
+  display: flex;
+  white-space: no-wrap;
+}
+.tab-title {
+  height: 32px;
+  shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.tab-contents {
+  gap: 16px;
+  border: solid 1px #ccc;
+  display: flex;
+  min-height: 300px;
+}
+.tab-content {
+  display: flex;
+  padding: 16px;
 }
 .Content {
   font-size: 1rem;

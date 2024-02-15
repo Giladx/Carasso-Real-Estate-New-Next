@@ -456,7 +456,7 @@ const UrbanRenew = (props) => {
               <div className="urban-renew-frame219">
                 <img
                   alt="image165030"
-                  src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/e883597f-3d65-43c0-b29f-343b9d2cf4e1?org_if_sml=15040&amp;force_format=original"
+                  src="/external/image165030-tkmc-200h.webp"
                   className="urban-renew-image16"
                 />
               </div>
