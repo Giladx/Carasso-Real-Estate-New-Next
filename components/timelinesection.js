@@ -243,7 +243,7 @@ function openCity(evt, cityName) {
             </div>
             <div className="timelinesection-container10 tab-contents">
               <div className="timelinesection-container11 tab-content">
-                <span>Content 1</span>
+                <span className="timelinesection-text38">Content 1</span>
               </div>
               <div className="timelinesection-container12 tab-content">
                 <span>Content 2</span>
@@ -311,33 +311,6 @@ function openCity(evt, cityName) {
                 ></Script>
               </div>
             </div>
-          </div>
-          <div className="timelinesection-copy">
-            <p>
-              <span>
-                <span>
-                  Click on the copy button below, paste it in your own project
-                  in the
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
-                </span>
-                <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
-                </span>
-              </span>
-              <span className="timelinesection-text45">design canvas</span>
-              <span>. A pop-up will appear. Save.</span>
-            </p>
-            <button id="copy" className="timelinesection-button button">
-              COPY
-            </button>
           </div>
         </div>
       </div>
@@ -881,7 +854,7 @@ function openCity(evt, cityName) {
             width: 100%;
           }
           .timelinesection-container06 {
-            align-self: flex-end;
+            width: 100%;
           }
           .timelinesection-container07 {
             cursor: pointer;
@@ -900,6 +873,10 @@ function openCity(evt, cityName) {
             width: 100%;
             justify-content: flex-end;
           }
+          .timelinesection-text38 {
+            width: 100%;
+            padding: var(--dl-space-space-twounits);
+          }
           .timelinesection-container12 {
             width: 100%;
             display: none;
@@ -912,20 +889,6 @@ function openCity(evt, cityName) {
           }
           .timelinesection-container15 {
             display: contents;
-          }
-          .timelinesection-copy {
-            gap: var(--dl-space-space-unit);
-            display: flex;
-            flex-direction: column;
-          }
-          .timelinesection-text45 {
-            font-weight: 700;
-          }
-          .timelinesection-button {
-            color: var(--dl-color-gray-white);
-            align-self: flex-start;
-            border-width: 0px;
-            background-color: var(--dl-color-primary-300);
           }
         `}
       </style>

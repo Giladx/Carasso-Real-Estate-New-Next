@@ -198,7 +198,9 @@
   width: 100%;
   display: flex;
   padding: var(--dl-space-space-twounits);
+  direction: rtl;
   max-width: var(--dl-size-size-maxwidth);
+  text-align: right;
   flex-direction: column;
 }
 .tabs {
@@ -220,7 +222,7 @@
 }
 .tab-contents {
   gap: 16px;
-  border: solid 1px #ccc;
+  border: solid 0px #ccc;
   display: flex;
   min-height: 300px;
 }

@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPathsTq6uResource from '../../../resources/posts-page-initial-paths-tq_6u'
-import postsPageInitialPropsTq70Resource from '../../../resources/posts-page-initial-props-tq_70'
+import postsPageInitialPathsTqFyResource from '../../../resources/posts-page-initial-paths-tq_fy'
+import postsPageInitialPropsTqS6Resource from '../../../resources/posts-page-initial-props-tq_s6'
 
 const Posts11 = (props) => {
   return (
@@ -74,7 +74,7 @@ export default Posts11
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPathsTq6uResource({})
+    const response = await postsPageInitialPathsTqFyResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsTq70Resource({
+    const response = await postsPageInitialPropsTqS6Resource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
