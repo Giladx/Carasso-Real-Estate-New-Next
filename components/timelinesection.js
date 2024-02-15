@@ -324,6 +324,7 @@ function openCity(evt, cityName) {
             background-color: rgba(240, 240, 240, 1);
           }
           .timelinesection-container {
+            width: 100%;
             display: flex;
             padding: 0 90px;
             flex-grow: 1;
@@ -370,6 +371,7 @@ function openCity(evt, cityName) {
           }
           .timelinesection-years {
             gap: 42px;
+            width: 100%;
             display: flex;
             padding: 0 310px;
             align-self: stretch;
@@ -937,6 +939,44 @@ function openCity(evt, cityName) {
           }
           .timelinesection-container15 {
             display: contents;
+          }
+          @media (max-width: 1440px) {
+            .timelinesection-center {
+              width: 100%;
+            }
+            .timelinesection-container01 {
+              width: 100%;
+            }
+            .timelinesection-years {
+              padding-left: var(--dl-space-space-fiveunits);
+              padding-right: var(--dl-space-space-fiveunits);
+            }
+          }
+          @media (max-width: 1200px) {
+            .timelinesection-container01 {
+              width: 100%;
+            }
+            .timelinesection-years {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
+          }
+          @media (max-width: 991px) {
+            .timelinesection-container01 {
+              width: 100%;
+            }
+          }
+          @media (max-width: 767px) {
+            .timelinesection-container {
+              padding-left: var(--dl-space-space-oneandhalfunits);
+              padding-right: var(--dl-space-space-oneandhalfunits);
+            }
+            .timelinesection-center {
+              width: 100%;
+            }
+            .timelinesection-container01 {
+              width: 100%;
+            }
           }
         `}
       </style>
