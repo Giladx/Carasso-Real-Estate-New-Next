@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialPathsTqFIResource from '../../resources/authors-page-initial-paths-tq_f-i'
-import authorsPageInitialPropsTqVlResource from '../../resources/authors-page-initial-props-tq_vl'
+import authorsPageInitialPathsTqGcResource from '../../resources/authors-page-initial-paths-tq_gc'
+import authorsPageInitialPropsTqJvResource from '../../resources/authors-page-initial-props-tq_jv'
 
 const Authors = (props) => {
   return (
@@ -66,7 +66,7 @@ export default Authors
 
 export async function getStaticPaths() {
   try {
-    const response = await authorsPageInitialPathsTqFIResource({})
+    const response = await authorsPageInitialPathsTqGcResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialPropsTqVlResource({
+    const response = await authorsPageInitialPropsTqJvResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

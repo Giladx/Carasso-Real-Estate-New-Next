@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tabsPageInitialPathsTqU5Resource from '../../resources/tabs-page-initial-paths-tq_u5'
-import tabsPageInitialPropsTqKzResource from '../../resources/tabs-page-initial-props-tq_kz'
+import tabsPageInitialPathsTqWuResource from '../../resources/tabs-page-initial-paths-tq_wu'
+import tabsPageInitialPropsTq5xResource from '../../resources/tabs-page-initial-props-tq_5x'
 
 const Tabs11 = (props) => {
   return (
@@ -66,7 +66,7 @@ export default Tabs11
 
 export async function getStaticPaths() {
   try {
-    const response = await tabsPageInitialPathsTqU5Resource({})
+    const response = await tabsPageInitialPathsTqWuResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await tabsPageInitialPropsTqKzResource({
+    const response = await tabsPageInitialPropsTq5xResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

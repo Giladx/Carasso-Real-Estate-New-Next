@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import apartmentsPageInitialPathsTqMmResource from '../../../resources/apartments-page-initial-paths-tq_mm'
-import apartmentsPageInitialPropsTqRnResource from '../../../resources/apartments-page-initial-props-tq_rn'
+import apartmentsPageInitialPathsTqMbResource from '../../../resources/apartments-page-initial-paths-tq_mb'
+import apartmentsPageInitialPropsTqJhResource from '../../../resources/apartments-page-initial-props-tq_jh'
 
 const Apartments11 = (props) => {
   return (
@@ -77,7 +77,7 @@ export default Apartments11
 
 export async function getStaticPaths() {
   try {
-    const response = await apartmentsPageInitialPathsTqMmResource({})
+    const response = await apartmentsPageInitialPathsTqMbResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -103,7 +103,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await apartmentsPageInitialPropsTqRnResource({
+    const response = await apartmentsPageInitialPropsTqJhResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
