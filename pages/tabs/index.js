@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tabsPageInitialPropsTqAaResource from '../../resources/tabs-page-initial-props-tq_aa'
+import tabsPageInitialPropsTqDhResource from '../../resources/tabs-page-initial-props-tq_dh'
 
 const Tabs = (props) => {
   return (
@@ -73,7 +73,7 @@ export default Tabs
 
 export async function getStaticProps(context) {
   try {
-    const response = await tabsPageInitialPropsTqAaResource({
+    const response = await tabsPageInitialPropsTqDhResource({
       ...context?.params,
     })
     if (!response) {

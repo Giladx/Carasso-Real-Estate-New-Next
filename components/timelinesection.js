@@ -23,21 +23,19 @@ const Timelinesection = (props) => {
               </span>
               <div className="timelinesection-container01 tabs">
                 <div className="timelinesection-years tab-titles">
-                  <a href="mailto:?subject=" className="timelinesection-link">
-                    <div
-                      onclick="#"
-                      className="timelinesection-frame292 tab-title"
-                    >
-                      <img
-                        alt={props.line29Alt4}
-                        src={props.line29Src4}
-                        className="timelinesection-line29"
-                      />
-                      <span className="timelinesection-text03">
-                        <span>1933</span>
-                      </span>
-                    </div>
-                  </a>
+                  <div
+                    onclick="#"
+                    className="timelinesection-frame292 tab-title"
+                  >
+                    <img
+                      alt={props.line29Alt4}
+                      src={props.line29Src4}
+                      className="timelinesection-line29"
+                    />
+                    <span className="timelinesection-text03">
+                      <span>1933</span>
+                    </span>
+                  </div>
                   <div className="timelinesection-frame303 tab-title">
                     <img
                       alt={props.line30Alt1}
@@ -379,9 +377,6 @@ function openCity(evt, cityName) {
             flex-shrink: 0;
             justify-content: space-between;
           }
-          .timelinesection-link {
-            display: contents;
-          }
           .timelinesection-frame292 {
             gap: 16px;
             cursor: pointer;
@@ -390,7 +385,6 @@ function openCity(evt, cityName) {
             align-self: stretch;
             align-items: center;
             flex-direction: column;
-            text-decoration: none;
           }
           .timelinesection-line29 {
             width: 15px;
