@@ -23,10 +23,7 @@ const Timelinesection = (props) => {
               </span>
               <div className="timelinesection-container01 tabs">
                 <div className="timelinesection-years tab-titles">
-                  <div
-                    onclick="#"
-                    className="timelinesection-frame292 tab-title"
-                  >
+                  <div className="timelinesection-frame292 tab-title">
                     <img
                       alt={props.line29Alt4}
                       src={props.line29Src4}
@@ -130,7 +127,6 @@ const Timelinesection = (props) => {
                       src={props.rightcoloumnSrc}
                       className="timelinesection-rightcoloumn"
                     />
-                    <input type="checkbox" checked="true" />
                   </div>
                   <div className="timelinesection-content-tab1 tab-content">
                     <div className="timelinesection-leftcoloumn1">
@@ -162,7 +158,6 @@ const Timelinesection = (props) => {
                       src={props.rightcoloumnSrc1}
                       className="timelinesection-rightcoloumn1"
                     />
-                    <input type="checkbox" checked="true" />
                   </div>
                   <div className="timelinesection-content-tab2 tab-content">
                     <div className="timelinesection-leftcoloumn2">
@@ -194,7 +189,6 @@ const Timelinesection = (props) => {
                       src={props.rightcoloumnSrc11}
                       className="timelinesection-rightcoloumn2"
                     />
-                    <input type="checkbox" checked="true" />
                   </div>
                 </div>
               </div>
@@ -892,7 +886,6 @@ function openCity(evt, cityName) {
             display: contents;
           }
           .timelinesection-container04 {
-            display: none;
             max-width: 100%;
           }
           .timelinesection-container05 {

@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import projectsPageInitialPathsTqZxResource from '../../resources/projects-page-initial-paths-tq_zx'
-import projectsPageInitialPropsTqVjResource from '../../resources/projects-page-initial-props-tq_vj'
+import projectsPageInitialPathsTq01Resource from '../../resources/projects-page-initial-paths-tq_01'
+import projectsPageInitialPropsTqHhResource from '../../resources/projects-page-initial-props-tq_hh'
 
 const Projects = (props) => {
   return (
@@ -66,7 +66,7 @@ export default Projects
 
 export async function getStaticPaths() {
   try {
-    const response = await projectsPageInitialPathsTqZxResource({})
+    const response = await projectsPageInitialPathsTq01Resource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await projectsPageInitialPropsTqVjResource({
+    const response = await projectsPageInitialPropsTqHhResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
