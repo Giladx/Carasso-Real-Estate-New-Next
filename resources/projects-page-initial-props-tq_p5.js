@@ -3,7 +3,9 @@ import { normalize } from '@teleporthq/cms-mappers/strapi'
 export default async function (params = {}) {
   const urlParams = {
     'pagination[limit]': 10,
-    'pagination[start]': 0,
+    ...(params['start'] && {
+      'pagination[start]': params['start'],
+    }),
     populate: '*',
   }
   const data = await fetch(

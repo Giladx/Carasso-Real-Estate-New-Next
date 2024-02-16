@@ -312,7 +312,7 @@ function openCity(evt, cityName) {
         {`
           .timelinesection-timelinesection {
             gap: 50px;
-            width: auto;
+            width: 100%;
             height: auto;
             display: flex;
             overflow: hidden;
@@ -328,6 +328,7 @@ function openCity(evt, cityName) {
             display: flex;
             padding: 0 90px;
             flex-grow: 1;
+            max-width: auto;
             align-self: stretch;
             align-items: center;
           }
@@ -604,6 +605,7 @@ function openCity(evt, cityName) {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-content {
+            width: 100%;
             display: flex;
             padding: 50px 10px 0;
             overflow: hidden;
@@ -890,6 +892,7 @@ function openCity(evt, cityName) {
             display: contents;
           }
           .timelinesection-container04 {
+            display: none;
             max-width: 100%;
           }
           .timelinesection-container05 {
