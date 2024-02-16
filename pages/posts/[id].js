@@ -5,8 +5,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import ReactMarkdown from 'react-markdown'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPathsTq3nResource from '../../resources/posts-page-initial-paths-tq_3n'
-import postsPageInitialPropsTqAcResource from '../../resources/posts-page-initial-props-tq_ac'
+import postsPageInitialPathsTqRxResource from '../../resources/posts-page-initial-paths-tq_rx'
+import postsPageInitialPropsTqJhResource from '../../resources/posts-page-initial-props-tq_jh'
 
 const Posts = (props) => {
   return (
@@ -74,7 +74,7 @@ export default Posts
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPathsTq3nResource({})
+    const response = await postsPageInitialPathsTqRxResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -95,7 +95,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsTqAcResource({
+    const response = await postsPageInitialPropsTqJhResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {

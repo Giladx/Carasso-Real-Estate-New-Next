@@ -312,12 +312,12 @@ function openCity(evt, cityName) {
         {`
           .timelinesection-timelinesection {
             gap: 50px;
-            width: 100%;
+            width: auto;
             height: auto;
             display: flex;
             overflow: hidden;
             position: relative;
-            align-items: flex-end;
+            align-items: center;
             flex-shrink: 0;
             flex-direction: column;
             justify-content: center;
