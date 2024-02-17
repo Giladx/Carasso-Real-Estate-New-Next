@@ -1,6 +1,6 @@
 export default async function (params = {}) {
   const urlParams = {
-    fields: 'id',
+    'pagination[pageSize]': 1,
   }
   const data = await fetch(
     `${process.env.CMS_URL}/api/Brands?${new URLSearchParams(urlParams)}`,
