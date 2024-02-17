@@ -21,7 +21,7 @@ const Timelinesection = (props) => {
                 </span>
                 <span>לאורך השנים</span>
               </span>
-              <div className="timelinesection-container01 tabs">
+              <div className="timelinesection-container1 tabs">
                 <div className="timelinesection-years tab-titles">
                   <div className="timelinesection-frame292 tab-title">
                     <img
@@ -196,7 +196,7 @@ const Timelinesection = (props) => {
           </div>
         </div>
         <div className="tabcontent">
-          <div className="timelinesection-container03">
+          <div className="timelinesection-container3">
             <Script
               html={`<script>
 function openCity(evt, cityName) {
@@ -214,91 +214,6 @@ function openCity(evt, cityName) {
 }
 </script>`}
             ></Script>
-          </div>
-        </div>
-        <div className="timelinesection-container04 main-container">
-          <div className="timelinesection-container05 tabs">
-            <div className="timelinesection-container06 tab-titles">
-              <div className="timelinesection-container07 tab-title">
-                <span>Title 1</span>
-              </div>
-              <div className="timelinesection-container08 tab-title">
-                <span>Title 2</span>
-              </div>
-              <div className="timelinesection-container09 tab-title">
-                <span>Title 3</span>
-              </div>
-            </div>
-            <div className="timelinesection-container10 tab-contents">
-              <div className="timelinesection-container11 tab-content">
-                <span className="timelinesection-text36">Content 1</span>
-              </div>
-              <div className="timelinesection-container12 tab-content">
-                <span className="timelinesection-text37">Content 2</span>
-              </div>
-              <div className="timelinesection-container13 tab-content">
-                <span className="timelinesection-text38">Content 3</span>
-              </div>
-            </div>
-            <div>
-              <div className="timelinesection-container15">
-                <Script
-                  html={`<script>
-  function initTabs() {
-    // find all tabs containers
-    const tabsContainers = document.getElementsByClassName("tabs");
-
-    function selectContainer(tabContents, id) {
-      Array.from(tabContents).forEach((tabContent, index) => {
-        tabContent.style.display = id === index ? "flex" : "none";
-      });
-    }
-
-    function selectTabTitle(tabTitles, id) {
-      Array.from(tabTitles).forEach((tabTitle, index) => {
-        tabTitle.classList.remove("tab-title-selected");
-        // set the first tab content vile selected by default
-        if (id === index) {
-          tabTitle.classList.add("tab-title-selected");
-        }
-      });
-    }
-
-    // init state and events for each tabs system
-    Array.from(tabsContainers).forEach((tabsContainer) => {
-      // initialisation flag
-      if (tabsContainer.classList.contains("initialised")) {
-        return;
-      }
-
-      tabsContainer.classList.add("initialised");
-
-      const tabTitles = tabsContainer.getElementsByClassName("tab-title");
-      const tabContents = tabsContainer.getElementsByClassName("tab-content");
-
-      // set the first tab content selected by default
-      selectContainer(tabsContainer, 0);
-
-      // set the first tabTitle selected by default
-      selectTabTitle(tabTitles, 0);
-
-      // add events
-      Array.from(tabTitles).forEach((tabTitle, index) => {
-        // show corresponding content on click
-        tabTitle.addEventListener("click", () => {
-          selectContainer(tabContents, index);
-          selectTabTitle(tabTitles, index);
-        });
-      });
-    });
-  }
-
-  initTabs();
-</script>
-`}
-                ></Script>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -337,6 +252,7 @@ function openCity(evt, cityName) {
           }
           .timelinesection-head-container {
             gap: 60px;
+            width: 100%;
             display: flex;
             align-self: stretch;
             align-items: center;
@@ -357,7 +273,7 @@ function openCity(evt, cityName) {
           .timelinesection-text01 {
             font-weight: 300;
           }
-          .timelinesection-container01 {
+          .timelinesection-container1 {
             flex: 0 0 auto;
             width: auto;
             display: flex;
@@ -400,6 +316,9 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
+          .timelinesection-text03:focus {
+            color: var(--dl-color-carasso-red);
+          }
           .timelinesection-text03:hover {
             color: var(--dl-color-carasso-red);
           }
@@ -431,6 +350,9 @@ function openCity(evt, cityName) {
             line-height: 110.00000238418579%;
             font-stretch: normal;
             text-decoration: none;
+          }
+          .timelinesection-text05:focus {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-text05:hover {
             color: var(--dl-color-carasso-red);
@@ -464,6 +386,9 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
+          .timelinesection-text07:focus {
+            color: var(--dl-color-carasso-red);
+          }
           .timelinesection-text07:hover {
             color: var(--dl-color-carasso-red);
           }
@@ -495,6 +420,9 @@ function openCity(evt, cityName) {
             line-height: 110.00000238418579%;
             font-stretch: normal;
             text-decoration: none;
+          }
+          .timelinesection-text09:focus {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-text09:hover {
             color: var(--dl-color-carasso-red);
@@ -528,6 +456,9 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
+          .timelinesection-text11:focus {
+            color: var(--dl-color-carasso-red);
+          }
           .timelinesection-text11:hover {
             color: var(--dl-color-carasso-red);
           }
@@ -560,6 +491,9 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
+          .timelinesection-text13:focus {
+            color: var(--dl-color-carasso-red);
+          }
           .timelinesection-text13:hover {
             color: var(--dl-color-carasso-red);
           }
@@ -591,6 +525,9 @@ function openCity(evt, cityName) {
             line-height: 110.00000238418579%;
             font-stretch: normal;
             text-decoration: none;
+          }
+          .timelinesection-text15:focus {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-text15:hover {
             color: var(--dl-color-carasso-red);
@@ -882,65 +819,14 @@ function openCity(evt, cityName) {
             width: 370px;
             height: 330px;
           }
-          .timelinesection-container03 {
-            display: contents;
-          }
-          .timelinesection-container04 {
-            max-width: 100%;
-          }
-          .timelinesection-container05 {
-            width: 100%;
-          }
-          .timelinesection-container06 {
-            width: 100%;
-          }
-          .timelinesection-container07 {
-            cursor: pointer;
-          }
-          .timelinesection-container08 {
-            cursor: pointer;
-          }
-          .timelinesection-container09 {
-            cursor: pointer;
-          }
-          .timelinesection-container10 {
-            width: 100%;
-            align-self: flex-end;
-          }
-          .timelinesection-container11 {
-            width: 100%;
-            justify-content: flex-end;
-          }
-          .timelinesection-text36 {
-            width: 100%;
-            padding: var(--dl-space-space-twounits);
-          }
-          .timelinesection-container12 {
-            width: 100%;
-            display: none;
-            justify-content: flex-end;
-          }
-          .timelinesection-text37 {
-            width: 100%;
-            padding: var(--dl-space-space-twounits);
-          }
-          .timelinesection-container13 {
-            width: 100%;
-            display: none;
-            justify-content: flex-end;
-          }
-          .timelinesection-text38 {
-            width: 100%;
-            padding: var(--dl-space-space-twounits);
-          }
-          .timelinesection-container15 {
+          .timelinesection-container3 {
             display: contents;
           }
           @media (max-width: 1440px) {
             .timelinesection-center {
               width: 100%;
             }
-            .timelinesection-container01 {
+            .timelinesection-container1 {
               width: 100%;
             }
             .timelinesection-years {
@@ -949,7 +835,7 @@ function openCity(evt, cityName) {
             }
           }
           @media (max-width: 1200px) {
-            .timelinesection-container01 {
+            .timelinesection-container1 {
               width: 100%;
             }
             .timelinesection-years {
@@ -958,7 +844,7 @@ function openCity(evt, cityName) {
             }
           }
           @media (max-width: 991px) {
-            .timelinesection-container01 {
+            .timelinesection-container1 {
               width: 100%;
             }
           }
@@ -970,7 +856,7 @@ function openCity(evt, cityName) {
             .timelinesection-center {
               width: 100%;
             }
-            .timelinesection-container01 {
+            .timelinesection-container1 {
               width: 100%;
             }
           }
