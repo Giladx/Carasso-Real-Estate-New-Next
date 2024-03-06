@@ -69,12 +69,14 @@
   --dl-color-carasso-darkergray: rgba(115, 119, 123, 1);
   --dl-color-carasso-plainwhite: rgba(255, 255, 255, 1);
   --dl-color-carasso-umamicolor: rgba(199, 154, 121, 1);
+  --dl-color-carasso-tagdisabled: rgba(235, 235, 235, 1);
   --dl-color-carasso-tagselected: rgba(62, 84, 103, 1);
   --dl-color-carasso-primaryblack: rgba(42, 42, 42, 1);
   --dl-color-carasso-graytextcolor: rgba(187, 188, 191, 1);
   --dl-space-space-oneandhalfunits: 24px;
   --dl-color-carasso-tagnotselected: rgba(237, 239, 241, 1);
   --dl-color-carasso-backgroundcolor: rgba(246, 246, 246, 1);
+  --dl-color-carasso-tagdisabledtext: rgba(178, 187, 194, 1);
 }
 .button {
   color: var(--dl-color-gray-black);
@@ -227,6 +229,118 @@
 .tab-content {
   display: flex;
   padding: 16px;
+}
+.tab-title-selected {
+  color: var(--dl-color-carasso-red);
+}
+
+.swiper-button-prev:after {
+  background-image: url("https://banner2.cleanpng.com/20180328/oye/kisspng-computer-icons-arrow-clip-art-line-5abb30ad87ccd9.3631456715222171335562.jpg");
+}
+.Label-Button {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Label-3 {
+  font-size: 14px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 300px;
+  font-stretch: normal;
+}
+.H1 {
+  font-size: 84px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 300px;
+  font-stretch: normal;
+}
+.H3 {
+  font-size: 32px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.P-22 {
+  font-size: 22px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 300px;
+  font-stretch: normal;
+}
+.H4 {
+  font-size: 26px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.CTA {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Label-2 {
+  font-size: 14px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Label-1 {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.P-20 {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 300px;
+  font-stretch: normal;
+}
+.H2 {
+  font-size: 50px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.P-18 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 300px;
+  font-stretch: normal;
+}
+.Label-5 {
+  font-size: 12px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Label {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Label-4 {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Ploni ML v2 AAA;
+  font-weight: 300px;
+  font-stretch: normal;
 }
 .Content {
   font-size: 1rem;

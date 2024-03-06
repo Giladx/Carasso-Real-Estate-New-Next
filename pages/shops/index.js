@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import shopsPageInitialPropsTq7pResource from '../../resources/shops-page-initial-props-tq_7p'
+import shopsPageInitialPropsTqW8Resource from '../../resources/shops-page-initial-props-tq_w8'
 
 const Shops1 = (props) => {
   return (
@@ -19,18 +19,20 @@ const Shops1 = (props) => {
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(ShopsEntities) => (
-                  <>
-                    <div className="shops1-container1">
-                      <span>{ShopsEntities?.Shop_title}</span>
-                      <span>{ShopsEntities?.Shop_phone}</span>
-                      <span>{ShopsEntities?.Shop_opening_hours}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(ShopsEntities) => (
+                    <>
+                      <div className="shops1-container2">
+                        <span>{ShopsEntities?.Shop_title}</span>
+                        <span>{ShopsEntities?.Shop_phone}</span>
+                        <span>{ShopsEntities?.Shop_opening_hours}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.shopsEntities}
@@ -48,7 +50,7 @@ const Shops1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .shops1-container1 {
+          .shops1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -73,7 +75,7 @@ export default Shops1
 
 export async function getStaticProps(context) {
   try {
-    const response = await shopsPageInitialPropsTq7pResource({
+    const response = await shopsPageInitialPropsTqW8Resource({
       ...context?.params,
     })
     if (!response) {
@@ -86,7 +88,7 @@ export async function getStaticProps(context) {
         shopsEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 30,
     }
   } catch (error) {
     return {

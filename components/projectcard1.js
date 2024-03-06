@@ -12,19 +12,19 @@ const Projectcard1 = (props) => {
       >
         <div className="project-inner">
           <div className="projectcard1-projectstatus">
-            <span className="projectcard1-text">{props.cardTag}</span>
+            <span className="projectcard1-text">בתכנון</span>
             <img
-              alt={props.vectorStrokeAlt}
-              src={props.vectorStrokeSrc}
+              src="/external/vectorstroke3708-4itf.svg"
+              alt="VectorStroke3708"
               className="projectcard1-vector-stroke"
             />
           </div>
           <div className="projectcard1-projectcontent">
             <img
               id="btn-1"
-              alt={props.projectarrowbuttonAlt}
-              src={props.projectarrowbuttonSrc}
               loading="lazy"
+              src="/external/projectarrowbutton3708-a4n.svg"
+              alt="projectarrowbutton3708"
               className="projectcard1-projectarrowbutton"
             />
             <div className="projectcard1-projectdetails">
@@ -32,9 +32,12 @@ const Projectcard1 = (props) => {
                 id="info"
                 className="projectinfo projectcard1-projectnamelocation"
               >
-                <span className="projectcard1-text1">{props.cardSubTitle}</span>
-                <span className="projectcard1-text2">{props.cardTitle}</span>
-                <span className="projectcard1-text3">{props.exp}</span>
+                <span className="projectcard1-text1">קריית אונו</span>
+                <span className="projectcard1-text2">אומאמי</span>
+                <span className="projectcard1-text3">
+                  בבסיס התכנון של המתחם עומדת האהבה לבישול ולאירוח, אהבה שניתן
+                  להרגיש החל במרחבים המשותפים, דרך הדירות עצמן ועד למטבחים.
+                </span>
               </div>
             </div>
           </div>
@@ -43,8 +46,8 @@ const Projectcard1 = (props) => {
         <div className="project-img-small">
           <img
             id="mask"
-            alt={props.imageAlt}
-            src={props.imageSrc}
+            src="/external/elipse-image-on-hover-400w-400w-400w.png"
+            alt="image"
             className="mask"
           />
         </div>
@@ -215,7 +218,7 @@ Projectcard1.defaultProps = {
   cardSubTitle: 'קריית אונו',
   imageSrc: '13c2adeb-f2f6-42e4-8373-e90c1ea0f10c',
   vectorStrokeAlt: 'VectorStroke3708',
-  vectorStrokeSrc: '/external/vectorstroke3708-4itf.svg',
+  vectorStrokeSrc: '23afc8c4-fe48-40ae-999c-e7bbfc16e3d3',
   imageAlt: 'image',
   cardTitle: 'אומאמי',
   rootClassName: '',

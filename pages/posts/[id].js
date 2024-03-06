@@ -5,8 +5,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import ReactMarkdown from 'react-markdown'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPathsTq24Resource from '../../resources/posts-page-initial-paths-tq_24'
-import postsPageInitialPropsTqHyResource from '../../resources/posts-page-initial-props-tq_hy'
+import postsPageInitialPropsTq26Resource from '../../resources/posts-page-initial-props-tq_26'
+import postsPageInitialPathsTqFYResource from '../../resources/posts-page-initial-paths-tq_f-y'
 
 const Posts = (props) => {
   return (
@@ -72,9 +72,33 @@ Posts.propTypes = {
 
 export default Posts
 
+export async function getStaticProps(context) {
+  try {
+    const response = await postsPageInitialPropsTq26Resource({
+      ...context?.params,
+    })
+    if (!response?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        postsEntity: response?.data?.[0],
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
+
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPathsTq24Resource({})
+    const response = await postsPageInitialPathsTqFYResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -89,30 +113,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await postsPageInitialPropsTqHyResource({
-      ...context?.params,
-    })
-    if (!response?.data?.[0]) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        postsEntity: response?.data?.[0],
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

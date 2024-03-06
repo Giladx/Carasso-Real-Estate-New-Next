@@ -12,15 +12,17 @@ const About = (props) => {
           <meta name="description" content="Carasso Real Estate" />
           <meta property="og:title" content="About - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
+          <meta
+            property="og:image"
+            content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/54924954-5c3a-4ae6-9277-e76b2fdbc592?org_if_sml=1&amp;force_format=original"
+          />
         </Head>
         <div className="about-hero">
           <div className="about-leftcolumn">
             <img alt="Vector4942" src="/simbol.svg" className="about-vector" />
             <img
               alt="image"
-              sizes="(min-width: 992px) 1200px, (min-width: 768px) 800px, 480px"
-              src="/blog/about-background-1500h.webp"
-              srcSet="blog//about-background-1500h.webp 1200w, blog/about-background-tablet.webp 800w, blog/about-background-mobile.webp 480w"
+              src="/blog/about-background-1500h.png"
               className="about-image"
             />
           </div>
@@ -70,9 +72,7 @@ const About = (props) => {
               <div className="about-image1">
                 <img
                   alt="Rectangle214942"
-                  sizes="(min-width: 768px) 800px, 480px"
-                  src="/external/rectangle214942-gzu-600w.webp"
-                  srcSet="external//rectangle214942-gzu-600w.webp 800w, external/rectangle214942-gzu-mobile.webp 480w"
+                  src="/external/rectangle214942-gzu-600w.png"
                   className="about-rectangle21"
                 />
                 <img
@@ -82,9 +82,7 @@ const About = (props) => {
                 />
                 <img
                   alt="Ellipse104942"
-                  sizes="(min-width: 768px) 800px, 480px"
-                  src="/external/ellipse104942-crg6-700w.webp"
-                  srcSet="external//ellipse104942-crg6-700w.webp 800w, external/ellipse104942-crg6-mobile.webp 480w"
+                  src="/external/ellipse104942-crg6-700w.png"
                   className="about-ellipse10"
                 />
               </div>
@@ -536,7 +534,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/yaron-500h.webp');
+            background-image: url('/about/yaron-500h.png');
           }
           .about-bottomtext {
             gap: 16px;
@@ -601,7 +599,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/dan-500h.webp');
+            background-image: url('/about/dan-500h.png');
           }
           .about-bottomtext01 {
             gap: 16px;
@@ -738,7 +736,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/hemi-500h.webp');
+            background-image: url('/about/hemi-500h.png');
           }
           .about-bottomtext02 {
             gap: 16px;
@@ -803,7 +801,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/reuven-500h.webp');
+            background-image: url('/about/reuven-500h.png');
           }
           .about-bottomtext03 {
             gap: 16px;
@@ -868,7 +866,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/adi-500h.webp');
+            background-image: url('/about/adi-500h.png');
           }
           .about-bottomtext04 {
             gap: 16px;
@@ -943,7 +941,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/harel-500h.webp');
+            background-image: url('/about/harel-500h.png');
           }
           .about-bottomtext05 {
             gap: 16px;
@@ -1008,7 +1006,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/michal-500h.webp');
+            background-image: url('/about/michal-500h.png');
           }
           .about-bottomtext06 {
             gap: 16px;
@@ -1080,7 +1078,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/moti-500h.webp');
+            background-image: url('/about/moti-500h.png');
           }
           .about-bottomtext07 {
             gap: 16px;
@@ -1155,7 +1153,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/itzik-500h.webp');
+            background-image: url('/about/itzik-500h.png');
           }
           .about-bottomtext08 {
             gap: 16px;
@@ -1220,7 +1218,7 @@ const About = (props) => {
             align-items: flex-start;
             flex-direction: column;
             background-size: cover;
-            background-image: url('/about/yoni-500h.webp');
+            background-image: url('/about/yoni-500h.png');
           }
           .about-bottomtext09 {
             gap: 16px;

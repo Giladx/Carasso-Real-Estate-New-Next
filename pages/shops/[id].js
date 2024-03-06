@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import shopsPageInitialPathsTq4oResource from '../../resources/shops-page-initial-paths-tq_4o'
-import shopsPageInitialPropsTqROResource from '../../resources/shops-page-initial-props-tq_r-o'
+import shopsPageInitialPropsTqHFResource from '../../resources/shops-page-initial-props-tq_h-f'
+import shopsPageInitialPathsTqKeResource from '../../resources/shops-page-initial-paths-tq_ke'
 
 const Shops = (props) => {
   return (
@@ -64,9 +64,33 @@ Shops.propTypes = {
 
 export default Shops
 
+export async function getStaticProps(context) {
+  try {
+    const response = await shopsPageInitialPropsTqHFResource({
+      ...context?.params,
+    })
+    if (!response?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        shopsEntity: response?.data?.[0],
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
+
 export async function getStaticPaths() {
   try {
-    const response = await shopsPageInitialPathsTq4oResource({})
+    const response = await shopsPageInitialPathsTqKeResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -81,30 +105,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await shopsPageInitialPropsTqROResource({
-      ...context?.params,
-    })
-    if (!response?.data?.[0]) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        shopsEntity: response?.data?.[0],
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

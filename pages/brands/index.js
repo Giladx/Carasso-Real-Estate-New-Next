@@ -1,36 +1,43 @@
 import React from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import brandsPageInitialPropsTqZgResource from '../../resources/brands-page-initial-props-tq_zg'
+import brandsPageInitialPropsTqPzResource from '../../resources/brands-page-initial-props-tq_pz'
 
-const Brands = (props) => {
+const Brands1 = (props) => {
   return (
     <>
-      <div className="brands-container">
+      <div className="brands1-container">
         <Head>
-          <title>Brands - Carasso Real Estate</title>
+          <title>Brands1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Brands - Carasso Real Estate" />
+          <meta property="og:title" content="Brands1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(BrandsEntities) => (
-                  <>
-                    <div className="brands-container1">
-                      <span>{BrandsEntities?.Brand_name}</span>
-                      <span>{BrandsEntities?.Brand_Slogan}</span>
-                      <span>{BrandsEntities?.City_c}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(BrandsEntities) => (
+                    <>
+                      <Link href={`/brands/${BrandsEntities?.Brand_name}`}>
+                        <a>
+                          <div className="brands1-container2">
+                            <span>{BrandsEntities?.Brand_name}</span>
+                            <span>{BrandsEntities?.Brand_Slogan}</span>
+                            <span>{BrandsEntities?.City_c}</span>
+                          </div>
+                        </a>
+                      </Link>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.brandsEntities}
@@ -40,7 +47,7 @@ const Brands = (props) => {
       </div>
       <style jsx>
         {`
-          .brands-container {
+          .brands1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,12 +55,19 @@ const Brands = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .brands-container1 {
+          .brands1-container2 {
             gap: 12px;
             width: 100%;
+            cursor: pointer;
+            margin: var(--dl-space-space-unit);
             display: flex;
+            padding: var(--dl-space-space-unit);
             align-items: center;
+            border-color: var(--dl-color-gray-black);
+            border-width: 1px;
+            border-radius: var(--dl-radius-radius-radius20);
             flex-direction: column;
+            text-decoration: none;
           }
         `}
       </style>
@@ -61,19 +75,19 @@ const Brands = (props) => {
   )
 }
 
-Brands.defaultProps = {
+Brands1.defaultProps = {
   brandsEntities: [],
 }
 
-Brands.propTypes = {
+Brands1.propTypes = {
   brandsEntities: PropTypes.array,
 }
 
-export default Brands
+export default Brands1
 
 export async function getStaticProps(context) {
   try {
-    const response = await brandsPageInitialPropsTqZgResource({
+    const response = await brandsPageInitialPropsTqPzResource({
       ...context?.params,
     })
     if (!response) {
@@ -86,7 +100,7 @@ export async function getStaticProps(context) {
         brandsEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 30,
     }
   } catch (error) {
     return {

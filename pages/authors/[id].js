@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialPathsTq36Resource from '../../resources/authors-page-initial-paths-tq_36'
-import authorsPageInitialPropsTqUyResource from '../../resources/authors-page-initial-props-tq_uy'
+import authorsPageInitialPropsTqPuResource from '../../resources/authors-page-initial-props-tq_pu'
+import authorsPageInitialPathsTqFnResource from '../../resources/authors-page-initial-paths-tq_fn'
 
 const Authors = (props) => {
   return (
@@ -64,9 +64,33 @@ Authors.propTypes = {
 
 export default Authors
 
+export async function getStaticProps(context) {
+  try {
+    const response = await authorsPageInitialPropsTqPuResource({
+      ...context?.params,
+    })
+    if (!response?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        authorsEntity: response?.data?.[0],
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
+
 export async function getStaticPaths() {
   try {
-    const response = await authorsPageInitialPathsTq36Resource({})
+    const response = await authorsPageInitialPathsTqFnResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -81,30 +105,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await authorsPageInitialPropsTqUyResource({
-      ...context?.params,
-    })
-    if (!response?.data?.[0]) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        authorsEntity: response?.data?.[0],
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

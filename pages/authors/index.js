@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import authorsPageInitialPropsTqDhResource from '../../resources/authors-page-initial-props-tq_dh'
+import authorsPageInitialPropsTqF8Resource from '../../resources/authors-page-initial-props-tq_f8'
 
 const Authors1 = (props) => {
   return (
@@ -19,18 +19,20 @@ const Authors1 = (props) => {
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(AuthorsEntities) => (
-                  <>
-                    <div className="authors1-container1">
-                      <h1>{AuthorsEntities?.name}</h1>
-                      <span>{AuthorsEntities?.name}</span>
-                      <span>{AuthorsEntities?.email}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(AuthorsEntities) => (
+                    <>
+                      <div className="authors1-container2">
+                        <h1>{AuthorsEntities?.name}</h1>
+                        <span>{AuthorsEntities?.name}</span>
+                        <span>{AuthorsEntities?.email}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.authorsEntities}
@@ -48,7 +50,7 @@ const Authors1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .authors1-container1 {
+          .authors1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -73,7 +75,7 @@ export default Authors1
 
 export async function getStaticProps(context) {
   try {
-    const response = await authorsPageInitialPropsTqDhResource({
+    const response = await authorsPageInitialPropsTqF8Resource({
       ...context?.params,
     })
     if (!response) {
@@ -86,7 +88,7 @@ export async function getStaticProps(context) {
         authorsEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 30,
     }
   } catch (error) {
     return {

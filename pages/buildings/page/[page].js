@@ -4,37 +4,36 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import buildingsPageInitialPathsTqTjResource from '../../../resources/buildings-page-initial-paths-tq_tj'
-import buildingsPageInitialPropsTqCsResource from '../../../resources/buildings-page-initial-props-tq_cs'
+import buildingsPageInitialPropsTqAKResource from '../../../resources/buildings-page-initial-props-tq_a-k'
+import buildingsPageInitialPathsTqKLResource from '../../../resources/buildings-page-initial-paths-tq_k-l'
 
-const Buildings11 = (props) => {
+const Buildings1 = (props) => {
   return (
     <>
-      <div className="buildings11-container">
+      <div className="buildings1-container">
         <Head>
-          <title>Buildings1 - Carasso Real Estate</title>
+          <title>Buildings - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta
-            property="og:title"
-            content="Buildings1 - Carasso Real Estate"
-          />
+          <meta property="og:title" content="Buildings - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(BuildingsEntities) => (
-                  <>
-                    <div className="buildings11-container1">
-                      <span>{BuildingsEntities?.Building_name}</span>
-                      <span>{BuildingsEntities?.Building_status}</span>
-                      <span>{BuildingsEntities?.SF_id}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(BuildingsEntities) => (
+                    <>
+                      <div className="buildings1-container2">
+                        <span>{BuildingsEntities?.Building_name}</span>
+                        <span>{BuildingsEntities?.Building_status}</span>
+                        <span>{BuildingsEntities?.SF_id}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.buildingsEntities}
@@ -44,7 +43,7 @@ const Buildings11 = (props) => {
       </div>
       <style jsx>
         {`
-          .buildings11-container {
+          .buildings1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -52,7 +51,7 @@ const Buildings11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .buildings11-container1 {
+          .buildings1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -65,19 +64,44 @@ const Buildings11 = (props) => {
   )
 }
 
-Buildings11.defaultProps = {
+Buildings1.defaultProps = {
   buildingsEntities: [],
 }
 
-Buildings11.propTypes = {
+Buildings1.propTypes = {
   buildingsEntities: PropTypes.array,
 }
 
-export default Buildings11
+export default Buildings1
+
+export async function getStaticProps(context) {
+  try {
+    const response = await buildingsPageInitialPropsTqAKResource({
+      ...context?.params,
+      start: (context.params.page - 1) * 10,
+    })
+    if (!response) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        buildingsEntities: response,
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
 
 export async function getStaticPaths() {
   try {
-    const response = await buildingsPageInitialPathsTqTjResource({})
+    const response = await buildingsPageInitialPathsTqKLResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -97,31 +121,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await buildingsPageInitialPropsTqCsResource({
-      ...context?.params,
-      start: (context.params.page - 1) * 10,
-    })
-    if (!response) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        buildingsEntities: response,
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

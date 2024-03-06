@@ -12,18 +12,18 @@ const Projectcard = (props) => {
       >
         <div className="project-inner">
           <div className="projectcard-projectstatus">
-            <span className="projectcard-text">{props.cardTag}</span>
+            <span className="projectcard-text">בתכנון</span>
             <img
-              alt={props.vectorStrokeAlt}
-              src={props.vectorStrokeSrc}
+              alt="VectorStroke3708"
+              src="/external/VectorStroke3708-4itf1.svg"
               className="projectcard-vector-stroke"
             />
           </div>
           <div className="projectcard-projectcontent">
             <img
               id="btn-1"
-              alt={props.projectarrowbuttonAlt}
-              src={props.projectarrowbuttonSrc}
+              alt="projectarrowbutton3708"
+              src="/projectarrowbutton3708-a4n2.svg"
               loading="lazy"
               className="projectcard-projectarrowbutton"
             />
@@ -32,9 +32,12 @@ const Projectcard = (props) => {
                 id="info"
                 className="projectinfo projectcard-projectnamelocation"
               >
-                <span className="projectcard-text1">{props.cardSubTitle}</span>
-                <span className="projectcard-text2">{props.cardTitle}</span>
-                <span className="projectcard-text3">{props.exp}</span>
+                <span className="projectcard-text1">קריית אונו</span>
+                <span className="projectcard-text2">אומאמי</span>
+                <span className="projectcard-text3">
+                  בבסיס התכנון של המתחם עומדת האהבה לבישול ולאירוח, אהבה שניתן
+                  להרגיש החל במרחבים המשותפים, דרך הדירות עצמן ועד למטבחים.
+                </span>
               </div>
             </div>
           </div>
@@ -43,8 +46,8 @@ const Projectcard = (props) => {
         <div className="project-img-small">
           <img
             id="mask"
-            alt={props.imageAlt}
-            src={props.imageSrc}
+            alt="image"
+            src="/elipse-image-on-hover2.png"
             className="mask"
           />
         </div>
@@ -217,11 +220,13 @@ Projectcard.defaultProps = {
   vectorStrokeAlt: 'VectorStroke3708',
   imageAlt: 'image',
   rootClassName: '',
-  imageSrc: '/elipse-image-on-hover-400w.webp',
-  vectorStrokeSrc: '/external/VectorStroke3708-4itf1.svg',
+  imageSrc: '68b146ea-2613-4f67-b260-076640602c64',
+  vectorStrokeSrc:
+    'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/d720de71-e904-4c17-bdd7-1c66629a63fe?org_if_sml=1356',
   cardTitle: 'אומאמי',
   projectarrowbuttonAlt: 'projectarrowbutton3708',
-  projectarrowbuttonSrc: '/external/projectarrowbutton3708-a4n.svg',
+  projectarrowbuttonSrc:
+    'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/1592175b-1fbf-4011-b5fb-ce9e8256ba9e?org_if_sml=1595',
   cardTag: 'בתכנון',
 }
 

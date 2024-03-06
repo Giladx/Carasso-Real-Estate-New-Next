@@ -4,36 +4,38 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import apartmentsPageInitialPropsTqJAResource from '../../resources/apartments-page-initial-props-tq_j-a'
+import apartmentsPageInitialPropsTqYEResource from '../../resources/apartments-page-initial-props-tq_y-e'
 
-const Apartments1 = (props) => {
+const Apartments = (props) => {
   return (
     <>
-      <div className="apartments1-container">
+      <div className="apartments-container">
         <Head>
-          <title>Apartments1 - Carasso Real Estate</title>
+          <title>Apartments - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
           <meta
             property="og:title"
-            content="Apartments1 - Carasso Real Estate"
+            content="Apartments - Carasso Real Estate"
           />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(ApartmentsEntities) => (
-                  <>
-                    <div className="apartments1-container1">
-                      <span>{ApartmentsEntities?.Description_c}</span>
-                      <span>{ApartmentsEntities?.Number_of_Rooms__c}</span>
-                      <span>{ApartmentsEntities?.Model_Code_Label__c}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(ApartmentsEntities) => (
+                    <>
+                      <div className="apartments-container2">
+                        <span>{ApartmentsEntities?.Description_c}</span>
+                        <span>{ApartmentsEntities?.Number_of_Rooms__c}</span>
+                        <span>{ApartmentsEntities?.Model_Code_Label__c}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.apartmentsEntities}
@@ -43,7 +45,7 @@ const Apartments1 = (props) => {
       </div>
       <style jsx>
         {`
-          .apartments1-container {
+          .apartments-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -51,7 +53,7 @@ const Apartments1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .apartments1-container1 {
+          .apartments-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -64,19 +66,19 @@ const Apartments1 = (props) => {
   )
 }
 
-Apartments1.defaultProps = {
+Apartments.defaultProps = {
   apartmentsEntities: [],
 }
 
-Apartments1.propTypes = {
+Apartments.propTypes = {
   apartmentsEntities: PropTypes.array,
 }
 
-export default Apartments1
+export default Apartments
 
 export async function getStaticProps(context) {
   try {
-    const response = await apartmentsPageInitialPropsTqJAResource({
+    const response = await apartmentsPageInitialPropsTqYEResource({
       ...context?.params,
     })
     if (!response) {
@@ -89,7 +91,7 @@ export async function getStaticProps(context) {
         apartmentsEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 30,
     }
   } catch (error) {
     return {

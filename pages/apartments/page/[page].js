@@ -4,37 +4,39 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import apartmentsPageInitialPathsTqReResource from '../../../resources/apartments-page-initial-paths-tq_re'
-import apartmentsPageInitialPropsTqTjResource from '../../../resources/apartments-page-initial-props-tq_tj'
+import apartmentsPageInitialPropsTqNqResource from '../../../resources/apartments-page-initial-props-tq_nq'
+import apartmentsPageInitialPathsTqCwResource from '../../../resources/apartments-page-initial-paths-tq_cw'
 
-const Apartments11 = (props) => {
+const Apartments1 = (props) => {
   return (
     <>
-      <div className="apartments11-container">
+      <div className="apartments1-container">
         <Head>
-          <title>Apartments1 - Carasso Real Estate</title>
+          <title>Apartments - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
           <meta
             property="og:title"
-            content="Apartments1 - Carasso Real Estate"
+            content="Apartments - Carasso Real Estate"
           />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(ApartmentsEntities) => (
-                  <>
-                    <div className="apartments11-container1">
-                      <span>{ApartmentsEntities?.Description_c}</span>
-                      <span>{ApartmentsEntities?.Number_of_Rooms__c}</span>
-                      <span>{ApartmentsEntities?.Model_Code_Label__c}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(ApartmentsEntities) => (
+                    <>
+                      <div className="apartments1-container2">
+                        <span>{ApartmentsEntities?.Description_c}</span>
+                        <span>{ApartmentsEntities?.Number_of_Rooms__c}</span>
+                        <span>{ApartmentsEntities?.Model_Code_Label__c}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.apartmentsEntities}
@@ -44,7 +46,7 @@ const Apartments11 = (props) => {
       </div>
       <style jsx>
         {`
-          .apartments11-container {
+          .apartments1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -52,7 +54,7 @@ const Apartments11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .apartments11-container1 {
+          .apartments1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -65,19 +67,44 @@ const Apartments11 = (props) => {
   )
 }
 
-Apartments11.defaultProps = {
+Apartments1.defaultProps = {
   apartmentsEntities: [],
 }
 
-Apartments11.propTypes = {
+Apartments1.propTypes = {
   apartmentsEntities: PropTypes.array,
 }
 
-export default Apartments11
+export default Apartments1
+
+export async function getStaticProps(context) {
+  try {
+    const response = await apartmentsPageInitialPropsTqNqResource({
+      ...context?.params,
+      start: (context.params.page - 1) * 10,
+    })
+    if (!response) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        apartmentsEntities: response,
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
 
 export async function getStaticPaths() {
   try {
-    const response = await apartmentsPageInitialPathsTqReResource({})
+    const response = await apartmentsPageInitialPathsTqCwResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -97,31 +124,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await apartmentsPageInitialPropsTqTjResource({
-      ...context?.params,
-      start: (context.params.page - 1) * 10,
-    })
-    if (!response) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        apartmentsEntities: response,
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

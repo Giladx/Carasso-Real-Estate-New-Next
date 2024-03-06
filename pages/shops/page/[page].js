@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import shopsPageInitialPathsTqMeResource from '../../../resources/shops-page-initial-paths-tq_me'
-import shopsPageInitialPropsTqPxResource from '../../../resources/shops-page-initial-props-tq_px'
+import shopsPageInitialPropsTqTKResource from '../../../resources/shops-page-initial-props-tq_t-k'
+import shopsPageInitialPathsTqLResource from '../../../resources/shops-page-initial-paths-tq_-l'
 
 const Shops11 = (props) => {
   return (
@@ -20,18 +20,20 @@ const Shops11 = (props) => {
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(ShopsEntities) => (
-                  <>
-                    <div className="shops11-container1">
-                      <span>{ShopsEntities?.Shop_title}</span>
-                      <span>{ShopsEntities?.Shop_phone}</span>
-                      <span>{ShopsEntities?.Shop_opening_hours}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(ShopsEntities) => (
+                    <>
+                      <div className="shops11-container2">
+                        <span>{ShopsEntities?.Shop_title}</span>
+                        <span>{ShopsEntities?.Shop_phone}</span>
+                        <span>{ShopsEntities?.Shop_opening_hours}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.shopsEntities}
@@ -49,7 +51,7 @@ const Shops11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .shops11-container1 {
+          .shops11-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -72,9 +74,34 @@ Shops11.propTypes = {
 
 export default Shops11
 
+export async function getStaticProps(context) {
+  try {
+    const response = await shopsPageInitialPropsTqTKResource({
+      ...context?.params,
+      start: (context.params.page - 1) * 10,
+    })
+    if (!response) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        shopsEntities: response,
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
+
 export async function getStaticPaths() {
   try {
-    const response = await shopsPageInitialPathsTqMeResource({})
+    const response = await shopsPageInitialPathsTqLResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -94,31 +121,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await shopsPageInitialPropsTqPxResource({
-      ...context?.params,
-      start: (context.params.page - 1) * 10,
-    })
-    if (!response) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        shopsEntities: response,
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

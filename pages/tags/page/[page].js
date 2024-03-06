@@ -4,33 +4,35 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPathsTq2gResource from '../../../resources/tags-page-initial-paths-tq_2g'
-import tagsPageInitialPropsTqYResource from '../../../resources/tags-page-initial-props-tq__y'
+import tagsPageInitialPropsTqBPResource from '../../../resources/tags-page-initial-props-tq_b-p'
+import tagsPageInitialPathsTqK2Resource from '../../../resources/tags-page-initial-paths-tq_k2'
 
-const Tags1 = (props) => {
+const Tags11 = (props) => {
   return (
     <>
-      <div className="tags1-container">
+      <div className="tags11-container">
         <Head>
-          <title>Tags - Carasso Real Estate</title>
+          <title>Tags1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags - Carasso Real Estate" />
+          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(TagsEntities) => (
-                  <>
-                    <div className="tags1-container1">
-                      <span>{TagsEntities?.tag}</span>
-                      <span>{TagsEntities?.id}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(TagsEntities) => (
+                    <>
+                      <div className="tags11-container2">
+                        <span>{TagsEntities?.tag}</span>
+                        <span>{TagsEntities?.id}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.tagsEntities}
@@ -40,7 +42,7 @@ const Tags1 = (props) => {
       </div>
       <style jsx>
         {`
-          .tags1-container {
+          .tags11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +50,7 @@ const Tags1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags1-container1 {
+          .tags11-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +63,44 @@ const Tags1 = (props) => {
   )
 }
 
-Tags1.defaultProps = {
+Tags11.defaultProps = {
   tagsEntities: [],
 }
 
-Tags1.propTypes = {
+Tags11.propTypes = {
   tagsEntities: PropTypes.array,
 }
 
-export default Tags1
+export default Tags11
+
+export async function getStaticProps(context) {
+  try {
+    const response = await tagsPageInitialPropsTqBPResource({
+      ...context?.params,
+      start: (context.params.page - 1) * 10,
+    })
+    if (!response) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        tagsEntities: response,
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPathsTq2gResource({})
+    const response = await tagsPageInitialPathsTqK2Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
@@ -93,31 +120,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await tagsPageInitialPropsTqYResource({
-      ...context?.params,
-      start: (context.params.page - 1) * 10,
-    })
-    if (!response) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        tagsEntities: response,
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

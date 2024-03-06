@@ -1,37 +1,44 @@
 import React from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import brandsPageInitialPathsTqFlResource from '../../../resources/brands-page-initial-paths-tq_fl'
-import brandsPageInitialPropsTqDeResource from '../../../resources/brands-page-initial-props-tq_de'
+import brandsPageInitialPropsTqOjResource from '../../../resources/brands-page-initial-props-tq_oj'
+import brandsPageInitialPathsTq3oResource from '../../../resources/brands-page-initial-paths-tq_3o'
 
-const Brands1 = (props) => {
+const Brands11 = (props) => {
   return (
     <>
-      <div className="brands1-container">
+      <div className="brands11-container">
         <Head>
-          <title>Brands - Carasso Real Estate</title>
+          <title>Brands1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Brands - Carasso Real Estate" />
+          <meta property="og:title" content="Brands1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(BrandsEntities) => (
-                  <>
-                    <div className="brands1-container1">
-                      <span>{BrandsEntities?.Brand_name}</span>
-                      <span>{BrandsEntities?.Brand_Slogan}</span>
-                      <span>{BrandsEntities?.City_c}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(BrandsEntities) => (
+                    <>
+                      <Link href={`/brands/${BrandsEntities?.Brand_name}`}>
+                        <a>
+                          <div className="brands11-container2">
+                            <span>{BrandsEntities?.Brand_name}</span>
+                            <span>{BrandsEntities?.Brand_Slogan}</span>
+                            <span>{BrandsEntities?.City_c}</span>
+                          </div>
+                        </a>
+                      </Link>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.brandsEntities}
@@ -41,7 +48,7 @@ const Brands1 = (props) => {
       </div>
       <style jsx>
         {`
-          .brands1-container {
+          .brands11-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -49,12 +56,19 @@ const Brands1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .brands1-container1 {
+          .brands11-container2 {
             gap: 12px;
             width: 100%;
+            cursor: pointer;
+            margin: var(--dl-space-space-unit);
             display: flex;
+            padding: var(--dl-space-space-unit);
             align-items: center;
+            border-color: var(--dl-color-gray-black);
+            border-width: 1px;
+            border-radius: var(--dl-radius-radius-radius20);
             flex-direction: column;
+            text-decoration: none;
           }
         `}
       </style>
@@ -62,21 +76,46 @@ const Brands1 = (props) => {
   )
 }
 
-Brands1.defaultProps = {
+Brands11.defaultProps = {
   brandsEntities: [],
 }
 
-Brands1.propTypes = {
+Brands11.propTypes = {
   brandsEntities: PropTypes.array,
 }
 
-export default Brands1
+export default Brands11
+
+export async function getStaticProps(context) {
+  try {
+    const response = await brandsPageInitialPropsTqOjResource({
+      ...context?.params,
+      start: (context.params.page - 1) * 20,
+    })
+    if (!response) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        brandsEntities: response,
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
 
 export async function getStaticPaths() {
   try {
-    const response = await brandsPageInitialPathsTqFlResource({})
+    const response = await brandsPageInitialPathsTq3oResource({})
     const totalCount = response?.meta?.pagination?.total
-    const pagesCount = Math.ceil(totalCount / 10)
+    const pagesCount = Math.ceil(totalCount / 20)
     return {
       paths: Array.from(
         {
@@ -94,31 +133,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await brandsPageInitialPropsTqDeResource({
-      ...context?.params,
-      start: (context.params.page - 1) * 10,
-    })
-    if (!response) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        brandsEntities: response,
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

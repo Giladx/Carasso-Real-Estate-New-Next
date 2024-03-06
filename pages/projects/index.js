@@ -4,33 +4,35 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import projectsPageInitialPropsTqGjResource from '../../resources/projects-page-initial-props-tq_gj'
+import projectsPageInitialPropsTqO6Resource from '../../resources/projects-page-initial-props-tq_o6'
 
-const Projects1 = (props) => {
+const Projects = (props) => {
   return (
     <>
-      <div className="projects1-container">
+      <div className="projects-container">
         <Head>
-          <title>Projects1 - Carasso Real Estate</title>
+          <title>Projects - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Projects1 - Carasso Real Estate" />
+          <meta property="og:title" content="Projects - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(ProjectsEntities) => (
-                  <>
-                    <div className="projects1-container1">
-                      <span>{ProjectsEntities?.Brand_name}</span>
-                      <span>{ProjectsEntities?.Brand_Slogan}</span>
-                      <span>{ProjectsEntities?.City__c}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(ProjectsEntities) => (
+                    <>
+                      <div className="projects-container2">
+                        <span>{ProjectsEntities?.Brand_name}</span>
+                        <span>{ProjectsEntities?.Brand_Slogan}</span>
+                        <span>{ProjectsEntities?.City__c}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.projectsEntities}
@@ -40,7 +42,7 @@ const Projects1 = (props) => {
       </div>
       <style jsx>
         {`
-          .projects1-container {
+          .projects-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -48,7 +50,7 @@ const Projects1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .projects1-container1 {
+          .projects-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -61,19 +63,19 @@ const Projects1 = (props) => {
   )
 }
 
-Projects1.defaultProps = {
+Projects.defaultProps = {
   projectsEntities: [],
 }
 
-Projects1.propTypes = {
+Projects.propTypes = {
   projectsEntities: PropTypes.array,
 }
 
-export default Projects1
+export default Projects
 
 export async function getStaticProps(context) {
   try {
-    const response = await projectsPageInitialPropsTqGjResource({
+    const response = await projectsPageInitialPropsTqO6Resource({
       ...context?.params,
     })
     if (!response) {
@@ -86,7 +88,7 @@ export async function getStaticProps(context) {
         projectsEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 30,
     }
   } catch (error) {
     return {

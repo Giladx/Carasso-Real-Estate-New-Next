@@ -1,24 +1,48 @@
 import React from 'react'
 
+import {
+  DataProvider,
+  DateTimePrimitive,
+  Repeater,
+} from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
+
+import posts8Resource from '../resources/posts8'
 
 const BlogMiniature = (props) => {
   return (
     <>
       <div className={`blog-miniature-container ${props.rootClassName} `}>
         <div className="blog-miniature-hover-blog">
-          <div className="blog-miniature-frame9">
-            <img
-              alt={props.imagealt}
-              src={props.imagesrc}
-              className="blog-miniature-image"
-            />
-          </div>
-          <div className="blog-miniature-frame280">
-            <span className="blog-miniature-text">{props.date}</span>
-            <span className="blog-miniature-text1">{props.postTitle}</span>
-            <span className="blog-miniature-text2">{props.postExcerpt}</span>
-          </div>
+          <DataProvider
+            renderSuccess={(Blogmini) => (
+              <>
+                <div className="blog-miniature-frame9">
+                  <img
+                    alt={props.imagealt}
+                    src={Blogmini?.Media?.url}
+                    className="blog-miniature-image"
+                  />
+                </div>
+                <div className="blog-miniature-frame280">
+                  <span className="blog-miniature-date-time">
+                    <DateTimePrimitive
+                      format="MMMM D, YYYY"
+                      date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                    ></DateTimePrimitive>
+                  </span>
+                  <span className="blog-miniature-text">{Blogmini?.Title}</span>
+                  <span className="blog-miniature-text1">
+                    {Blogmini?.Content}
+                  </span>
+                </div>
+              </>
+            )}
+            initialData={props.blogminiProp}
+            persistDataDuringLoading={true}
+            initialData={props.blogminiProp}
+            persistDataDuringLoading={true}
+          />
         </div>
       </div>
       <style jsx>
@@ -68,7 +92,7 @@ const BlogMiniature = (props) => {
             padding-right: 30px;
             flex-direction: column;
           }
-          .blog-miniature-text {
+          .blog-miniature-date-time {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -80,7 +104,7 @@ const BlogMiniature = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .blog-miniature-text1 {
+          .blog-miniature-text {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -93,7 +117,7 @@ const BlogMiniature = (props) => {
             font-stretch: normal;
             text-decoration: none;
           }
-          .blog-miniature-text2 {
+          .blog-miniature-text1 {
             color: var(--dl-color-carasso-darkergray);
             width: 453px;
             height: auto;
@@ -116,7 +140,7 @@ const BlogMiniature = (props) => {
             .blog-miniature-image {
               border-radius: var(--dl-radius-radius-radius4);
             }
-            .blog-miniature-text2 {
+            .blog-miniature-text1 {
               color: var(--dl-color-carasso-darkergray);
               font-size: 18px;
               font-family: Ploni ML v2 AAA;
@@ -139,7 +163,7 @@ const BlogMiniature = (props) => {
               padding-left: 0px;
               padding-right: 0px;
             }
-            .blog-miniature-text {
+            .blog-miniature-date-time {
               color: var(--dl-color-carasso-darkergray);
               font-size: 18px;
               font-family: Ploni ML v2 AAA;
@@ -147,7 +171,7 @@ const BlogMiniature = (props) => {
               line-height: 140%;
               text-decoration: none;
             }
-            .blog-miniature-text1 {
+            .blog-miniature-text {
               color: var(--dl-color-carasso-primaryblack);
               font-size: 24px;
               font-family: Ploni ML v2 AAA;
@@ -169,7 +193,7 @@ BlogMiniature.defaultProps = {
   imagealt: 'image',
   date: '18 בינואר, 2023',
   postTitle: 'איך נראת דירה לאנשים שאוהבים לארח',
-  imagesrc: '/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-200h.webp',
+  imagesrc: 'c8e3d00d-a6af-4e62-a554-722a48c916bb',
 }
 
 BlogMiniature.propTypes = {
@@ -182,3 +206,35 @@ BlogMiniature.propTypes = {
 }
 
 export default BlogMiniature
+
+export async function getStaticProps(context) {
+  try {
+    const blogminiProp = await posts8Resource({
+      ...context?.params,
+    })
+    if (!blogminiProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const blogminiProp = await posts8Resource({
+      ...context?.params,
+    })
+    if (!blogminiProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        blogminiProp: blogminiProp?.data?.[0],
+        blogminiProp: blogminiProp?.data?.[0],
+      },
+      revalidate: 60,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}

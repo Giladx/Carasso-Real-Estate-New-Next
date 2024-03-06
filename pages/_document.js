@@ -56,7 +56,7 @@ class CustomDocument extends Document {
           <div
             dangerouslySetInnerHTML={{
               __html:
-                '<!-- Your body code here -->\n<!-- <script type="text/javascript"> ... </script> -->\n        <script defer src=\'https://unpkg.com/@teleporthq/teleport-custom-scripts\'></script>',
+                "<!-- Your body code here -->\n<!-- <script type=\"text/javascript\"> ... </script> -->\n        <script defer src='https://unpkg.com/@teleporthq/teleport-custom-scripts'></script>\n        <script defer src='https://unpkg.com/@teleporthq/react-components/dist/animate-on-reveal.umd.js'></script>",
             }}
           ></div>
         </body>

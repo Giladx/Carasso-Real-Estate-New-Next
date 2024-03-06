@@ -4,32 +4,34 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPropsTqChResource from '../../resources/tags-page-initial-props-tq_ch'
+import tagsPageInitialPropsTqGKResource from '../../resources/tags-page-initial-props-tq_g-k'
 
-const Tags = (props) => {
+const Tags1 = (props) => {
   return (
     <>
-      <div className="tags-container">
+      <div className="tags1-container">
         <Head>
-          <title>Tags - Carasso Real Estate</title>
+          <title>Tags1 - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags - Carasso Real Estate" />
+          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(TagsEntities) => (
-                  <>
-                    <div className="tags-container1">
-                      <span>{TagsEntities?.tag}</span>
-                      <span>{TagsEntities?.id}</span>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(TagsEntities) => (
+                    <>
+                      <div className="tags1-container2">
+                        <span>{TagsEntities?.tag}</span>
+                        <span>{TagsEntities?.id}</span>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.tagsEntities}
@@ -39,7 +41,7 @@ const Tags = (props) => {
       </div>
       <style jsx>
         {`
-          .tags-container {
+          .tags1-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -47,7 +49,7 @@ const Tags = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags-container1 {
+          .tags1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -60,19 +62,19 @@ const Tags = (props) => {
   )
 }
 
-Tags.defaultProps = {
+Tags1.defaultProps = {
   tagsEntities: [],
 }
 
-Tags.propTypes = {
+Tags1.propTypes = {
   tagsEntities: PropTypes.array,
 }
 
-export default Tags
+export default Tags1
 
 export async function getStaticProps(context) {
   try {
-    const response = await tagsPageInitialPropsTqChResource({
+    const response = await tagsPageInitialPropsTqGKResource({
       ...context?.params,
     })
     if (!response) {
@@ -85,7 +87,7 @@ export async function getStaticProps(context) {
         tagsEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 30,
     }
   } catch (error) {
     return {

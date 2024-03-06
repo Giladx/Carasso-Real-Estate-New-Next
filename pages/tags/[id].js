@@ -4,23 +4,23 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tagsPageInitialPathsTq04Resource from '../../resources/tags-page-initial-paths-tq_04'
-import tagsPageInitialPropsTqYResource from '../../resources/tags-page-initial-props-tq__y'
+import tagsPageInitialPropsTqPJResource from '../../resources/tags-page-initial-props-tq_p-j'
+import tagsPageInitialPathsTqBMResource from '../../resources/tags-page-initial-paths-tq_b-m'
 
-const Tags11 = (props) => {
+const Tags = (props) => {
   return (
     <>
-      <div className="tags11-container">
+      <div className="tags-container">
         <Head>
-          <title>Tags1 - Carasso Real Estate</title>
+          <title>Tags - Carasso Real Estate</title>
           <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Tags1 - Carasso Real Estate" />
+          <meta property="og:title" content="Tags - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
         </Head>
         <DataProvider
           renderSuccess={(TagsEntity) => (
             <>
-              <div className="tags11-container1">
+              <div className="tags-container1">
                 <span>{TagsEntity?.tag}</span>
                 <span>{TagsEntity?.id}</span>
               </div>
@@ -33,7 +33,7 @@ const Tags11 = (props) => {
       </div>
       <style jsx>
         {`
-          .tags11-container {
+          .tags-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -41,7 +41,7 @@ const Tags11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .tags11-container1 {
+          .tags-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -53,19 +53,43 @@ const Tags11 = (props) => {
   )
 }
 
-Tags11.defaultProps = {
+Tags.defaultProps = {
   tagsEntity: [],
 }
 
-Tags11.propTypes = {
+Tags.propTypes = {
   tagsEntity: PropTypes.array,
 }
 
-export default Tags11
+export default Tags
+
+export async function getStaticProps(context) {
+  try {
+    const response = await tagsPageInitialPropsTqPJResource({
+      ...context?.params,
+    })
+    if (!response?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        tagsEntity: response?.data?.[0],
+        ...response?.meta,
+      },
+      revalidate: 30,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
 
 export async function getStaticPaths() {
   try {
-    const response = await tagsPageInitialPathsTq04Resource({})
+    const response = await tagsPageInitialPathsTqBMResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
@@ -80,30 +104,6 @@ export async function getStaticPaths() {
     return {
       paths: [],
       fallback: 'blocking',
-    }
-  }
-}
-
-export async function getStaticProps(context) {
-  try {
-    const response = await tagsPageInitialPropsTqYResource({
-      ...context?.params,
-    })
-    if (!response?.data?.[0]) {
-      return {
-        notFound: true,
-      }
-    }
-    return {
-      props: {
-        tagsEntity: response?.data?.[0],
-        ...response?.meta,
-      },
-      revalidate: 60,
-    }
-  } catch (error) {
-    return {
-      notFound: true,
     }
   }
 }

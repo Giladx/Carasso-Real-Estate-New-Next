@@ -181,7 +181,7 @@ const ProjectMiniatre = (props) => {
 }
 
 ProjectMiniatre.defaultProps = {
-  imagesrc1: '/824d0c2137cb905341761b2e68e150d3-500h.webp',
+  imagesrc1: '/824d0c2137cb905341761b2e68e150d3-500h.jpeg',
   imagesrc: 'https://play.teleporthq.io/static/svg/default-img.svg',
   imagealt1: 'image',
   imagealt: 'image',

@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
 import Script from 'dangerous-html/react'
+import {
+  DataProvider,
+  Repeater,
+  DateTimePrimitive,
+} from '@teleporthq/react-components'
 
-import FeaturedPost from '../components/featured-post'
-import BlogMiniature from '../components/blog-miniature'
+import postsResource from '../resources/posts'
+import newsResource from '../resources/news'
+import posts1Resource from '../resources/posts1'
+import posts2Resource from '../resources/posts2'
+import posts3Resource from '../resources/posts3'
+import posts4Resource from '../resources/posts4'
+import posts5Resource from '../resources/posts5'
+import posts6Resource from '../resources/posts6'
 
 const News = (props) => {
+  useEffect(() => import('@lottiefiles/lottie-player'), [])
   return (
     <>
       <div className="news-container">
@@ -16,6 +28,10 @@ const News = (props) => {
           <meta name="description" content="Carasso Real Estate" />
           <meta property="og:title" content="News - Carasso Real Estate" />
           <meta property="og:description" content="Carasso Real Estate" />
+          <meta
+            property="og:image"
+            content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/bd438ef8-05f7-4c29-9c01-eea7ae17edea/54924954-5c3a-4ae6-9277-e76b2fdbc592?org_if_sml=1&amp;force_format=original"
+          />
         </Head>
         <div className="news-header-1">
           <header data-thq="thq-navbar" className="news-navbar-interactive">
@@ -23,7 +39,7 @@ const News = (props) => {
               <img
                 id="navsearch"
                 alt="image"
-                src="/csearch.svg"
+                src="c90025b4-cd9e-4b10-b60e-83848d5a8914"
                 className="news-image"
               />
             </div>
@@ -34,7 +50,7 @@ const News = (props) => {
                     id="logo"
                     alt="logo"
                     src="/clogo.svg"
-                    className="news-image1"
+                    className="news-image01"
                   />
                 </a>
               </Link>
@@ -56,8 +72,8 @@ const News = (props) => {
               <img
                 id="navmenu"
                 alt="image"
-                src="/cmenu.svg"
-                className="news-image2"
+                src="212659cd-3875-4ccd-947b-abbd25476938"
+                className="news-image02"
               />
               <svg viewBox="0 0 1024 1024" className="news-icon">
                 <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
@@ -111,7 +127,7 @@ const News = (props) => {
               </div>
             </div>
             <div>
-              <div className="news-container2">
+              <div className="news-container02">
                 <Script
                   html={`<style>
 header.inverted {
@@ -189,29 +205,154 @@ window.addEventListener('DOMContentLoaded', function() {
               <span>במקום אחד</span>
             </span>
           </div>
-          <FeaturedPost></FeaturedPost>
+          <div className="news-featured-post">
+            <DataProvider
+              renderSuccess={(context_idt18f) => (
+                <>
+                  <img
+                    alt="Vector4859"
+                    src="/external/blog_shape.svg"
+                    className="news-vector"
+                  />
+                  <div className="news-leftcoloumn">
+                    <img
+                      alt="image"
+                      src={context_idt18f?.Media?.url}
+                      className="news-image03"
+                    />
+                  </div>
+                  <div className="news-rightcoloumn">
+                    <div className="news-frame296">
+                      <span className="news-text13">הכתבה החמה</span>
+                      <span className="news-text14">
+                        {context_idt18f?.Title}
+                      </span>
+                      <span className="news-text15">
+                        {context_idt18f?.Content}
+                      </span>
+                      <button className="news-carassobutton">
+                        <div className="news-frame123">
+                          <img
+                            alt="Arrow7Stroke4859"
+                            src="/external/arrow7stroke4859-994m.svg"
+                            className="news-arrow7-stroke"
+                          />
+                          <span className="news-text16">
+                            <span>לקריאת הכתבה</span>
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+              renderLoading={() => (
+                <>
+                  <div className="news-load">
+                    <div className="news-div">
+                      <lottie-player
+                        src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                        loop="true"
+                        speed="1"
+                        autoplay="true"
+                        background="transparent"
+                      ></lottie-player>
+                    </div>
+                  </div>
+                </>
+              )}
+              initialData={props.contextIdt18fProp}
+              persistDataDuringLoading={true}
+            />
+          </div>
           <div className="news-posts-listing">
             <div className="news-blogcontainer">
+              <DataProvider
+                renderSuccess={(params) => (
+                  <>
+                    <div>
+                      <Repeater
+                        items={params}
+                        renderItem={(context_vnod9d) => (
+                          <>
+                            <div className="news-post-minitura">
+                              <div className="news-frame9">
+                                <img
+                                  alt="image"
+                                  src={context_vnod9d?.Featured_image?.url}
+                                  className="news-image04"
+                                />
+                              </div>
+                              <div className="news-frame280">
+                                <span className="news-date-time">
+                                  <DateTimePrimitive
+                                    format="MMMM D, YYYY"
+                                    date={context_vnod9d?.createdAt}
+                                  ></DateTimePrimitive>
+                                </span>
+                                <span className="news-text18">
+                                  {context_vnod9d?.Title}
+                                  {[0]?.Title}
+                                </span>
+                                <span className="news-text19">
+                                  {context_vnod9d?.Content}
+                                  {[0]?.Content}
+                                </span>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                      />
+                    </div>
+                  </>
+                )}
+                renderLoading={() => (
+                  <>
+                    <div className="news-load1">
+                      <div className="news-div1">
+                        <lottie-player
+                          src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                          loop="true"
+                          speed=".5"
+                          autoplay="true"
+                          background="transparent"
+                        ></lottie-player>
+                      </div>
+                    </div>
+                    <div className="news-load2">
+                      <div className="news-div2">
+                        <lottie-player
+                          src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                          loop="true"
+                          speed=".5"
+                          autoplay="true"
+                          background="transparent"
+                        ></lottie-player>
+                      </div>
+                    </div>
+                  </>
+                )}
+                initialData={props.contextVnod9dProp}
+                persistDataDuringLoading={true}
+              />
               <div className="news-frame297">
                 <div className="news-hover-blog">
                   <div className="news-frame281">
-                    <div className="news-frame9">
+                    <div className="news-frame901">
                       <img
                         alt="image"
-                        sizes="(min-width: 768px) 800px, 480px"
-                        src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp"
-                        srcSet="blog//c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp 800w, blog/c416e0d7a51cd55e8fe5e745cd82e4b5-mobile.webp 480w"
-                        className="news-image3"
+                        src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.jpeg"
+                        className="news-image05"
                       />
                     </div>
-                    <div className="news-frame280">
-                      <span className="news-text13">
+                    <div className="news-frame28001">
+                      <span className="news-text20">
                         <span>18 בינואר, 2023</span>
                       </span>
-                      <span className="news-text15">
+                      <span className="news-text22">
                         <span>עיצוב אדמתי לחלל הבית</span>
                       </span>
-                      <span className="news-text17">
+                      <span className="news-text24">
                         <span>
                           בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח,
                           תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים בשנים.
@@ -220,24 +361,22 @@ window.addEventListener('DOMContentLoaded', function() {
                     </div>
                   </div>
                 </div>
-                <div className="news-hover-blog1">
-                  <div className="news-frame91">
+                <div className="news-hover-blog01">
+                  <div className="news-frame902">
                     <img
                       alt="image"
-                      sizes="(min-width: 768px) 800px, 480px"
-                      src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp"
-                      srcSet="blog//c416e0d7a51cd55e8fe5e745cd82e4b5-600w.webp 800w, blog/c416e0d7a51cd55e8fe5e745cd82e4b5-mobile.webp 480w"
-                      className="news-image4"
+                      src="/blog/c416e0d7a51cd55e8fe5e745cd82e4b5-600w.jpeg"
+                      className="news-image06"
                     />
                   </div>
-                  <div className="news-frame2801">
-                    <span className="news-text19">
+                  <div className="news-frame28002">
+                    <span className="news-text26">
                       <span>18 בינואר, 2023</span>
                     </span>
-                    <span className="news-text21">
+                    <span className="news-text28">
                       <span>איך נראת דירה לאנשים שאוהבים לארח</span>
                     </span>
-                    <span className="news-text23">
+                    <span className="news-text30">
                       <span>
                         בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח,
                         תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים בשנים.
@@ -245,30 +384,94 @@ window.addEventListener('DOMContentLoaded', function() {
                     </span>
                   </div>
                 </div>
-                <BlogMiniature rootClassName="blog-miniature-root-class-name"></BlogMiniature>
-                <BlogMiniature rootClassName="blog-miniature-root-class-name1"></BlogMiniature>
+                <div className="news-container04">
+                  <div className="news-hover-blog02">
+                    <DataProvider
+                      renderSuccess={(context_dqtt59) => (
+                        <>
+                          <div className="news-frame903">
+                            <img
+                              alt="image"
+                              src={context_dqtt59?.Media?.url}
+                              className="news-image07"
+                            />
+                          </div>
+                          <div className="news-frame28003">
+                            <span className="news-date-time1">
+                              <DateTimePrimitive
+                                format="DD/MM/YYYY"
+                                date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                              ></DateTimePrimitive>
+                            </span>
+                            <span className="news-text32">
+                              {context_dqtt59?.Title}
+                            </span>
+                            <span className="news-text33">
+                              {context_dqtt59?.Content}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      initialData={props.contextDqtt59Prop}
+                      persistDataDuringLoading={true}
+                    />
+                  </div>
+                </div>
+                <div className="news-container05">
+                  <div className="news-hover-blog03">
+                    <DataProvider
+                      renderSuccess={(context_rw8fu) => (
+                        <>
+                          <div className="news-frame904">
+                            <img
+                              alt="image"
+                              src={context_rw8fu?.Media?.url}
+                              className="news-image08"
+                            />
+                          </div>
+                          <div className="news-frame28004">
+                            <span className="news-date-time2">
+                              <DateTimePrimitive
+                                format="DD/MM/YYYY"
+                                date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                              ></DateTimePrimitive>
+                            </span>
+                            <span className="news-text34">
+                              {context_rw8fu?.Title}
+                            </span>
+                            <span className="news-text35">
+                              {context_rw8fu?.Content}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      initialData={props.contextRw8fuProp}
+                      persistDataDuringLoading={true}
+                    />
+                  </div>
+                </div>
               </div>
               <div className="news-frame298">
-                <div className="news-hover-blog2">
-                  <div className="news-hover-blog3">
+                <div className="news-hover-blog04">
+                  <div className="news-hover-blog05">
                     <div className="news-frame2811">
                       <img
                         alt="image"
                         src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
-                        className="news-image5"
+                        className="news-image09"
                       />
                     </div>
-                    <div className="news-frame2802">
-                      <span className="news-text25">
+                    <div className="news-frame28005">
+                      <span className="news-text36">
                         <span>4 ביולי, 2023</span>
                       </span>
-                      <span className="news-text27">
+                      <span className="news-text38">
                         <span>
                           הפרויקט השני תחת המותג &quot;קרסו סאן&quot; יוצא לדרך:
                           נהרס הבניין ברחוב חדרה 10 בתל אביב
                         </span>
                       </span>
-                      <span className="news-text29">
+                      <span className="news-text40">
                         <span>
                           בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח,
                           תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים בשנים.
@@ -277,23 +480,23 @@ window.addEventListener('DOMContentLoaded', function() {
                     </div>
                   </div>
                 </div>
-                <div className="news-hover-blog4">
+                <div className="news-hover-blog06">
                   <div className="news-frame282">
-                    <div className="news-frame92">
+                    <div className="news-frame905">
                       <img
                         alt="image"
                         src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
-                        className="news-image6"
+                        className="news-image10"
                       />
                     </div>
-                    <div className="news-frame2803">
-                      <span className="news-text31">
+                    <div className="news-frame28006">
+                      <span className="news-text42">
                         <span>18 בינואר, 2023</span>
                       </span>
-                      <span className="news-text33">
+                      <span className="news-text44">
                         <span>אורח חיים בחיבור לטבע</span>
                       </span>
-                      <span className="news-text35">
+                      <span className="news-text46">
                         <span>
                           בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח,
                           תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים בשנים.
@@ -302,27 +505,91 @@ window.addEventListener('DOMContentLoaded', function() {
                     </div>
                   </div>
                 </div>
-                <BlogMiniature rootClassName="blog-miniature-root-class-name2"></BlogMiniature>
-                <BlogMiniature rootClassName="blog-miniature-root-class-name4"></BlogMiniature>
+                <div className="news-container06">
+                  <div className="news-hover-blog07">
+                    <DataProvider
+                      renderSuccess={(context_155wp) => (
+                        <>
+                          <div className="news-frame906">
+                            <img
+                              alt="image"
+                              src={context_155wp?.Media?.url}
+                              className="news-image11"
+                            />
+                          </div>
+                          <div className="news-frame28007">
+                            <span className="news-date-time3">
+                              <DateTimePrimitive
+                                format="DD/MM/YYYY"
+                                date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                              ></DateTimePrimitive>
+                            </span>
+                            <span className="news-text48">
+                              {context_155wp?.Title}
+                            </span>
+                            <span className="news-text49">
+                              {context_155wp?.Content}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      initialData={props.context155wpProp}
+                      persistDataDuringLoading={true}
+                    />
+                  </div>
+                </div>
+                <div className="news-container07">
+                  <div className="news-hover-blog08">
+                    <DataProvider
+                      renderSuccess={(context_6kdp8m) => (
+                        <>
+                          <div className="news-frame907">
+                            <img
+                              alt="image"
+                              src={context_6kdp8m?.Media?.url}
+                              className="news-image12"
+                            />
+                          </div>
+                          <div className="news-frame28008">
+                            <span className="news-date-time4">
+                              <DateTimePrimitive
+                                format="DD/MM/YYYY"
+                                date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                              ></DateTimePrimitive>
+                            </span>
+                            <span className="news-text50">
+                              {context_6kdp8m?.Title}
+                            </span>
+                            <span className="news-text51">
+                              {context_6kdp8m?.Content}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      initialData={props.context6kdp8mProp}
+                      persistDataDuringLoading={true}
+                    />
+                  </div>
+                </div>
               </div>
               <div className="news-frame299">
-                <div className="news-hover-blog5">
+                <div className="news-hover-blog09">
                   <div className="news-frame283">
                     <div className="news-frame2812">
                       <img
                         alt="image"
                         src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
-                        className="news-image7"
+                        className="news-image13"
                       />
                     </div>
-                    <div className="news-frame2804">
-                      <span className="news-text37">
+                    <div className="news-frame28009">
+                      <span className="news-text52">
                         <span>18 בינואר, 2023</span>
                       </span>
-                      <span className="news-text39">
+                      <span className="news-text54">
                         <span>איך נראת דירה לאנשים שאוהבים לארח</span>
                       </span>
-                      <span className="news-text41">
+                      <span className="news-text56">
                         <span>
                           בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח,
                           תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים בשנים.
@@ -331,23 +598,23 @@ window.addEventListener('DOMContentLoaded', function() {
                     </div>
                   </div>
                 </div>
-                <div className="news-hover-blog6">
+                <div className="news-hover-blog10">
                   <div className="news-frame284">
-                    <div className="news-frame93">
+                    <div className="news-frame908">
                       <img
                         alt="image"
                         src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
-                        className="news-image8"
+                        className="news-image14"
                       />
                     </div>
-                    <div className="news-frame2805">
-                      <span className="news-text43">
+                    <div className="news-frame28010">
+                      <span className="news-text58">
                         <span>18 בינואר, 2023</span>
                       </span>
-                      <span className="news-text45">
+                      <span className="news-text60">
                         <span>אורח חיים בחיבור לטבע</span>
                       </span>
-                      <span className="news-text47">
+                      <span className="news-text62">
                         <span>
                           בשנים האחרונות משקיעה החברה את מיטב המשאבים בפיתוח,
                           תכנון והקמה של מגוון פרויקטים מתקדמים המשקפים בשנים.
@@ -356,13 +623,77 @@ window.addEventListener('DOMContentLoaded', function() {
                     </div>
                   </div>
                 </div>
-                <BlogMiniature rootClassName="blog-miniature-root-class-name3"></BlogMiniature>
-                <BlogMiniature rootClassName="blog-miniature-root-class-name5"></BlogMiniature>
+                <div className="news-container08">
+                  <div className="news-hover-blog11">
+                    <DataProvider
+                      renderSuccess={(context_zmw2jd) => (
+                        <>
+                          <div className="news-frame909">
+                            <img
+                              alt="image"
+                              src={context_zmw2jd?.Media?.url}
+                              className="news-image15"
+                            />
+                          </div>
+                          <div className="news-frame28011">
+                            <span className="news-date-time5">
+                              <DateTimePrimitive
+                                format="DD/MM/YYYY"
+                                date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                              ></DateTimePrimitive>
+                            </span>
+                            <span className="news-text64">
+                              {context_zmw2jd?.Title}
+                            </span>
+                            <span className="news-text65">
+                              {context_zmw2jd?.Content}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      initialData={props.contextZmw2jdProp}
+                      persistDataDuringLoading={true}
+                    />
+                  </div>
+                </div>
+                <div className="news-container09">
+                  <div className="news-hover-blog12">
+                    <DataProvider
+                      renderSuccess={(context_scido) => (
+                        <>
+                          <div className="news-frame910">
+                            <img
+                              alt="image"
+                              src={context_scido?.Media?.url}
+                              className="news-image16"
+                            />
+                          </div>
+                          <div className="news-frame28012">
+                            <span className="news-date-time6">
+                              <DateTimePrimitive
+                                format="DD/MM/YYYY"
+                                date="Mon Feb 26 2024 13:08:55 GMT+0200 (Israel Standard Time)"
+                              ></DateTimePrimitive>
+                            </span>
+                            <span className="news-text66">
+                              {context_scido?.Title}
+                            </span>
+                            <span className="news-text67">
+                              {context_scido?.Content}
+                            </span>
+                          </div>
+                        </>
+                      )}
+                      initialData={props.contextScidoProp}
+                      persistDataDuringLoading={true}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="news-sidebar">
               <div className="news-frame294">
-                <span className="news-text49">
+                <span className="news-text68">
                   <span>
                     <span>לחיפוש או</span>
                     <br></br>
@@ -371,7 +702,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 </span>
                 <div className="news-searchbar">
                   <div className="news-textandsearch">
-                    <span className="news-text54">
+                    <span className="news-text73">
                       <span>חיפוש</span>
                     </span>
                     <img
@@ -384,31 +715,31 @@ window.addEventListener('DOMContentLoaded', function() {
               </div>
               <div className="news-frame293">
                 <div className="news-frame287">
-                  <span className="news-text56">
+                  <span className="news-text75">
                     <span>הכל</span>
                   </span>
                 </div>
                 <div className="news-frame288">
-                  <span className="news-text58">
+                  <span className="news-text77">
                     <span>קטגוריה 1</span>
                   </span>
                 </div>
                 <div className="news-frame289">
-                  <span className="news-text60">
+                  <span className="news-text79">
                     <span>קטגוריה 2</span>
                   </span>
                 </div>
                 <div className="news-frame290">
-                  <span className="news-text62">
+                  <span className="news-text81">
                     <span>קטגוריה 3</span>
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="news-container3">
+          <div className="news-container10">
             <div className="news-contactclose">
-              <span className="news-text64">
+              <span className="news-text83">
                 <span>לעוד כתבות</span>
               </span>
             </div>
@@ -475,7 +806,7 @@ window.addEventListener('DOMContentLoaded', function() {
           .news-link {
             display: contents;
           }
-          .news-image1 {
+          .news-image01 {
             cursor: pointer;
             filter: invert();
             height: auto;
@@ -523,7 +854,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: center;
             justify-content: flex-end;
           }
-          .news-image2 {
+          .news-image02 {
             width: auto;
             cursor: pointer;
             filter: invert();
@@ -630,7 +961,7 @@ window.addEventListener('DOMContentLoaded', function() {
             width: var(--dl-size-size-xsmall);
             height: var(--dl-size-size-xsmall);
           }
-          .news-container2 {
+          .news-container02 {
             display: contents;
           }
           .news-bloglobby {
@@ -671,9 +1002,140 @@ window.addEventListener('DOMContentLoaded', function() {
           .news-text11 {
             font-weight: 300;
           }
+          .news-featured-post {
+            width: 100%;
+            display: flex;
+            padding: 10px 90px;
+            z-index: 1;
+            position: relative;
+            align-self: stretch;
+            align-items: center;
+            flex-shrink: 0;
+            flex-direction: row;
+          }
+          .news-vector {
+            top: -240px;
+            left: 1066px;
+            width: 564px;
+            height: 633px;
+            position: absolute;
+          }
+          .news-leftcoloumn {
+            gap: 20px;
+            display: flex;
+            z-index: 1;
+            flex-grow: 1;
+            align-items: flex-start;
+            border-radius: 20px;
+          }
+          .news-image03 {
+            width: 100%;
+            cursor: pointer;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-rightcoloumn {
+            gap: 10px;
+            height: var(--dl-size-size-xxlarge);
+            display: flex;
+            z-index: 2;
+            flex-grow: 1;
+            align-self: stretch;
+            align-items: flex-end;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+          .news-frame296 {
+            gap: 40px;
+            height: auto;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            flex-direction: column;
+          }
+          .news-text13 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 16px;
+            font-style: Bold;
+            text-align: right;
+            font-family: 'Ploni ML v2 AAA';
+            font-weight: 700;
+            line-height: 140%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text14 {
+            color: var(--dl-color-carasso-primaryblack);
+            width: 541px;
+            height: auto;
+            font-size: 42px;
+            font-style: Regular;
+            text-align: right;
+            font-family: 'Ploni ML v2 AAA';
+            font-weight: 400;
+            line-height: 120%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text15 {
+            color: rgb(0, 0, 0);
+            width: 438px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: 'Ploni ML v2 AAA';
+            font-weight: 300;
+            line-height: 140%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-carassobutton {
+            gap: 12px;
+            display: flex;
+            align-items: flex-start;
+          }
+          .news-frame123 {
+            gap: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-decoration: none;
+          }
+          .news-arrow7-stroke {
+            width: 8px;
+            height: 7px;
+          }
+          .news-text16 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 16px;
+            font-style: Regular;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 400;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-load {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+          }
+          .news-div {
+            width: 300px;
+            height: 300px;
+          }
           .news-posts-listing {
             gap: 20px;
             width: 100%;
+            height: auto;
             display: flex;
             padding: 0 90px;
             z-index: 2;
@@ -684,16 +1146,111 @@ window.addEventListener('DOMContentLoaded', function() {
           }
           .news-blogcontainer {
             gap: 48px;
-            width: 80%;
-            display: grid;
-            flex-grow: 1;
+            width: 100%;
+            align-self: center;
             align-items: flex-start;
-            flex-shrink: 0;
+          }
+          .news-post-minitura {
+            flex: 0 0 auto;
+            width: 100%;
+            cursor: pointer;
+            height: auto;
+            display: flex;
+            align-items: flex-start;
+            border-radius: var(--dl-radius-radius-radius20);
             flex-direction: column;
+            text-decoration: none;
+          }
+          .news-frame9 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            align-items: flex-end;
+            margin-bottom: 30px;
+          }
+          .news-image04 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame280 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+            padding-bottom: 30px;
+          }
+          .news-date-time {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text18 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text19 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-load1 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .news-div1 {
+            width: 300px;
+            height: 300px;
+          }
+          .news-load2 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .news-div2 {
+            width: 300px;
+            height: 300px;
           }
           .news-frame297 {
             gap: 48px;
-            display: flex;
+            display: none;
             align-self: stretch;
             align-items: flex-start;
             flex-shrink: 0;
@@ -715,7 +1272,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-frame9 {
+          .news-frame901 {
             gap: 10px;
             display: flex;
             padding: 10px;
@@ -727,18 +1284,18 @@ window.addEventListener('DOMContentLoaded', function() {
             border-radius: 20px;
             justify-content: flex-end;
           }
-          .news-image3 {
+          .news-image05 {
             width: 100%;
             object-fit: cover;
           }
-          .news-frame280 {
+          .news-frame28001 {
             gap: 20px;
             display: flex;
             align-self: stretch;
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text13 {
+          .news-text20 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -750,7 +1307,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text15 {
+          .news-text22 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -763,7 +1320,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text17 {
+          .news-text24 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -776,7 +1333,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-hover-blog1 {
+          .news-hover-blog01 {
             gap: 24px;
             width: 516px;
             display: none;
@@ -785,7 +1342,7 @@ window.addEventListener('DOMContentLoaded', function() {
             flex-shrink: 0;
             flex-direction: column;
           }
-          .news-frame91 {
+          .news-frame902 {
             gap: 10px;
             display: flex;
             padding: 30px;
@@ -796,18 +1353,18 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             border-radius: 20px;
           }
-          .news-image4 {
+          .news-image06 {
             width: 100%;
             object-fit: cover;
           }
-          .news-frame2801 {
+          .news-frame28002 {
             gap: 20px;
             display: flex;
             align-self: stretch;
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text19 {
+          .news-text26 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -819,7 +1376,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text21 {
+          .news-text28 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -832,7 +1389,173 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text23 {
+          .news-text30 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-container04 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .news-hover-blog02 {
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: flex-end;
+            flex-shrink: 0;
+            flex-direction: column;
+          }
+          .news-frame903 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.07000000029802322);
+            align-items: flex-end;
+            border-radius: 20px;
+          }
+          .news-image07 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame28003 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+          }
+          .news-date-time1 {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text32 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text33 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-container05 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .news-hover-blog03 {
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: flex-end;
+            flex-shrink: 0;
+            flex-direction: column;
+          }
+          .news-frame904 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.07000000029802322);
+            align-items: flex-end;
+            border-radius: 20px;
+          }
+          .news-image08 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame28004 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+          }
+          .news-date-time2 {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text34 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text35 {
             color: var(--dl-color-carasso-darkergray);
             width: 453px;
             height: auto;
@@ -847,12 +1570,12 @@ window.addEventListener('DOMContentLoaded', function() {
           }
           .news-frame298 {
             gap: 48px;
-            display: flex;
+            display: none;
             align-self: stretch;
             align-items: flex-start;
             flex-shrink: 0;
           }
-          .news-hover-blog2 {
+          .news-hover-blog04 {
             gap: 10px;
             display: none;
             flex-grow: 1;
@@ -860,7 +1583,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-hover-blog3 {
+          .news-hover-blog05 {
             gap: 24px;
             height: 507px;
             display: flex;
@@ -880,18 +1603,18 @@ window.addEventListener('DOMContentLoaded', function() {
             flex-shrink: 0;
             border-radius: 20px;
           }
-          .news-image5 {
+          .news-image09 {
             width: 100%;
             object-fit: cover;
           }
-          .news-frame2802 {
+          .news-frame28005 {
             gap: 20px;
             display: flex;
             align-self: stretch;
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text25 {
+          .news-text36 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -903,7 +1626,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text27 {
+          .news-text38 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -916,7 +1639,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text29 {
+          .news-text40 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -929,7 +1652,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-hover-blog4 {
+          .news-hover-blog06 {
             gap: 24px;
             display: none;
             flex-grow: 1;
@@ -945,7 +1668,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-frame92 {
+          .news-frame905 {
             gap: 10px;
             display: flex;
             padding: 10px;
@@ -957,18 +1680,18 @@ window.addEventListener('DOMContentLoaded', function() {
             border-radius: 20px;
             justify-content: flex-end;
           }
-          .news-image6 {
+          .news-image10 {
             width: 100%;
             object-fit: cover;
           }
-          .news-frame2803 {
+          .news-frame28006 {
             gap: 20px;
             display: flex;
             align-self: stretch;
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text31 {
+          .news-text42 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -980,7 +1703,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text33 {
+          .news-text44 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -993,7 +1716,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text35 {
+          .news-text46 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1006,14 +1729,180 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
+          .news-container06 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .news-hover-blog07 {
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: flex-end;
+            flex-shrink: 0;
+            flex-direction: column;
+          }
+          .news-frame906 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.07000000029802322);
+            align-items: flex-end;
+            border-radius: 20px;
+          }
+          .news-image11 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame28007 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+          }
+          .news-date-time3 {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text48 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text49 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-container07 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .news-hover-blog08 {
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: flex-end;
+            flex-shrink: 0;
+            flex-direction: column;
+          }
+          .news-frame907 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.07000000029802322);
+            align-items: flex-end;
+            border-radius: 20px;
+          }
+          .news-image12 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame28008 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+          }
+          .news-date-time4 {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text50 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text51 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
           .news-frame299 {
             gap: 48px;
-            display: flex;
+            display: none;
             align-self: stretch;
             align-items: flex-start;
             flex-shrink: 0;
           }
-          .news-hover-blog5 {
+          .news-hover-blog09 {
             gap: 24px;
             width: 516px;
             display: none;
@@ -1042,18 +1931,18 @@ window.addEventListener('DOMContentLoaded', function() {
             border-radius: 20px;
             justify-content: flex-end;
           }
-          .news-image7 {
+          .news-image13 {
             width: 100%;
             object-fit: cover;
           }
-          .news-frame2804 {
+          .news-frame28009 {
             gap: 20px;
             display: flex;
             align-self: stretch;
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text37 {
+          .news-text52 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1065,7 +1954,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text39 {
+          .news-text54 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -1078,7 +1967,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text41 {
+          .news-text56 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1091,7 +1980,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-hover-blog6 {
+          .news-hover-blog10 {
             gap: 24px;
             width: 516px;
             display: none;
@@ -1108,7 +1997,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-frame93 {
+          .news-frame908 {
             gap: 10px;
             display: flex;
             padding: 10px;
@@ -1120,18 +2009,18 @@ window.addEventListener('DOMContentLoaded', function() {
             border-radius: 20px;
             justify-content: flex-end;
           }
-          .news-image8 {
+          .news-image14 {
             width: 100%;
             object-fit: cover;
           }
-          .news-frame2805 {
+          .news-frame28010 {
             gap: 20px;
             display: flex;
             align-self: stretch;
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text43 {
+          .news-text58 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -1143,7 +2032,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text45 {
+          .news-text60 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 24px;
@@ -1156,11 +2045,177 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-text47 {
+          .news-text62 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
             align-self: stretch;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-container08 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .news-hover-blog11 {
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: flex-end;
+            flex-shrink: 0;
+            flex-direction: column;
+          }
+          .news-frame909 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.07000000029802322);
+            align-items: flex-end;
+            border-radius: 20px;
+          }
+          .news-image15 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame28011 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+          }
+          .news-date-time5 {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text64 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text65 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-container09 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .news-hover-blog12 {
+            gap: 24px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-grow: 1;
+            align-items: flex-end;
+            flex-shrink: 0;
+            flex-direction: column;
+          }
+          .news-frame910 {
+            gap: 10px;
+            width: auto;
+            display: flex;
+            padding: 30px;
+            overflow: hidden;
+            flex-grow: 1;
+            align-self: stretch;
+            box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.07000000029802322);
+            align-items: flex-end;
+            border-radius: 20px;
+          }
+          .news-image16 {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--dl-radius-radius-radius20);
+          }
+          .news-frame28012 {
+            gap: 20px;
+            width: 100%;
+            display: flex;
+            align-self: stretch;
+            align-items: flex-end;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+          }
+          .news-date-time6 {
+            color: var(--dl-color-carasso-darkergray);
+            height: auto;
+            font-size: 18px;
+            font-style: Light;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 300;
+            line-height: 139.9999976158142%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text66 {
+            color: var(--dl-color-carasso-primaryblack);
+            height: auto;
+            font-size: 24px;
+            align-self: stretch;
+            font-style: Medium;
+            text-align: right;
+            font-family: Ploni ML v2 AAA;
+            font-weight: 500;
+            line-height: 120.00000476837158%;
+            font-stretch: normal;
+            text-decoration: none;
+          }
+          .news-text67 {
+            color: var(--dl-color-carasso-darkergray);
+            width: 453px;
+            height: auto;
+            font-size: 18px;
             font-style: Light;
             text-align: right;
             font-family: Ploni ML v2 AAA;
@@ -1182,7 +2237,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .news-text49 {
+          .news-text68 {
             color: rgba(0, 0, 0, 1);
             height: auto;
             font-size: 24px;
@@ -1212,7 +2267,7 @@ window.addEventListener('DOMContentLoaded', function() {
             display: flex;
             align-items: center;
           }
-          .news-text54 {
+          .news-text73 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -1246,7 +2301,7 @@ window.addEventListener('DOMContentLoaded', function() {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .news-text56 {
+          .news-text75 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -1270,7 +2325,7 @@ window.addEventListener('DOMContentLoaded', function() {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .news-text58 {
+          .news-text77 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -1294,7 +2349,7 @@ window.addEventListener('DOMContentLoaded', function() {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .news-text60 {
+          .news-text79 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -1318,7 +2373,7 @@ window.addEventListener('DOMContentLoaded', function() {
             border-width: 0 0 1px;
             justify-content: flex-end;
           }
-          .news-text62 {
+          .news-text81 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -1330,7 +2385,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .news-container3 {
+          .news-container10 {
             display: flex;
             padding: 0 90px;
             z-index: 3;
@@ -1347,7 +2402,7 @@ window.addEventListener('DOMContentLoaded', function() {
             border-radius: 7px;
             background-color: var(--dl-color-carasso-primaryblack);
           }
-          .news-text64 {
+          .news-text83 {
             color: var(--dl-color-carasso-plainwhite);
             height: auto;
             font-size: 18px;
@@ -1371,8 +2426,106 @@ window.addEventListener('DOMContentLoaded', function() {
             .news-blogcontainer {
               width: 1080px;
             }
+            .news-image04 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
+            .news-image07 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
+            .news-image08 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
+            .news-image11 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
+            .news-image12 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
+            .news-image15 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
+            .news-image16 {
+              border-radius: var(--dl-radius-radius-radius20);
+            }
           }
           @media (max-width: 991px) {
+            .news-image04 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text19 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-image07 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text33 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-image08 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text35 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-image11 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text49 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-image12 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text51 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-image15 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text65 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-image16 {
+              border-radius: var(--dl-radius-radius-radius4);
+            }
+            .news-text67 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
             .news-sidebar {
               display: none;
             }
@@ -1413,6 +2566,209 @@ window.addEventListener('DOMContentLoaded', function() {
             .news-mobile-menu {
               padding: 16px;
             }
+            .news-frame9 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image04 {
+              height: auto;
+            }
+            .news-frame280 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text18 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
+            .news-frame903 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image07 {
+              height: auto;
+            }
+            .news-frame28003 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time1 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text32 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
+            .news-frame904 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image08 {
+              height: auto;
+            }
+            .news-frame28004 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time2 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text34 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
+            .news-frame906 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image11 {
+              height: auto;
+            }
+            .news-frame28007 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time3 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text48 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
+            .news-frame907 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image12 {
+              height: auto;
+            }
+            .news-frame28008 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time4 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text50 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
+            .news-frame909 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image15 {
+              height: auto;
+            }
+            .news-frame28011 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time5 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text64 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
+            .news-frame910 {
+              padding-top: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-bottom: 0px;
+            }
+            .news-image16 {
+              height: auto;
+            }
+            .news-frame28012 {
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+            .news-date-time6 {
+              color: var(--dl-color-carasso-darkergray);
+              font-size: 18px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 300;
+              line-height: 140%;
+              text-decoration: none;
+            }
+            .news-text66 {
+              color: var(--dl-color-carasso-primaryblack);
+              font-size: 24px;
+              font-family: Ploni ML v2 AAA;
+              font-weight: 500;
+              line-height: 120%;
+              text-decoration: none;
+            }
           }
         `}
       </style>
@@ -1421,3 +2777,89 @@ window.addEventListener('DOMContentLoaded', function() {
 }
 
 export default News
+
+export async function getStaticProps(context) {
+  try {
+    const contextScidoProp = await posts6Resource({
+      ...context?.params,
+    })
+    if (!contextScidoProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const contextZmw2jdProp = await posts5Resource({
+      ...context?.params,
+    })
+    if (!contextZmw2jdProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const context6kdp8mProp = await posts4Resource({
+      ...context?.params,
+    })
+    if (!context6kdp8mProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const context155wpProp = await posts3Resource({
+      ...context?.params,
+    })
+    if (!context155wpProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const contextRw8fuProp = await posts2Resource({
+      ...context?.params,
+    })
+    if (!contextRw8fuProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const contextDqtt59Prop = await posts1Resource({
+      ...context?.params,
+    })
+    if (!contextDqtt59Prop?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    const contextVnod9dProp = await newsResource({
+      ...context?.params,
+    })
+    if (!contextVnod9dProp) {
+      return {
+        notFound: true,
+      }
+    }
+    const contextIdt18fProp = await postsResource({
+      ...context?.params,
+    })
+    if (!contextIdt18fProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        contextScidoProp: contextScidoProp?.data?.[0],
+        contextZmw2jdProp: contextZmw2jdProp?.data?.[0],
+        context6kdp8mProp: context6kdp8mProp?.data?.[0],
+        context155wpProp: context155wpProp?.data?.[0],
+        contextRw8fuProp: contextRw8fuProp?.data?.[0],
+        contextDqtt59Prop: contextDqtt59Prop?.data?.[0],
+        contextVnod9dProp: contextVnod9dProp,
+        contextIdt18fProp: contextIdt18fProp?.data?.[0],
+      },
+      revalidate: 60,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}

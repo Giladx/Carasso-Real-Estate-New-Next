@@ -21,7 +21,7 @@ const Timelinesection = (props) => {
                 </span>
                 <span>לאורך השנים</span>
               </span>
-              <div className="timelinesection-container1 tabs">
+              <div className="timelinesection-container01 tabs">
                 <div className="timelinesection-years tab-titles">
                   <div className="timelinesection-frame292 tab-title">
                     <img
@@ -191,29 +191,93 @@ const Timelinesection = (props) => {
                     />
                   </div>
                 </div>
+                <div>
+                  <div className="timelinesection-container03">
+                    <Script
+                      html={`<script>
+  function initTabs() {
+    // find all tabs containers
+    const tabsContainers = document.getElementsByClassName("tabs");
+
+    function selectContainer(tabContents, id) {
+      Array.from(tabContents).forEach((tabContent, index) => {
+        tabContent.style.display = id === index ? "flex" : "none";
+      });
+    }
+
+    function selectTabTitle(tabTitles, id) {
+      Array.from(tabTitles).forEach((tabTitle, index) => {
+        tabTitle.classList.remove("tab-title-selected");
+        // set the first tab content vile selected by default
+        if (id === index) {
+          tabTitle.classList.add("tab-title-selected");
+        }
+      });
+    }
+
+    // init state and events for each tabs system
+    Array.from(tabsContainers).forEach((tabsContainer) => {
+      // initialisation flag
+      if (tabsContainer.classList.contains("initialised")) {
+        return;
+      }
+
+      tabsContainer.classList.add("initialised");
+
+      const tabTitles = tabsContainer.getElementsByClassName("tab-title");
+      const tabContents = tabsContainer.getElementsByClassName("tab-content");
+
+      // set the first tab content selected by default
+      selectContainer(tabsContainer, 0);
+
+      // set the first tabTitle selected by default
+      selectTabTitle(tabTitles, 0);
+
+      // add events
+      Array.from(tabTitles).forEach((tabTitle, index) => {
+        // show corresponding content on click
+        tabTitle.addEventListener("click", () => {
+          selectContainer(tabContents, index);
+          selectTabTitle(tabTitles, index);
+        });
+      });
+    });
+  }
+
+  initTabs();
+</script>
+`}
+                    ></Script>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="tabcontent">
-          <div className="timelinesection-container3">
-            <Script
-              html={`<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>`}
-            ></Script>
+        <div className="timelinesection-container04 main-container">
+          <div className="timelinesection-container05 tabs">
+            <div className="tab-titles">
+              <div className="tab-title">
+                <span>Title 1</span>
+              </div>
+              <div className="tab-title">
+                <span>Title 2</span>
+              </div>
+              <div className="tab-title">
+                <span>Title 3</span>
+              </div>
+            </div>
+            <div className="tab-contents">
+              <div className="tab-content">
+                <span>Content 1</span>
+              </div>
+              <div className="timelinesection-container12 tab-content">
+                <span>Content 2</span>
+              </div>
+              <div className="timelinesection-container13 tab-content">
+                <span>Content 3</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -234,6 +298,7 @@ function openCity(evt, cityName) {
           }
           .timelinesection-container {
             width: 100%;
+            height: 720px;
             display: flex;
             padding: 0 90px;
             flex-grow: 1;
@@ -253,6 +318,7 @@ function openCity(evt, cityName) {
           .timelinesection-head-container {
             gap: 60px;
             width: 100%;
+            height: 600px;
             display: flex;
             align-self: stretch;
             align-items: center;
@@ -273,7 +339,7 @@ function openCity(evt, cityName) {
           .timelinesection-text01 {
             font-weight: 300;
           }
-          .timelinesection-container1 {
+          .timelinesection-container01 {
             flex: 0 0 auto;
             width: auto;
             display: flex;
@@ -296,8 +362,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame292:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame292:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame292:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line29 {
             width: 15px;
@@ -316,13 +392,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text03:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text03:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text03:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-frame303 {
@@ -331,8 +401,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame303:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame303:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame303:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line30 {
             width: 5px;
@@ -351,13 +431,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text05:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text05:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text05:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-frame296 {
@@ -366,8 +440,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame296:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame296:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame296:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line291 {
             width: 5px;
@@ -386,13 +470,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text07:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text07:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text07:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-frame298 {
@@ -401,8 +479,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame298:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame298:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame298:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line301 {
             width: 5px;
@@ -421,13 +509,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text09:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text09:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text09:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-frame300 {
@@ -436,8 +518,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame300:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame300:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame300:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line292 {
             width: 5px;
@@ -456,13 +548,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text11:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text11:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text11:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-frame302 {
@@ -471,8 +557,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame302:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame302:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame302:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line293 {
             width: 5px;
@@ -491,13 +587,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text13:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text13:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text13:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-frame293 {
@@ -506,8 +596,18 @@ function openCity(evt, cityName) {
             display: flex;
             flex-grow: 1;
             align-self: stretch;
+            transition: 0.3s;
             align-items: center;
             flex-direction: column;
+          }
+          .timelinesection-frame293:focus {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame293:active {
+            color: var(--dl-color-carasso-red);
+          }
+          .timelinesection-frame293:focus-within {
+            color: var(--dl-color-carasso-red);
           }
           .timelinesection-line294 {
             width: 5px;
@@ -526,13 +626,7 @@ function openCity(evt, cityName) {
             font-stretch: normal;
             text-decoration: none;
           }
-          .timelinesection-text15:focus {
-            color: var(--dl-color-carasso-red);
-          }
           .timelinesection-text15:hover {
-            color: var(--dl-color-carasso-red);
-          }
-          .timelinesection-text15:active {
             color: var(--dl-color-carasso-red);
           }
           .timelinesection-content {
@@ -636,6 +730,7 @@ function openCity(evt, cityName) {
           .timelinesection-rightcoloumn {
             width: 370px;
             height: 330px;
+            margin-left: var(--dl-space-space-oneandhalfunits);
           }
           .timelinesection-content-tab1 {
             flex: 0 0 auto;
@@ -727,6 +822,8 @@ function openCity(evt, cityName) {
           .timelinesection-rightcoloumn1 {
             width: 370px;
             height: 330px;
+            margin-left: var(--dl-space-space-oneandhalfunits);
+            border-radius: var(--dl-radius-radius-radius20);
           }
           .timelinesection-content-tab2 {
             flex: 0 0 auto;
@@ -818,15 +915,30 @@ function openCity(evt, cityName) {
           .timelinesection-rightcoloumn2 {
             width: 370px;
             height: 330px;
+            margin-left: var(--dl-space-space-oneandhalfunits);
+            border-radius: var(--dl-radius-radius-radius20);
           }
-          .timelinesection-container3 {
+          .timelinesection-container03 {
             display: contents;
+          }
+          .timelinesection-container04 {
+            width: 100%;
+            display: none;
+          }
+          .timelinesection-container05 {
+            width: 100%;
+          }
+          .timelinesection-container12 {
+            display: none;
+          }
+          .timelinesection-container13 {
+            display: none;
           }
           @media (max-width: 1440px) {
             .timelinesection-center {
               width: 100%;
             }
-            .timelinesection-container1 {
+            .timelinesection-container01 {
               width: 100%;
             }
             .timelinesection-years {
@@ -835,7 +947,7 @@ function openCity(evt, cityName) {
             }
           }
           @media (max-width: 1200px) {
-            .timelinesection-container1 {
+            .timelinesection-container01 {
               width: 100%;
             }
             .timelinesection-years {
@@ -844,7 +956,7 @@ function openCity(evt, cityName) {
             }
           }
           @media (max-width: 991px) {
-            .timelinesection-container1 {
+            .timelinesection-container01 {
               width: 100%;
             }
           }
@@ -856,7 +968,7 @@ function openCity(evt, cityName) {
             .timelinesection-center {
               width: 100%;
             }
-            .timelinesection-container1 {
+            .timelinesection-container01 {
               width: 100%;
             }
           }
@@ -868,7 +980,7 @@ function openCity(evt, cityName) {
 
 Timelinesection.defaultProps = {
   vectorSrc: '/external/vector4942-k6q.svg',
-  rightcoloumnSrc11: '/play_c1_web%2018-400h.webp',
+  rightcoloumnSrc11: '/play_c1_web%2018-400h.png',
   line29Src: '/external/line294942-x7k8.svg',
   line29Alt: 'Line294942',
   line30Alt1: 'Line304942',
@@ -888,7 +1000,7 @@ Timelinesection.defaultProps = {
   line29Alt2: 'Line294942',
   rightcoloumnAlt1: 'rightcoloumn4942',
   line29Alt1: 'Line294942',
-  rightcoloumnSrc1: '/left-coloumn-400h.webp',
+  rightcoloumnSrc1: '/left-coloumn-400h.png',
   vectorSrc11: '/external/vector4942-k6q.svg',
   line29Alt4: 'Line294942',
   rightcoloumnAlt11: 'rightcoloumn4942',
