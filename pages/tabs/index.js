@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tabsPageInitialPropsTqLuResource from '../../resources/tabs-page-initial-props-tq_lu'
+import tabsPageInitialPropsTqD7Resource from '../../resources/tabs-page-initial-props-tq_d7'
 
 const Tabs1 = (props) => {
   return (
@@ -19,15 +19,18 @@ const Tabs1 = (props) => {
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <div>
+              <div className="tabs1-container1">
                 <Repeater
                   items={params}
                   renderItem={(TabsEntities) => (
                     <>
                       <div className="tabs1-container2">
-                        <span>{TabsEntities?.Tab_name_type_a}</span>
-                        <span>{TabsEntities?.Tab_subtitle_a}</span>
-                        <span>{TabsEntities?.Tab_description_a}</span>
+                        <span>{TabsEntities?.Tab_name_type_a || ' '}</span>
+                        <span>{TabsEntities?.Featured_description_2_b}</span>
+                        <img
+                          src={TabsEntities?.Featured_image_e?.url}
+                          className="tabs1-image"
+                        />
                       </div>
                     </>
                   )}
@@ -50,12 +53,20 @@ const Tabs1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
+          .tabs1-container1 {
+            width: 100%;
+          }
           .tabs1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
             align-items: center;
             flex-direction: column;
+          }
+          .tabs1-image {
+            width: 1375px;
+            height: 419px;
+            object-fit: cover;
           }
         `}
       </style>
@@ -75,7 +86,7 @@ export default Tabs1
 
 export async function getStaticProps(context) {
   try {
-    const response = await tabsPageInitialPropsTqLuResource({
+    const response = await tabsPageInitialPropsTqD7Resource({
       ...context?.params,
     })
     if (!response) {

@@ -6,18 +6,21 @@ import Script from 'dangerous-html/react'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import brandsPageInitialPropsTqUEResource from '../../resources/brands-page-initial-props-tq_u-e'
-import brandsPageInitialPathsTqA2Resource from '../../resources/brands-page-initial-paths-tq_a2'
+import brandsPageInitialPropsTqP3Resource from '../../resources/brands-page-initial-props-tq_p3'
+import brandsPageInitialPathsTqTiResource from '../../resources/brands-page-initial-paths-tq_ti'
 
 const Brands = (props) => {
   return (
     <>
       <div className="brands-container">
         <Head>
-          <title>Brands - Carasso Real Estate</title>
-          <meta name="description" content="Carasso Real Estate" />
-          <meta property="og:title" content="Brands - Carasso Real Estate" />
-          <meta property="og:description" content="Carasso Real Estate" />
+          <title>{props?.brandsEntity?.Brand_name}</title>
+          <meta name="description" content={props?.brandsEntity?.Brand_Type} />
+          <meta property="og:title" content={props?.brandsEntity?.Brand_name} />
+          <meta
+            property="og:description"
+            content={props?.brandsEntity?.Brand_Type}
+          />
         </Head>
         <div className="brands-header-1">
           <header data-thq="thq-navbar" className="brands-navbar-interactive">
@@ -321,20 +324,30 @@ window.addEventListener('DOMContentLoaded', function() {
                     <div className="brands-frame90">
                       <div className="brands-projectnumbers">
                         <div className="brands-frame28">
-                          <span className="brands-text027">15 אלף מ״ר</span>
+                          <span className="brands-text027">
+                            {BrandsEntity?.rooms}
+                          </span>
                           <span className="brands-text028">משרדים ומסחר</span>
                         </div>
                         <div className="brands-frame29">
                           <span className="brands-text029">320</span>
-                          <span className="brands-text030">דירות</span>
+                          <span className="brands-text030">
+                            {BrandsEntity?.Property_type}
+                          </span>
                         </div>
                         <div className="brands-frame27">
-                          <span className="brands-text031">47</span>
+                          <span className="brands-text031">
+                            {BrandsEntity?.Number_of_floors}
+                          </span>
                           <span className="brands-text032">קומות</span>
                         </div>
                         <div className="brands-frame26">
-                          <span className="brands-text033">3</span>
-                          <span className="brands-text034">מגדלים</span>
+                          <span className="brands-text033">
+                            {BrandsEntity?.Number_of_buildings || ' '}
+                          </span>
+                          <span className="brands-text034">
+                            {BrandsEntity?.building_type}
+                          </span>
                         </div>
                       </div>
                       <div className="brands-projecttags">
@@ -553,7 +566,7 @@ window.addEventListener('DOMContentLoaded', function() {
               <div className="brands-frame110">
                 <img
                   alt="Rectangle7486012"
-                  src={BrandsEntity?.Extra_singel_media_2?.url}
+                  src={BrandsEntity?.Map_background?.url}
                   className="brands-rectangle748"
                 />
                 <img
@@ -834,6 +847,42 @@ window.addEventListener('DOMContentLoaded', function() {
                   </div>
                 </div>
               </div>
+              <Repeater
+                items={BrandsEntity?.tabs || []}
+                renderItem={(context_04lsb) => (
+                  <>
+                    <span>{context_04lsb?.tab_name_d}</span>
+                    <DataProvider
+                      fetchData={(params) =>
+                        fetch(
+                          `/api/tabs-resource-tabs?${new URLSearchParams(
+                            params
+                          )}`,
+                          {
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                          }
+                        )
+                          .then((res) => res.json())
+                          .then((data) => data?.data?.[0])
+                      }
+                      renderSuccess={(context_toafs) => (
+                        <>
+                          <img
+                            alt="image"
+                            src={context_toafs?.Featured_icon_2_2_b?.url}
+                            className="brands-image14"
+                          />
+                        </>
+                      )}
+                      params={{
+                        'filters[id]': context_04lsb?.id,
+                      }}
+                    />
+                  </>
+                )}
+              />
             </>
           )}
           initialData={props.brandsEntity}
@@ -966,59 +1015,59 @@ window.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
             <div className="brands-frame1261158169">
-              <span className="brands-text095">
+              <span className="brands-text096">
                 <span>פרויקטים</span>
               </span>
               <div className="brands-frame1261158166">
-                <span className="brands-text097">
+                <span className="brands-text098">
                   <span>פרויקטים למגורים</span>
                 </span>
-                <span className="brands-text099">
+                <span className="brands-text100">
                   <span>סיפורי הצלחה</span>
                 </span>
-                <span className="brands-text101">
+                <span className="brands-text102">
                   <span>מרכזי קניות</span>
                 </span>
-                <span className="brands-text103">
+                <span className="brands-text104">
                   <span>משרדים והייטק</span>
                 </span>
               </div>
             </div>
             <div className="brands-frame1261158170">
-              <span className="brands-text105">
+              <span className="brands-text106">
                 <span>החברה</span>
               </span>
               <div className="brands-frame1261158165">
-                <span className="brands-text107">
+                <span className="brands-text108">
                   <span>דף הבית</span>
                 </span>
-                <span className="brands-text109">
+                <span className="brands-text110">
                   <span>הסיפור שלנו</span>
                 </span>
-                <span className="brands-text111">
+                <span className="brands-text112">
                   <span>התחדשות עירונית</span>
                 </span>
-                <span className="brands-text113">
+                <span className="brands-text114">
                   <span>חדשות ועידכונים</span>
                 </span>
-                <span className="brands-text115">
+                <span className="brands-text116">
                   <span>יצירת קשר</span>
                 </span>
               </div>
             </div>
             <div className="brands-frame1261158168">
-              <span className="brands-text117">
+              <span className="brands-text118">
                 <span>פנו אלינו</span>
               </span>
               <div className="brands-frame1261158167">
                 <div className="brands-frame133">
-                  <span className="brands-text119">
+                  <span className="brands-text120">
                     <span>+972 050 123 1234</span>
                   </span>
-                  <span className="brands-text121">
+                  <span className="brands-text122">
                     <span>ריב״ל 24, תל אביב-יפו</span>
                   </span>
-                  <span className="brands-text123">
+                  <span className="brands-text124">
                     <span>info@carasso-nadlan.com</span>
                   </span>
                 </div>
@@ -1043,23 +1092,23 @@ window.addEventListener('DOMContentLoaded', function() {
             </div>
             <div className="brands-frame1261158164">
               <div className="brands-frame1261158157">
-                <span className="brands-text125">
+                <span className="brands-text126">
                   <span>קרדיטים</span>
                 </span>
-                <span className="brands-text127">
+                <span className="brands-text128">
                   <span>מדיניות פרטיות</span>
                 </span>
-                <span className="brands-text129">
+                <span className="brands-text130">
                   <span>הצהרת נגישות</span>
                 </span>
-                <span className="brands-text131">
+                <span className="brands-text132">
                   <span>איסוף נתונים</span>
                 </span>
-                <span className="brands-text133">
+                <span className="brands-text134">
                   <span>אחריות תאגידית</span>
                 </span>
                 <div className="brands-frame56">
-                  <span className="brands-text135">
+                  <span className="brands-text136">
                     <span>2023 קרסו</span>
                   </span>
                   <img
@@ -1077,7 +1126,7 @@ window.addEventListener('DOMContentLoaded', function() {
                   src="/external/frame50i6965-cf6.svg"
                   className="brands-frame50"
                 />
-                <span className="brands-text137">
+                <span className="brands-text138">
                   <span>יצירת קשר</span>
                 </span>
               </div>
@@ -1540,8 +1589,8 @@ window.addEventListener('DOMContentLoaded', function() {
             flex-direction: column;
           }
           .brands-vector02 {
-            width: 325px;
-            height: 89px;
+            width: auto;
+            height: auto;
           }
           .brands-line47 {
             width: 88px;
@@ -1713,6 +1762,7 @@ window.addEventListener('DOMContentLoaded', function() {
           .brands-text027 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
+            direction: rtl;
             font-size: 18px;
             font-style: DemiBold;
             text-align: right;
@@ -2081,12 +2131,6 @@ window.addEventListener('DOMContentLoaded', function() {
           .brands-image07 {
             width: 592px;
             object-fit: cover;
-            animation-name: slideInRight;
-            animation-delay: 0s;
-            animation-duration: 4000ms;
-            animation-direction: normal;
-            animation-iteration-count: 1;
-            animation-timing-function: ease;
           }
           .brands-slider-slide1 {
             display: flex;
@@ -2204,12 +2248,6 @@ window.addEventListener('DOMContentLoaded', function() {
           .brands-image09 {
             width: 592px;
             object-fit: cover;
-            animation-name: slideInRight;
-            animation-delay: 0s;
-            animation-duration: 4000ms;
-            animation-direction: normal;
-            animation-iteration-count: 1;
-            animation-timing-function: ease;
           }
           .brands-slider-pagination {
             display: none;
@@ -3258,6 +3296,10 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
+          .brands-image14 {
+            width: 200px;
+            object-fit: cover;
+          }
           .brands-footer {
             flex: 0 0 auto;
             width: 100%;
@@ -3487,7 +3529,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .brands-text095 {
+          .brands-text096 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -3505,7 +3547,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .brands-text097 {
+          .brands-text098 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3517,7 +3559,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text099 {
+          .brands-text100 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3529,7 +3571,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text101 {
+          .brands-text102 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3541,7 +3583,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text103 {
+          .brands-text104 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3563,7 +3605,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .brands-text105 {
+          .brands-text106 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -3581,7 +3623,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .brands-text107 {
+          .brands-text108 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3593,7 +3635,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text109 {
+          .brands-text110 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3605,7 +3647,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text111 {
+          .brands-text112 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3617,7 +3659,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text113 {
+          .brands-text114 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3629,7 +3671,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text115 {
+          .brands-text116 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3651,7 +3693,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: flex-end;
             flex-direction: column;
           }
-          .brands-text117 {
+          .brands-text118 {
             color: var(--dl-color-carasso-primaryblack);
             height: auto;
             font-size: 18px;
@@ -3676,7 +3718,7 @@ window.addEventListener('DOMContentLoaded', function() {
             flex-direction: column;
             justify-content: center;
           }
-          .brands-text119 {
+          .brands-text120 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3688,7 +3730,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text121 {
+          .brands-text122 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3700,7 +3742,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text123 {
+          .brands-text124 {
             color: var(--dl-color-carasso-darkergray);
             height: auto;
             font-size: 18px;
@@ -3748,7 +3790,7 @@ window.addEventListener('DOMContentLoaded', function() {
             flex-shrink: 0;
             justify-content: space-between;
           }
-          .brands-text125 {
+          .brands-text126 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -3760,7 +3802,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text127 {
+          .brands-text128 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -3772,7 +3814,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text129 {
+          .brands-text130 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -3784,7 +3826,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text131 {
+          .brands-text132 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -3796,7 +3838,7 @@ window.addEventListener('DOMContentLoaded', function() {
             font-stretch: normal;
             text-decoration: none;
           }
-          .brands-text133 {
+          .brands-text134 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -3815,7 +3857,7 @@ window.addEventListener('DOMContentLoaded', function() {
             align-items: center;
             flex-shrink: 0;
           }
-          .brands-text135 {
+          .brands-text136 {
             color: var(--dl-color-carasso-graytextcolor);
             height: auto;
             font-size: 18px;
@@ -3857,7 +3899,7 @@ window.addEventListener('DOMContentLoaded', function() {
             width: 17px;
             height: 14px;
           }
-          .brands-text137 {
+          .brands-text138 {
             color: var(--dl-color-carasso-plainwhite);
             height: auto;
             font-size: 18px;
@@ -4068,7 +4110,7 @@ export default Brands
 
 export async function getStaticProps(context) {
   try {
-    const response = await brandsPageInitialPropsTqUEResource({
+    const response = await brandsPageInitialPropsTqP3Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -4092,7 +4134,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await brandsPageInitialPathsTqA2Resource({})
+    const response = await brandsPageInitialPathsTqTiResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

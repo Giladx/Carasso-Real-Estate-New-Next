@@ -44,12 +44,7 @@ const Projectcard = (props) => {
         </div>
         <div className="projectcard-circle"></div>
         <div className="project-img-small">
-          <img
-            id="mask"
-            alt="image"
-            src="/elipse-image-on-hover2.png"
-            className="mask"
-          />
+          <img id="mask" alt="image" src="/elipse-image.png" className="mask" />
         </div>
         <div>
           <div className="projectcard-container1">

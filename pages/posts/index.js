@@ -8,7 +8,7 @@ import {
 } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPropsTqHOResource from '../../resources/posts-page-initial-props-tq_h-o'
+import postsPageInitialPropsTqIjResource from '../../resources/posts-page-initial-props-tq_ij'
 
 const Posts1 = (props) => {
   return (
@@ -233,7 +233,7 @@ export default Posts1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsTqHOResource({
+    const response = await postsPageInitialPropsTqIjResource({
       ...context?.params,
     })
     if (!response) {

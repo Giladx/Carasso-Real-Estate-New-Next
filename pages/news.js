@@ -17,6 +17,7 @@ import posts3Resource from '../resources/posts3'
 import posts4Resource from '../resources/posts4'
 import posts5Resource from '../resources/posts5'
 import posts6Resource from '../resources/posts6'
+import brandsResource from '../resources/brands'
 
 const News = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -745,6 +746,15 @@ window.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
+        <DataProvider
+          renderSuccess={(context_ddk7ys) => (
+            <>
+              <span>{context_ddk7ys?.Brand_name}</span>
+            </>
+          )}
+          initialData={props.contextDdk7ysProp}
+          persistDataDuringLoading={true}
+        />
       </div>
       <style jsx>
         {`
@@ -2780,6 +2790,14 @@ export default News
 
 export async function getStaticProps(context) {
   try {
+    const contextDdk7ysProp = await brandsResource({
+      ...context?.params,
+    })
+    if (!contextDdk7ysProp?.data?.[0]) {
+      return {
+        notFound: true,
+      }
+    }
     const contextScidoProp = await posts6Resource({
       ...context?.params,
     })
@@ -2846,6 +2864,7 @@ export async function getStaticProps(context) {
     }
     return {
       props: {
+        contextDdk7ysProp: contextDdk7ysProp?.data?.[0],
         contextScidoProp: contextScidoProp?.data?.[0],
         contextZmw2jdProp: contextZmw2jdProp?.data?.[0],
         context6kdp8mProp: context6kdp8mProp?.data?.[0],

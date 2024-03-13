@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import apartmentsPageInitialPropsTqYEResource from '../../resources/apartments-page-initial-props-tq_y-e'
+import apartmentsPageInitialPropsTqMQResource from '../../resources/apartments-page-initial-props-tq_m-q'
 
 const Apartments = (props) => {
   return (
@@ -78,7 +78,7 @@ export default Apartments
 
 export async function getStaticProps(context) {
   try {
-    const response = await apartmentsPageInitialPropsTqYEResource({
+    const response = await apartmentsPageInitialPropsTqMQResource({
       ...context?.params,
     })
     if (!response) {

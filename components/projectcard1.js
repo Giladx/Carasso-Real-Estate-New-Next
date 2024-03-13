@@ -14,17 +14,17 @@ const Projectcard1 = (props) => {
           <div className="projectcard1-projectstatus">
             <span className="projectcard1-text">בתכנון</span>
             <img
-              src="/external/vectorstroke3708-4itf.svg"
               alt="VectorStroke3708"
+              src="/external/vectorstroke3708-4itf.svg"
               className="projectcard1-vector-stroke"
             />
           </div>
           <div className="projectcard1-projectcontent">
             <img
               id="btn-1"
-              loading="lazy"
-              src="/external/projectarrowbutton3708-a4n.svg"
               alt="projectarrowbutton3708"
+              src="/projectarrowbutton3708-a4n2-200h.webp"
+              loading="lazy"
               className="projectcard1-projectarrowbutton"
             />
             <div className="projectcard1-projectdetails">
@@ -42,12 +42,11 @@ const Projectcard1 = (props) => {
             </div>
           </div>
         </div>
-        <div className="projectcard1-circle"></div>
-        <div className="project-img-small">
+        <div className="projectcard1-image project-img-small">
           <img
             id="mask"
-            src="/external/elipse-image-on-hover-400w-400w-400w.png"
             alt="image"
+            src="/elipse-image-on-hover2-400w.webp"
             className="mask"
           />
         </div>
@@ -169,22 +168,10 @@ transition: .35s all 0.3s ease-in-out;
             line-height: 140%;
             font-stretch: normal;
           }
-          .projectcard1-circle {
-            top: 36px;
-            flex: 0 0 auto;
-            left: -72px;
-            width: 303px;
-            height: 303px;
-            display: flex;
-            z-index: 1;
-            position: absolute;
-            align-items: flex-start;
+          .projectcard1-image {
+            overflow: hidden;
             border-color: var(--dl-color-carasso-red);
-            border-style: solid;
             border-width: 1px;
-            border-radius: 100%;
-            flex-direction: column;
-            pointer-events: none;
           }
           .projectcard1-container1 {
             display: contents;

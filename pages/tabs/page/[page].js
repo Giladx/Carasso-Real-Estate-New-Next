@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import tabsPageInitialPropsTqY7Resource from '../../../resources/tabs-page-initial-props-tq_y7'
-import tabsPageInitialPathsTqNmResource from '../../../resources/tabs-page-initial-paths-tq_nm'
+import tabsPageInitialPropsTqDQResource from '../../../resources/tabs-page-initial-props-tq_d-q'
+import tabsPageInitialPathsTq8iResource from '../../../resources/tabs-page-initial-paths-tq_8i'
 
 const Tabs11 = (props) => {
   return (
@@ -20,15 +20,18 @@ const Tabs11 = (props) => {
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <div>
+              <div className="tabs11-container1">
                 <Repeater
                   items={params}
                   renderItem={(TabsEntities) => (
                     <>
                       <div className="tabs11-container2">
-                        <span>{TabsEntities?.Tab_name_type_a}</span>
-                        <span>{TabsEntities?.Tab_subtitle_a}</span>
-                        <span>{TabsEntities?.Tab_description_a}</span>
+                        <span>{TabsEntities?.Tab_name_type_a || ' '}</span>
+                        <span>{TabsEntities?.Featured_description_2_b}</span>
+                        <img
+                          src={TabsEntities?.Featured_image_e?.url}
+                          className="tabs11-image"
+                        />
                       </div>
                     </>
                   )}
@@ -51,12 +54,20 @@ const Tabs11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
+          .tabs11-container1 {
+            width: 100%;
+          }
           .tabs11-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
             align-items: center;
             flex-direction: column;
+          }
+          .tabs11-image {
+            width: 1375px;
+            height: 419px;
+            object-fit: cover;
           }
         `}
       </style>
@@ -76,9 +87,9 @@ export default Tabs11
 
 export async function getStaticProps(context) {
   try {
-    const response = await tabsPageInitialPropsTqY7Resource({
+    const response = await tabsPageInitialPropsTqDQResource({
       ...context?.params,
-      start: (context.params.page - 1) * 10,
+      start: (context.params.page - 1) * 20,
     })
     if (!response) {
       return {
@@ -101,9 +112,9 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await tabsPageInitialPathsTqNmResource({})
+    const response = await tabsPageInitialPathsTq8iResource({})
     const totalCount = response?.meta?.pagination?.total
-    const pagesCount = Math.ceil(totalCount / 10)
+    const pagesCount = Math.ceil(totalCount / 20)
     return {
       paths: Array.from(
         {

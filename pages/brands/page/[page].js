@@ -5,8 +5,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import brandsPageInitialPropsTqOjResource from '../../../resources/brands-page-initial-props-tq_oj'
-import brandsPageInitialPathsTq3oResource from '../../../resources/brands-page-initial-paths-tq_3o'
+import brandsPageInitialPropsTqN7Resource from '../../../resources/brands-page-initial-props-tq_n7'
+import brandsPageInitialPathsTqNTResource from '../../../resources/brands-page-initial-paths-tq_n-t'
 
 const Brands11 = (props) => {
   return (
@@ -50,6 +50,7 @@ const Brands11 = (props) => {
         {`
           .brands11-container {
             width: 100%;
+            height: 2208px;
             display: flex;
             overflow: auto;
             min-height: 100vh;
@@ -88,9 +89,9 @@ export default Brands11
 
 export async function getStaticProps(context) {
   try {
-    const response = await brandsPageInitialPropsTqOjResource({
+    const response = await brandsPageInitialPropsTqN7Resource({
       ...context?.params,
-      start: (context.params.page - 1) * 20,
+      start: (context.params.page - 1) * 50,
     })
     if (!response) {
       return {
@@ -113,9 +114,9 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await brandsPageInitialPathsTq3oResource({})
+    const response = await brandsPageInitialPathsTqNTResource({})
     const totalCount = response?.meta?.pagination?.total
-    const pagesCount = Math.ceil(totalCount / 20)
+    const pagesCount = Math.ceil(totalCount / 50)
     return {
       paths: Array.from(
         {

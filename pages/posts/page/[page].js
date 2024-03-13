@@ -8,8 +8,8 @@ import {
 } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postsPageInitialPropsTqWyResource from '../../../resources/posts-page-initial-props-tq_wy'
-import postsPageInitialPathsTqPhResource from '../../../resources/posts-page-initial-paths-tq_ph'
+import postsPageInitialPropsTqRFResource from '../../../resources/posts-page-initial-props-tq_r-f'
+import postsPageInitialPathsTqTUResource from '../../../resources/posts-page-initial-paths-tq_t-u'
 
 const Posts11 = (props) => {
   return (
@@ -234,7 +234,7 @@ export default Posts11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postsPageInitialPropsTqWyResource({
+    const response = await postsPageInitialPropsTqRFResource({
       ...context?.params,
       start: (context.params.page - 1) * 9,
     })
@@ -259,7 +259,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postsPageInitialPathsTqPhResource({})
+    const response = await postsPageInitialPathsTqTUResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 9)
     return {
